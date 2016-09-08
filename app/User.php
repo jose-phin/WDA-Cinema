@@ -5,6 +5,16 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class User
+ *
+ * A single user within our system. Doubles as both an Authenticatable object and a table to hold user info.
+ *
+ * id (PK)
+ * remaining fields are detailed in the $fillable array.
+ *
+ * @package App
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password',
     ];
 
     /**
@@ -26,4 +36,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function bookings()
+    {
+        return $this->hasMany('App\Booking');
+    }
 }
