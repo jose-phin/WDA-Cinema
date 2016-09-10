@@ -6,8 +6,18 @@
 
     <!-- Image -->
     <div id="mavericks-carousel">
-        <img src="{{ asset('images/snowden_grad.jpg') }}">
+        <div>
+            <img src="{{ asset('images/suicide_squad_grad.jpg') }}">
+        </div>
+        <div>
+            <img src="{{ asset('images/snowden_grad.jpg') }}">
+        </div>
+        <div>
+            <img src="{{ asset('images/interstellar_grad.jpg') }}">
+        </div>
     </div>
+
+
 
     <!-- Main -->
     <div class="container">
@@ -39,4 +49,15 @@
     </div>
 
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#mavericks-carousel').slick({
+            lazyLoad: 'ondemand',
+            autoplay: true,
+            autoplaySpeed: 5000,
+            fade: true,
+            arrows: false
+        });
+    });
+</script>
 @endsection
