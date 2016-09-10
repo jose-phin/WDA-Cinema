@@ -13,6 +13,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
 
+    /* Combine all CSS files into site.css */
     mix.styles([
         'main.css',
         'movies.css',
