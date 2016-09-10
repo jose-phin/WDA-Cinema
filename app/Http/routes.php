@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+// Task 3 Routes
+Route::get('movies/now_showing', 'MovieController@showNowShowing');
+Route::get('movies/coming_soon', 'MovieController@showComingSoon');
+
+// Task 4 Routes
+Route::get('sessions/by_movie/{id}', 'MovieSessionController@showSessionsByMovie');
+Route::get('sessions/by_cinema/{id}', 'MovieSessionController@showSessionsByCinema');
