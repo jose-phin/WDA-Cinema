@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
     #mavericks-nav a {
-        color: #fff;
+        color: #ffffff;
     }
 
 /* Carousel */
@@ -39,8 +39,6 @@ h1, h2, h3, h4, h5, h6 {
     #mavericks-carousel img {
         width: 100vw;
     }
-
-/* Main */
 
 /* Footer */
 footer {
