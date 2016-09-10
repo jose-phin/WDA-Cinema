@@ -1,3 +1,5 @@
+<link href="{{ asset('css/site.css') }}" media="all" rel="stylesheet" type="text/css" />
+
 @extends('layouts.app')
 
 @section('content')
