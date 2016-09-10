@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.css","movies.css","login.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;ACJA;ACAA","file":"site.css","sourcesContent":["/* Homepage styles */\n\nhtml {\n    font-family: Arial;\n}","","/* Login page */"],"sourceRoot":"/source/"}
