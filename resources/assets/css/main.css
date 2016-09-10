@@ -2,6 +2,15 @@
  *   Homepage styles
  */
 
+body {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik', sans-serif !important;
+}
+
 /* Navigation bar */
 .navbar-title {
     font-family: 'Rubik', sans-serif;
@@ -10,9 +19,12 @@
 }
 
 #mavericks-nav {
+    display: block;
     font-family: 'Rubik', sans-serif;
     background-color: #000;
     text-transform: uppercase;
+    margin-bottom: 1px;
+    border: none;
 }
 
     #mavericks-nav a {
@@ -20,7 +32,19 @@
     }
 
 /* Carousel */
-
 #mavericks-carousel {
-    margin-top: 80px;
+    margin-bottom: 20px;
+}
+
+    #mavericks-carousel img {
+        width: 100vw;
+    }
+
+/* Main */
+
+/* Footer */
+footer {
+    min-height: 300px;
+    padding-top: 20px;
+    color: #fff;
 }

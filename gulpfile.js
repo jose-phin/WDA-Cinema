@@ -13,14 +13,10 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
 
-    mix.sass(
-        'app.scss'
-    );
-
     mix.styles([
         'main.css',
         'movies.css',
         'login.css'
-    ], 'public/assets/css/site.css');
+    ], 'public/css/site.css');
 
 });
