@@ -54,9 +54,10 @@
         $('#mavericks-carousel').slick({
             lazyLoad: 'ondemand',
             autoplay: true,
-            autoplaySpeed: 5000,
+            autoplaySpeed: 3500,
             fade: true,
-            arrows: false
+            arrows: false,
+            pauseOnHover: false
         });
     });
 </script>
