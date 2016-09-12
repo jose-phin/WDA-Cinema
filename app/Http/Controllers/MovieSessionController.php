@@ -23,7 +23,10 @@ class MovieSessionController extends Controller
             $q->where('id', $movie_id);
         })->get();
 
-        // Reroutes the user to some view and pass in our sessions array
+        if (count($sessions) <= 0) {
+            abort(404, "Movie not found.");
+        }
+
         return view('movie_sessions', ['sessions' => $sessions]);
     }
 
@@ -36,6 +39,10 @@ class MovieSessionController extends Controller
     public function showSessionsByCinema($location_id)
     {
         $sessions = MovieSession::where('location_id', $location_id)->get();
+
+        if (count($sessions) <= 0) {
+            abort(404, "Cinema not found.");
+        }
 
         return view('movie_sessions', ['sessions' => $sessions]);
     }

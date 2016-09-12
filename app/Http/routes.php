@@ -24,5 +24,10 @@ Route::get('movies/now_showing', 'MovieController@showNowShowing');
 Route::get('movies/coming_soon', 'MovieController@showComingSoon');
 
 // Task 4 Routes
-Route::get('sessions/by_movie/{id}', 'MovieSessionController@showSessionsByMovie');
-Route::get('sessions/by_cinema/{id}', 'MovieSessionController@showSessionsByCinema');
+Route::get('sessions/by_movie/{id}', [
+    'as' => 'sessionsByMovie', 'uses' => 'MovieSessionController@showSessionsByMovie'
+]);
+
+Route::get('sessions/by_cinema/{id}', [
+    'as' => 'sessionsByCinema', 'uses' => 'MovieSessionController@showSessionsByCinema'
+]);

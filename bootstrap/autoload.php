@@ -1,5 +1,9 @@
 <?php
 
+// This line helps resolve what is apparently an issue with Laravel 5.2
+// caused by Eloquent calls
+ini_set('xdebug.max_nesting_level', 500);
+
 define('LARAVEL_START', microtime(true));
 
 /*
