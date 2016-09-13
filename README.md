@@ -3,7 +3,8 @@
 ## Basic Setup
 
 1. Laravel's config file, `.env` is excluded on purpose, so you'll need to create your own in the project root. You can simply copy the contents of `.env.example` to a new file to do so.
-2. Set your `APP_KEY` by running
+2. Next, you'll need to use Composer to install the required dependencies. You can do this via `php composer.phar install`
+3. Set your `APP_KEY` by running
 
    ```
    php artisan key:generate
