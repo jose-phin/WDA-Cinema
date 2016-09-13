@@ -32,3 +32,17 @@
     </div>
 
 @endsection
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#mavericks-carousel').slick({
+            lazyLoad: 'ondemand',
+            autoplay: true,
+            autoplaySpeed: 3500,
+            fade: true,
+            arrows: false,
+            pauseOnHover: false
+        });
+    });
+</script>
+@endsection
