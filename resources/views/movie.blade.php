@@ -1,3 +1,5 @@
+@section('pageTitle', 'Now Showing')
+
 <!DOCTYPE html>
 
 <!--

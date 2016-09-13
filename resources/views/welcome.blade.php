@@ -1,6 +1,7 @@
-<link href="{{ asset('css/site.css') }}" media="all" rel="stylesheet" type="text/css" />
-
 @extends('layouts.app')
+
+@section('pageTitle', 'Home')
+
 
 @section('content')
 
@@ -17,8 +18,6 @@
         </div>
     </div>
 
-
-
     <!-- Main -->
     <div class="container">
         <div class="row">
@@ -30,34 +29,6 @@
                 </p>
             </div>
         </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Footer</h2>
-                    <h4>WDA Assignment Two</h4>
-                    <p>Joshua Pancho</p>
-                    <p>Dennis Hou</p>
-                    <p>Jacqueline Shadforth</p>
-                    <p>Josephine Pramudia</p>
-                    <p>Chloe Smith</p>
-                </div>
-            </div>
-        </footer>
-
     </div>
 
-</div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#mavericks-carousel').slick({
-            lazyLoad: 'ondemand',
-            autoplay: true,
-            autoplaySpeed: 5000,
-            fade: true,
-            arrows: false
-        });
-    });
-</script>
 @endsection
