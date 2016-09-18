@@ -1,7 +1,5 @@
-<link href="{{ asset('css/site.css') }}" media="all" rel="stylesheet" type="text/css" />
-
 @extends('layouts.app')
-
+@section('pageTitle', 'Register')
 @section('content')
 <div class="container">
     <div class="row">

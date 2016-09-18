@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Home')
-
-
 @section('content')
 
     <!-- Image -->
@@ -18,6 +15,8 @@
         </div>
     </div>
 
+
+
     <!-- Main -->
     <div class="container">
         <div class="row">
@@ -29,13 +28,17 @@
                 </p>
             </div>
         </div>
+
+        <!-- Footer -->
+        @include('includes/footer')
+
     </div>
 
-@endsection
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
         $('#mavericks-carousel').slick({
+            dots: true,
             lazyLoad: 'ondemand',
             autoplay: true,
             autoplaySpeed: 3500,

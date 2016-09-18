@@ -1,4 +1,4 @@
-<div class="container">
+<footer>
     <div class="row">
         <div class="col-md-6">
             <h2>Footer</h2>
@@ -10,16 +10,4 @@
             <p>Chloe Smith</p>
         </div>
     </div>
-</div>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#mavericks-carousel').slick({
-            lazyLoad: 'ondemand',
-            autoplay: true,
-            autoplaySpeed: 3500,
-            fade: true,
-            arrows: false
-        });
-    });
-</script>
+</footer>
