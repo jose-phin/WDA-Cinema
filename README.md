@@ -42,7 +42,7 @@
    Currently, our seeders populate the DB with the following:
 
    - 20 users, whose details are generated randomly via the `Faker` library
-   - 5 movies (3 now showing, 2 coming soon) which are taken from Hoyts
+   - 8 movies (5 now showing, 3 coming soon) which are taken from Hoyts
    - 9 cinema locations (again, from Hoyts)
    - 20 movie sessions, which are generated for random movies/dates/theaters similarly to users
    
@@ -51,3 +51,28 @@
    ```
    php artisan db:seed
    ```
+   
+## Database Updating
+
+### Handling updates to the seeders
+
+**WARNING**: Note that this will rollback and re-run *all of our migrations*, so **any changes you have made to the database via the application will be lost** (e.g. new users you may have
+registered, bookings made via the application, etc.) 
+
+Occasionally, we may need to add/remove stuff from our `seeders` to update the entries in our database.
+
+If any of the seeders have been updated, you can use this command to "refresh" our database with these new changes:
+
+```
+php artisan migrate:refresh --seed
+```
+
+If you require any specific entries to persist (even after running this command), you can do so by editing the seeders as necessary.
+
+## Unit Test Usage
+
+So that our tests don't interfere with the production database (`database.sqlite`), an in-memory SQLite database is used for testing, and is defined in `config/database.php` under `connections`.
+
+Note that this database is still dependent on the migrations/seeds that we use in production - it is designed to be a reflection of a "fresh" state of our application.
+
+To run these tests, open the Terminal in PHPStorm and simply run `phpunit`.

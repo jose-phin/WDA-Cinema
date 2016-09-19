@@ -31,3 +31,8 @@ Route::get('sessions/by_movie/{id}', [
 Route::get('sessions/by_cinema/{id}', [
     'as' => 'sessionsByCinema', 'uses' => 'MovieSessionController@showSessionsByCinema'
 ]);
+
+// Create a new booking
+Route::put('bookings/new', [
+    'as' => 'newBooking', 'uses' => 'BookingController@store'
+]);

@@ -78,6 +78,12 @@ return [
             'schema' => 'public',
         ],
 
+        'sqlite_testing' => [
+            'driver'   => 'sqlite',
+            'database' => ':memory:',
+            'prefix'   => '',
+        ],
+
     ],
 
     /*
@@ -116,5 +122,15 @@ return [
         ],
 
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Testing Database
+    |--------------------------------------------------------------------------
+    |
+    | This is a custom database that is used purely for testing purposes.
+    |
+    */
+
 
 ];
