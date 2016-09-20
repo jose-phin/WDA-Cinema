@@ -1,5 +1,3 @@
-<link href="{{ asset('css/site.css') }}" media="all" rel="stylesheet" type="text/css" />
-
 @extends('layouts.app')
 
 @section('content')
@@ -32,19 +30,7 @@
         </div>
 
         <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Footer</h2>
-                    <h4>WDA Assignment Two</h4>
-                    <p>Joshua Pancho</p>
-                    <p>Dennis Hou</p>
-                    <p>Jacqueline Shadforth</p>
-                    <p>Josephine Pramudia</p>
-                    <p>Chloe Smith</p>
-                </div>
-            </div>
-        </footer>
+        @include('includes/footer')
 
     </div>
 
@@ -52,6 +38,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#mavericks-carousel').slick({
+            dots: true,
             lazyLoad: 'ondemand',
             autoplay: true,
             autoplaySpeed: 3500,

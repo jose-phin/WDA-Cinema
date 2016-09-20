@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+@section('pageTitle', 'Movie Sessions')
+
+
+        <!DOCTYPE html>
 
 <!--
     A simple proof-of-concept for Session fetching functionality.
