@@ -1,6 +1,4 @@
-/*
- *   Homepage styles
- */
+/* Homepage */
 
 body {
     background-color: #000 !important;
@@ -27,18 +25,58 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
 }
 
-    #mavericks-nav a {
-        color: #ffffff;
-    }
+#mavericks-nav a {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a {
+    border-bottom: 2px solid transparent;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    border-bottom: 2px solid #fff;
+}
 
 /* Carousel */
 #mavericks-carousel {
     margin-bottom: 20px;
 }
 
-    #mavericks-carousel img {
-        width: 100vw;
-    }
+#mavericks-carousel img {
+    width: 100vw;
+}
+
+.slick-slider ul {
+    padding-left: 47%;
+    margin: -100px 0 50px 0;
+}
+
+.slick-dots li {
+    display: block;
+    float: left;
+    margin: 0 5px;
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: .85;
+}
+
+.slick-active {
+    background-color: #aaaaaa !important;
+}
+
+.slick-dots li:hover {
+    cursor: pointer;
+}
+
+.slick-dots li button {
+    display: none;
+}
 
 /* Footer */
 footer {
