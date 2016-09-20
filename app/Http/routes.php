@@ -19,6 +19,9 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+// View an authenticated user's profile
+Route::get('user/profile', 'UserController@showProfile');
+
 // Task 3 Routes
 Route::get('movies/now_showing', 'MovieController@showNowShowing');
 Route::get('movies/coming_soon', 'MovieController@showComingSoon');
