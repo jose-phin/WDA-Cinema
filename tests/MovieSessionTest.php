@@ -6,6 +6,18 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class MovieSessionTest extends TestCase
 {
+    public function setUp() {
+        parent::setUp();
+
+        $this->artisan('migrate');
+        $this->artisan('db:seed');
+    }
+
+    public function tearDown()
+    {
+        $this->artisan('migrate:reset');
+    }
+
     public function testGetSessionWithValidCinemaIDReturns200()
     {
         $this->get(route('sessionsByCinema', [1]))

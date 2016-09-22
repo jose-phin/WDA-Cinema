@@ -46,6 +46,28 @@ class MoviesTableSeeder extends Seeder
         ]);
 
         DB::table('movies')->insert([
+            'title' => 'Snowden',
+            'director' => 'Oliver Stone',
+            'main_cast' => 'Joseph Gordon-Levitt, Scott Eastwood,  Shailene Woodley,  Nicolas Cage',
+            'genre' => 'Thriller',
+            'synopsis' => 'NSA employee Edward Snowden leaks thousands of classified documents to the press.',
+            'running_time' => '139 min',
+            'release_date' => '1474502400',
+            'is_now_showing' => true,
+        ]);
+
+        DB::table('movies')->insert([
+            'title' => 'Suicide Squad',
+            'director' => 'David Ayer',
+            'main_cast' => 'Will Smith,  Jared Leto,  Margot Robbie,  Joel Kinnaman and Viola Davis',
+            'genre' => 'Action',
+            'synopsis' => 'A secret agency led by Amanda Waller recruits imprisoned supervillains to execute dangerous black ops missions in exchange for clemency and saving the world from unknown powerful threat.',
+            'running_time' => '123 min',
+            'release_date' => '1470268800',
+            'is_now_showing' => true,
+        ]);
+
+        DB::table('movies')->insert([
             'title' => 'The Magnificent 7',
             'director' => 'Antoine Fuqua',
             'main_cast' => 'Chris Pratt,  Matt Bomer,  Denzel Washington',
@@ -66,5 +88,17 @@ class MoviesTableSeeder extends Seeder
             'release_date' => '1475648438',
             'is_now_showing' => false,
         ]);
+
+        DB::table('movies')->insert([
+            'title' => 'Doctor Strange',
+            'director' => 'Scott Derrickson',
+            'main_Cast' => 'Benedict Cumberbatch,  Rachel McAdams,  Chiwetel Ejiofor,  Tilda Swinton',
+            'genre' => 'Action',
+            'synopsis' => 'Marvel\'s "Doctor Strange" follows the story of the talented neurosurgeon Doctor Stephen Strange who, after a tragic car accident, must put ego aside and learn the secrets of a hidden world of mysticism and alternate dimensions. Based in New York City\'s Greenwich Village, Doctor Strange must act as an intermediary between the real world and what lies beyond, utilising a vast array of metaphysical abilities and artifacts to protect the Marvel cinematic universe. ',
+            'running_time' => '130 min',
+            'release_date' => '1477526400',
+            'is_now_showing' => false,
+        ]);
+
     }
 }
