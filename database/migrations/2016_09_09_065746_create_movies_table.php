@@ -20,8 +20,9 @@ class CreateMoviesTable extends Migration
             $table->string('main_cast');
             $table->string('genre');
             $table->longText('synopsis');
-            $table->string("running_time");
+            $table->string('running_time');
             $table->date('release_date');
+            $table->string('image_url');
             $table->boolean('is_now_showing');
             $table->timestamps();
         });

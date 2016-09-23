@@ -36,12 +36,12 @@ class BookingTest extends TestCase
 
         $this->actingAs($user)
             ->put(route('newBooking', [
-                'session_id' => 100000,
+                'session_id' => 30,
                 'amount' => 1,
                 'type' => 'Adult',
             ]));
 
-        $this->dontSeeInDatabase('bookings', ['id' => 1]);
+        $this->dontSeeInDatabase('bookings', ['id' => 2]);
     }
 
 

@@ -38,4 +38,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Booking');
     }
+
+    public function wishes()
+    {
+        return $this->hasMany('App\Wish');
+    }
 }

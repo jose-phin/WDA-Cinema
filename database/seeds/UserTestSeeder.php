@@ -47,5 +47,16 @@ class UserTestSeeder extends Seeder
             'amount' => 1,
             'type' => 'Child',
         ]);
+
+        // Add two dummy wish list items
+        DB::table('wishes')->insert([
+            'user_id' => $starkId,
+            'movie_id' => 3,
+        ]);
+
+        DB::table('wishes')->insert([
+            'user_id' => $starkId,
+            'movie_id' => 8,
+        ]);
     }
 }
