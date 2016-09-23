@@ -10,6 +10,16 @@ use App\Http\Requests;
 class MovieController extends Controller
 {
     /**
+     * Fetch all movies
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAllMovies()
+    {
+        return view ('movie', ['movies' => Movie::all()]);
+    }
+
+    /**
      * Fetch all movies that are Now Showing
      *
      * @return Response

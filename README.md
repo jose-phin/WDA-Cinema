@@ -42,7 +42,7 @@
    Currently, our seeders populate the DB with the following:
 
    - 20 users, whose details are generated randomly via the `Faker` library
-   - 8 movies (5 now showing, 3 coming soon) which are taken from Hoyts
+   - 10 movies (5 now showing, 5 coming soon) which are taken from Hoyts
    - 9 cinema locations (again, from Hoyts)
    - 20 movie sessions, which are generated for random movies/dates/theaters similarly to users
    
@@ -52,8 +52,6 @@
    php artisan db:seed
    ```
    
-## Database Updating
-
 ### Handling updates to the seeders
 
 **WARNING**: Note that this will rollback and re-run *all of our migrations*, so **any changes you have made to the database via the application will be lost** (e.g. new users you may have
@@ -68,6 +66,10 @@ php artisan migrate:refresh --seed
 ```
 
 If you require any specific entries to persist (even after running this command), you can do so by editing the seeders as necessary.
+
+## Routes
+
+Documentation on route usage can be found in the routes file (`app/Http/routes`).
 
 ## Unit Test Usage
 

@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 
 class UserController extends Controller
 {
+    /**
+     * Shows the profile for the currently authenticated user.
+     * Fetches all of a user's bookings, and all items in a user's wish list.
+     *
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showProfile(Request $request) {
         $user = $request->user();
 
-        return view('user_profile', ['bookings' => $user->bookings]);
+        return view('user_profile', ['bookings' => $user->bookings, 'wishes' => $user->wishes]);
     }
 }

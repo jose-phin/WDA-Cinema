@@ -19,23 +19,53 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-// View an authenticated user's profile
-Route::get('user/profile', 'UserController@showProfile');
+/**
+ * View the currently authenticated user's profile
+ *
+ * If a user tries to manually get to this route w/o auth, they will be receive a 404
+ */
+Route::get('user/profile', [
+    'middleware' => 'auth',
+    'uses' => 'UserController@showProfile'
+]);
 
-// Task 3 Routes
-Route::get('movies/now_showing', 'MovieController@showNowShowing');
-Route::get('movies/coming_soon', 'MovieController@showComingSoon');
 
-// Task 4 Routes
+/**
+ * Renders a list of all movies in the DB to the movie view
+ *
+ * You can distinguish b/w "Now Showing" and "Coming Soon" via the $movie->is_now_showing property
+ */
+Route::get('/movies', 'MovieController@showAllMovies');
+
+
+/**
+ * Displays all sessions for a given movie, at any location
+ *
+ * @param id int route expects the movie ID to be supplied in the URI/URL
+ */
 Route::get('sessions/by_movie/{id}', [
     'as' => 'sessionsByMovie', 'uses' => 'MovieSessionController@showSessionsByMovie'
 ]);
 
+/**
+ * Displays all sessions for all movies at a given location
+ *
+ * @param id int route expects the movie ID to be supplied in the URI/URL
+ */
 Route::get('sessions/by_cinema/{id}', [
     'as' => 'sessionsByCinema', 'uses' => 'MovieSessionController@showSessionsByCinema'
 ]);
 
-// Create a new booking
+/**
+ * Displays all sessions for a given movie, at any location
+ *
+ * A user must be authenticated to book a ticket.
+ *
+ * @param request \App\Http\Requests\Request the request passed to this route should supply [movie session ID, quantity/amount,
+ * and type (Adult, Concession, etc.)]
+ */
 Route::put('bookings/new', [
-    'as' => 'newBooking', 'uses' => 'BookingController@store'
+    'as' => 'newBooking',
+    'middleware' => 'auth',
+    'uses' => 'BookingController@store'
 ]);

@@ -28,6 +28,20 @@
                     }
 
                 ?>
+
+                <h2>Wish List</h2>
+
+                <?php
+                    echo "<div>";
+                    echo "<ul>";
+
+                    foreach($wishes as $wish) {
+                        echo "<li>" . $wish->movie->title . "</li>";
+                    }
+
+                    echo "</ul>";
+                    echo "</div>";
+                ?>
             </div>
         </div>
 
