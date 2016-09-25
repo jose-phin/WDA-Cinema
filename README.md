@@ -67,9 +67,88 @@ php artisan migrate:refresh --seed
 
 If you require any specific entries to persist (even after running this command), you can do so by editing the seeders as necessary.
 
-## Routes
+## Route Endpoint Usage
 
-Documentation on route usage can be found in the routes file (`app/Http/routes`).
+### Users
+
+#### /user/profile
+
+Displays the profile of an authenticated user via the `user_profile` template.
+
+When rendering this template, the route will provide two arrays that are accessible from the view:
+
+- `$bookings` which holds the details of each booking a user has made
+- `$wishes` which holds the details of each wish a user has made 
+
+### Movies
+
+#### /movies
+
+Fetches all movies in the DB and renders the `movie` view.
+
+### Sessions
+
+#### /sessions/by_movie/{id}
+
+Fetches all sessions for a **movie**, at *all* locations, and renders the `movie_sessions` template.
+
+Accepts a single param `{id}` which is the ID of the movie.
+
+When rendering the template, this route will provide a `$sessions` array that contains the details of each matching session.
+
+#### /sessions/by_cinema/{id}
+
+Fetches all sessions for a **cinema**, for *any* movie, and renders the `movie_sessions` template.
+
+Accepts a single param `{id}` which is the ID of the cinema location.
+
+When rendering the template, this route will provide a `$sessions` array that contains the details of each matching session.
+
+### Bookings
+
+#### /bookings/new
+
+Creates a new booking for an authenticated user. 
+
+A HTTP `Request` object must be passed to this endpoint containing the following fields:
+
+- `session_id`, which is the ID of the session the user wants to book
+- `amount`, the quantity of tickets
+- `type`, the type of the ticket (Adult, Concession, etc) 
+
+This route renders the `booking_success` page on success and passes a single variable, `$booking` that contains the booking details.
+
+### Wishes
+
+#### /user/wish
+
+This endpoint is handled by a RESTful controller, so all CRUD operations are passed to this endpoint. Currently, this endpoint only handles adding and deletion of a wish.
+
+To **add a wish**, you simply need to provide the `user/wish` endpoint as the action parameter of your form:
+
+```
+<form method="POST" action="{{ url('user/wish') }}"
+    {{ csrf_field() }}
+
+    <input id="movie_id" type="text" name="movie_id">
+    <button type="submit">Submit</button>
+</form>
+```
+
+To **delete a wish**, you need to wrap whatever element you are using to handle deletion (e.g. a button) in a form:
+
+```
+<form method="POST" action="{{ url('user/wish/{id}') }}">
+    {{ csrf_field() }}
+
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete</button>
+</form>
+```
+
+Where `{id}` is the ID of the wish you want to delete. Note that the hidden `<input>` tag is what Laravel uses to identify the HTTP verb of the request.
+
+Note in both cases you must call the `csrf_field()` function at the start of the form as a CSRF token is passed to and validated by the controller after submission.
 
 ## Unit Test Usage
 
