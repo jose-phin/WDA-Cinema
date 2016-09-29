@@ -67,7 +67,7 @@ php artisan migrate:refresh --seed
 
 If you require any specific entries to persist (even after running this command), you can do so by editing the seeders as necessary.
 
-## Routes
+## Route Endpoint Usage
 
 ### Users
 
@@ -143,7 +143,7 @@ Currently, this route does not perform any validation. This will be added later.
 
 ### Wishes
 
-#### /user/wish
+#### RESOURCE /user/wish
 
 This endpoint is handled by a RESTful controller, so all CRUD operations are passed to this endpoint. Currently, this endpoint only handles adding and deletion of a wish.
 

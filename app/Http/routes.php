@@ -24,6 +24,20 @@ Route::get('user/profile', [
     'uses' => 'UserController@showProfile'
 ]);
 
+Route::resource('user/wish', 'WishController');
+
+# Movie and Session Routes
+
+Route::get('/movies', 'MovieController@showAllMovies');
+
+Route::get('sessions/by_movie/{id}', [
+    'as' => 'sessionsByMovie', 'uses' => 'MovieSessionController@showSessionsByMovie'
+]);
+
+Route::get('sessions/by_cinema/{id}', [
+    'as' => 'sessionsByCinema', 'uses' => 'MovieSessionController@showSessionsByCinema'
+]);
+
 # Cart Routes
 
 Route::get('user/cart', 'CartController@displayCart');
@@ -44,20 +58,8 @@ Route::put('user/cart/checkout', [
     'as' => 'checkoutCart', 'uses' => 'CartController@checkout'
 ]);
 
-# Movie and Session Routes
-
-Route::get('/movies', 'MovieController@showAllMovies');
-
-Route::get('sessions/by_movie/{id}', [
-    'as' => 'sessionsByMovie', 'uses' => 'MovieSessionController@showSessionsByMovie'
-]);
-
-
-Route::get('sessions/by_cinema/{id}', [
-    'as' => 'sessionsByCinema', 'uses' => 'MovieSessionController@showSessionsByCinema'
-]);
-
 // Dummy route used to test adding of booking to cart
 Route::get('addtocart', [
     'uses' => 'CartController@index'
 ]);
+
