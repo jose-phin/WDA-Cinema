@@ -19,8 +19,9 @@
                         echo "<p>Date/Time: " . $booking->session->time . "</p>";
                         echo "<p>Theater: " . $booking->session->theater . "</p>";
                         echo "<p>Location: " . $booking->session->location->name . "</p>";
-                        echo "<p>Amount: " . $booking->amount . "</p>";
-                        echo "<p>Type: " . $booking->type . "</p>";
+                        echo "<p>Adult: " . $booking->adult_qty . "</p>";
+                        echo "<p>Child: " . $booking->child_qty . "</p>";
+                        echo "<p>Concession: " . $booking->concession_qty . "</p>";
 
                         echo "</div>";
 

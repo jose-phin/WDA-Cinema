@@ -17,8 +17,10 @@ class CreateBookingsTable extends Migration
             $table->increments('id');
             $table->integer('session_id');
             $table->integer('user_id');
-            $table->integer('amount');
-            $table->string('type');
+            $table->integer('adult_qty');
+            $table->integer('child_qty');
+            $table->integer('concession_qty');
+            $table->boolean('paid');
             $table->timestamps();
 
             $table->foreign('session_id')->references('id')->on('sessions');
