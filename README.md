@@ -1,5 +1,18 @@
 # WDA-2
 
+## Table of Contents
+
+- [Basic Setup](#basic-setup)
+- [Database Setup](#database-setup)
+    - [Handling updates to seeders](#handling-updates-to-the-seeders)
+- [Route Usage](#route-endpoint-usage)
+    - [Users](#users)
+    - [Movies](#movies)
+    - [Sessions](#sessions)
+    - [Bookings](#bookings)
+    - [Wishes](#wishes)
+- [Unit Test Usage](#unit-test-usage)
+
 ## Basic Setup
 
 1. Laravel's config file, `.env` is excluded on purpose, so you'll need to create your own in the project root. You can simply copy the contents of `.env.example` to a new file to do so.
