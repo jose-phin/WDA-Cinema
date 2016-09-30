@@ -4,7 +4,9 @@
 
 @section('content')
 
-    <!-- Main -->
+    <!--
+        Proof-of-concept for a user's cart
+    -->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -35,7 +37,7 @@
             <div class="col-md-12">
                 <h2>Delete</h2>
 
-                <!-- Delete form here -->
+                <!-- Proof-of-concept, deletes a cart item with ID 7 -->
                 <form method="POST" action="{{ url('user/cart/delete/7') }}">
                     {{ csrf_field() }}
 
@@ -43,11 +45,10 @@
                     <button type="submit">Submit</button>
                 </form>
 
-                <!-- Delete form here -->
+                <!-- Another proof-of-concept, checks out all items in a user's cart -->
                 <form method="POST" action="{{ url('user/cart/checkout') }}">
                     {{ csrf_field() }}
 
-                    <input type="hidden" name="_method" value="PUT">
                     <button type="submit">Checkout</button>
                 </form>
 

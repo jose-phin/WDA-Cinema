@@ -90,7 +90,18 @@ class CartController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function checkout(Request $request) {
+        $this->validate($request, [
+            'name' => 'required',
+            'address' => 'required',
+            'suburb' => 'required',
+            'post_code' => 'required|digits:4',
+            'mobile_number' => 'required|numeric',
+            'credit_card_details' => 'required'
+        ]);
+
+
         $user = $request->user();
+
         Booking::where('user_id', $user->id)
                 ->where('paid', false)
                 ->update(['paid' => true]);

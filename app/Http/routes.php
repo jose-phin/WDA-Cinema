@@ -54,7 +54,7 @@ Route::put('user/cart/update/{id}', [
     'as' => 'updateCartItem', 'uses' => 'CartController@updateTicketQuantities'
 ]);
 
-Route::put('user/cart/checkout', [
+Route::post('user/cart/checkout', [
     'as' => 'checkoutCart', 'uses' => 'CartController@checkout'
 ]);
 

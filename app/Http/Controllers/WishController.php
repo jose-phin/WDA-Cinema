@@ -83,7 +83,13 @@ class WishController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $wish = Wish::find($id);
+
+        $wish->notes = $request->notes;
+
+        $wish->save();
+
+        return redirect('user/profile');
     }
 
     /**

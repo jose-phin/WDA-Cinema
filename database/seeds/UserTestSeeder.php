@@ -30,11 +30,13 @@ class UserTestSeeder extends Seeder
         DB::table('wishes')->insert([
             'user_id' => $starkId,
             'movie_id' => 3,
+            'notes' => "",
         ]);
 
         DB::table('wishes')->insert([
             'user_id' => $starkId,
             'movie_id' => 8,
+            'notes' => "Steve would love this one!",
         ]);
     }
 }
