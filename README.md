@@ -95,9 +95,13 @@ When rendering this template, the route will provide two arrays that are accessi
 
 ### Movies
 
-#### GET /movies
+#### GET /movies/now_showing
 
-Fetches all movies in the DB and renders the `movie` view.
+Fetches all movies marked as "Now Showing" in the DB and renders the `movie` view.
+
+#### GET /movies/coming_soon
+
+Fetches all movies marked as "Coming Soon" in the DB and renders the `movie` view.
 
 ### Sessions
 
