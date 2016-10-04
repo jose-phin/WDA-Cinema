@@ -4,13 +4,13 @@
 
     <!-- Image -->
     <div class="mavericks-carousel">
-        <div>
+        <div class="mavericks-carousel-imgContainer">
             <img src="{{ asset('images/suicide_squad_grad.jpg') }}">
         </div>
-        <div>
+        <div class="mavericks-carousel-imgContainer">
             <img src="{{ asset('images/snowden_grad.jpg') }}">
         </div>
-        <div>
+        <div class="mavericks-carousel-imgContainer">
             <img src="{{ asset('images/interstellar_grad.jpg') }}">
         </div>
     </div>
@@ -43,10 +43,10 @@
             lazyLoad: 'ondemand',
             autoplay: true,
             autoplaySpeed: 3500,
-            fade: false,
             arrows: true,
             pauseOnHover: false,
             centerMode: true,
+            centerPadding: '60px'
         });
     });
 </script>

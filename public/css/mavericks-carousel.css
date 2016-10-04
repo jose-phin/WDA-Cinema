@@ -1,50 +1,64 @@
-/* Carousel */
+/* Custom styles for Slick Carousel */
+
+
 .mavericks-carousel {
-    /*margin-bottom: 20px;*/
+
 }
 
-.mavericks-carousel img {
-    width: 90vw;
+.mavericks-carousel-imgContainer{
     margin: 0 auto;
 }
 
-/*.slick-dots li {*/
-    /*display: block;*/
-    /*float: left;*/
-    /*margin: 0 5px;*/
-    /*width: 6px;*/
-    /*height: 6px;*/
-    /*background-color: #fff;*/
-    /*border-radius: 50%;*/
-    /*opacity: .85;*/
-/*}*/
+.mavericks-carousel img {
+    width: 100%;
+    margin: 0 auto;
+    transition: all 0.2s ease-in-out;
+}
 
-/*.slick-active {*/
-    /*background-color: #aaaaaa !important;*/
-/*}*/
+.slick-current.slick-active.slick-center img{
+    position: relative;
+    z-index: 10;
+    transition: all 0.2s ease-in-out;
+}
 
+.mavericks-carousel-imgContainer.slick-slide:not(.slick-active) img{
+    transition: all 0.2s ease-in-out;
+    -webkit-filter: brightness(30%);
+    -filter: brightness(30%);
+
+}
+
+/* Navigation Dots */
+.slick-dots{
+    bottom: 2%;
+}
+
+.slick-dots li button:before {
+    color: white;
+    font-size: 10px;
+}
+
+.slick-dots li.slick-active button:before{
+    color: white;
+    opacity: 1;
+}
+
+
+/* Navigation Arrows*/
 .slick-prev.slick-arrow{
     display: block;
     position: absolute;
-    z-index: 1000;
-    padding: 50px;
+    z-index: 2000;
+    padding-left: 50px;
     height: 100%;
-    left: 0;
+    right: 0;
 }
 
 .slick-next.slick-arrow{
     display: block;
     position: absolute;
     z-index: 1000;
-    padding: 50px;
+    padding-right: 50px;
     height: 100%;
     right: 0;
 }
-
-.slick-dots li:hover {
-    cursor: pointer;
-}
-
-/*.slick-dots li button {*/
-    /*display: none;*/
-/*}*/
