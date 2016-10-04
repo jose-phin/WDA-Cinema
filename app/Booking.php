@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     protected $fillable = [
-        'session_id', 'user_id', 'amount', 'type',
+        'session_id', 'user_id', 'adult_qty', 'child_qty', 'concession_qty', 'paid',
     ];
 
     public function user()
@@ -32,4 +32,5 @@ class Booking extends Model
     {
         return $this->belongsTo('App\MovieSession');
     }
+
 }

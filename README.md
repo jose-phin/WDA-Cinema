@@ -1,5 +1,18 @@
 # WDA-2
 
+## Table of Contents
+
+- [Basic Setup](#basic-setup)
+- [Database Setup](#database-setup)
+    - [Handling updates to seeders](#handling-updates-to-the-seeders)
+- [Route Usage](#route-endpoint-usage)
+    - [Users](#users)
+    - [Movies](#movies)
+    - [Sessions](#sessions)
+    - [Bookings](#bookings)
+    - [Wishes](#wishes)
+- [Unit Test Usage](#unit-test-usage)
+
 ## Basic Setup
 
 1. Laravel's config file, `.env` is excluded on purpose, so you'll need to create your own in the project root. You can simply copy the contents of `.env.example` to a new file to do so.
@@ -71,7 +84,7 @@ If you require any specific entries to persist (even after running this command)
 
 ### Users
 
-#### /user/profile
+#### GET /user/profile
 
 Displays the profile of an authenticated user via the `user_profile` template.
 
@@ -82,13 +95,13 @@ When rendering this template, the route will provide two arrays that are accessi
 
 ### Movies
 
-#### /movies
+#### GET /movies
 
 Fetches all movies in the DB and renders the `movie` view.
 
 ### Sessions
 
-#### /sessions/by_movie/{id}
+#### GET /sessions/by_movie/{id}
 
 Fetches all sessions for a **movie**, at *all* locations, and renders the `movie_sessions` template.
 
@@ -96,7 +109,7 @@ Accepts a single param `{id}` which is the ID of the movie.
 
 When rendering the template, this route will provide a `$sessions` array that contains the details of each matching session.
 
-#### /sessions/by_cinema/{id}
+#### GET /sessions/by_cinema/{id}
 
 Fetches all sessions for a **cinema**, for *any* movie, and renders the `movie_sessions` template.
 
@@ -104,51 +117,97 @@ Accepts a single param `{id}` which is the ID of the cinema location.
 
 When rendering the template, this route will provide a `$sessions` array that contains the details of each matching session.
 
-### Bookings
+### Cart and Bookings
 
-#### /bookings/new
+#### GET /user/cart 
 
-Creates a new booking for an authenticated user. 
+Renders the `cart` view and populates it with all items in a user's cart
 
-A HTTP `Request` object must be passed to this endpoint containing the following fields:
+#### POST /user/cart/add
 
-- `session_id`, which is the ID of the session the user wants to book
-- `amount`, the quantity of tickets
-- `type`, the type of the ticket (Adult, Concession, etc) 
+Adds a new booking to an authenticated user's cart, with the `paid` field flagged as false.
 
-This route renders the `booking_success` page on success and passes a single variable, `$booking` that contains the booking details.
+Request should include:
+
+- `session_id`, which is the ID of the screening session the user wants to book
+- `adult_qty`, the number of Adult tickets a user wants
+- `child_qty`
+- `concession_qty`
+
+#### DELETE /user/cart/{id}
+
+Removes a user's booking from the cart.
+
+Accepts a param `id` which is the ID of the booking.
+
+#### PUT /user/cart/update/{id}
+
+Use this route to update the number of tickets for a user's booking in the cart.
+
+Accepts a param `id` which is the ID of the booking.
+
+Request should also include updated: `adult_qty`, `child_qty` and `concession_qty`
+
+#### POST /user/cart/checkout
+
+Checks out the user's entire cart and performs some validation on the payment form before doing so.
+
+Request does not require any additional fields.
 
 ### Wishes
 
-#### /user/wish
+#### RESOURCE /user/wish
 
-This endpoint is handled by a RESTful controller, so all CRUD operations are passed to this endpoint. Currently, this endpoint only handles adding and deletion of a wish.
+This endpoint is handled by a RESTful controller, so all CRUD operations are passed to this endpoint. Wishes are supplied to the `user_profile` view 
+when accessed.
+
+Note that for the following requests, you **must** call the `csrf_field()` method within your form, as this passes a CSRF token to the server for validation.
+
+#### Adding a wish
 
 To **add a wish**, you simply need to provide the `user/wish` endpoint as the action parameter of your form:
 
 ```
-<form method="POST" action="{{ url('user/wish') }}"
+<form method="POST" action="{{ url('user/wish') }}">
     {{ csrf_field() }}
-
+    
     <input id="movie_id" type="text" name="movie_id">
+    <input type="text" name="notes" id="notes">
     <button type="submit">Submit</button>
 </form>
 ```
 
-To **delete a wish**, you need to wrap whatever element you are using to handle deletion (e.g. a button) in a form:
+#### Updating a wish
+
+To **update a wish**, you need to send the request via a form, with a hidden input field with the value "PUT":
 
 ```
 <form method="POST" action="{{ url('user/wish/{id}') }}">
     {{ csrf_field() }}
+    <input type="hidden" name="_method" value="PUT">
+    
+    <input type="text" name="notes" id="notes">
+    <button type="submit">Update</button>
+</form>
+```
 
+Where `{id}` is the ID of the wish you want to delete.
+
+
+#### Deleting a wish
+
+Similarly to updating a wish, to **delete a wish** you need to submit a form, but with a hidden input field with the value "DELETE":
+
+```
+<form method="POST" action="{{ url('user/wish/{id}') }}">
+    {{ csrf_field() }}
     <input type="hidden" name="_method" value="DELETE">
+    
     <button type="submit">Delete</button>
 </form>
 ```
 
 Where `{id}` is the ID of the wish you want to delete. Note that the hidden `<input>` tag is what Laravel uses to identify the HTTP verb of the request.
-
-Note in both cases you must call the `csrf_field()` function at the start of the form as a CSRF token is passed to and validated by the controller after submission.
 
 ## Unit Test Usage
 

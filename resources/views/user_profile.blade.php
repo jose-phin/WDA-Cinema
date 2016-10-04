@@ -4,7 +4,11 @@
 
 @section('content')
 
-    <!-- Main -->
+    <!--
+        Proof-of-concept for a user's cart.
+
+        Displays all bookings and wishes made by a user.
+    -->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -19,8 +23,9 @@
                         echo "<p>Date/Time: " . $booking->session->time . "</p>";
                         echo "<p>Theater: " . $booking->session->theater . "</p>";
                         echo "<p>Location: " . $booking->session->location->name . "</p>";
-                        echo "<p>Amount: " . $booking->amount . "</p>";
-                        echo "<p>Type: " . $booking->type . "</p>";
+                        echo "<p>Adult: " . $booking->adult_qty . "</p>";
+                        echo "<p>Child: " . $booking->child_qty . "</p>";
+                        echo "<p>Concession: " . $booking->concession_qty . "</p>";
 
                         echo "</div>";
 
@@ -36,7 +41,7 @@
                     echo "<ul>";
 
                     foreach($wishes as $wish) {
-                        echo "<li>" . $wish->movie->title . "</li>";
+                        echo "<li>" . $wish->movie->title . " ($wish->notes) " . "</li>";
                     }
 
                     echo "</ul>";

@@ -26,6 +26,8 @@ Route::get('user/profile', [
 
 Route::resource('user/wish', 'WishController');
 
+# Movie and Session Routes
+
 Route::get('/movies', 'MovieController@showAllMovies');
 
 Route::get('sessions/by_movie/{id}', [
@@ -36,8 +38,28 @@ Route::get('sessions/by_cinema/{id}', [
     'as' => 'sessionsByCinema', 'uses' => 'MovieSessionController@showSessionsByCinema'
 ]);
 
-Route::post('bookings/new', [
-    'as' => 'newBooking',
-    'middleware' => 'auth',
-    'uses' => 'BookingController@store'
+# Cart Routes
+
+Route::get('user/cart', 'CartController@displayCart');
+
+Route::post('user/cart/add', [
+    'as' => 'newCartItem', 'uses' => 'CartController@store'
 ]);
+
+Route::delete('user/cart/delete/{id}', [
+    'as' => 'deleteCartItem', 'uses' => 'CartController@delete'
+]);
+
+Route::put('user/cart/update/{id}', [
+    'as' => 'updateCartItem', 'uses' => 'CartController@updateTicketQuantities'
+]);
+
+Route::post('user/cart/checkout', [
+    'as' => 'checkoutCart', 'uses' => 'CartController@checkout'
+]);
+
+// Dummy route used to test adding of booking to cart
+Route::get('addtocart', [
+    'uses' => 'CartController@index'
+]);
+

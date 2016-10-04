@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 /**
  * Class UserTestSeeder
- *
+ *R®
  * This seeder exist purely for testing the User model.
  * It consists of a single user named "Tony Stark", that has 3 dummy bookings created for him.
  *
@@ -26,37 +26,17 @@ class UserTestSeeder extends Seeder
         ]);
 
 
-        // Create three dummy bookings for Tony Stark
-        DB::table('bookings')->insert([
-            'user_id' => $starkId,
-            'session_id' => 1,
-            'amount' => 1,
-            'type' => 'Adult',
-        ]);
-
-        DB::table('bookings')->insert([
-            'user_id' => $starkId,
-            'session_id' => 20,
-            'amount' => 2,
-            'type' => 'Concession',
-        ]);
-
-        DB::table('bookings')->insert([
-            'user_id' => $starkId,
-            'session_id' => 3,
-            'amount' => 1,
-            'type' => 'Child',
-        ]);
-
         // Add two dummy wish list items
         DB::table('wishes')->insert([
             'user_id' => $starkId,
             'movie_id' => 3,
+            'notes' => "",
         ]);
 
         DB::table('wishes')->insert([
             'user_id' => $starkId,
             'movie_id' => 8,
+            'notes' => "Steve would love this one!",
         ]);
     }
 }
