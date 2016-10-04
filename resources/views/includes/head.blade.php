@@ -34,3 +34,7 @@
     <link rel="stylesheet" href=" {{ URL::asset('css/mavericks-carousel.css') }}">
 
 {{--<link href="{{ elixir('css/app.css') }}" rel="stylesheet">--}}
+
+<!-- Simple-Line-Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+
