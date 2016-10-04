@@ -28,8 +28,9 @@ hr.separator-movieList-nowPlaying{
 
 /* Movie List Container */
 .flex-container {
-    display: inline-flex;
-    justify-content: flex-start;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -37,9 +38,11 @@ hr.separator-movieList-nowPlaying{
 
 /* Movie Item */
 .movieList-movieItem {
-    width: 320px;
+    flex-grow: 0;
+    padding: 20px 50px;
     margin: 10px;
-    padding: 10px;
+    min-width: 300px;
+    max-width: 300px;
 }
 
 .movieList-movieItem > *{
@@ -87,6 +90,7 @@ hr.separator-movieList-detail{
 
 .movieList-movieGenres{
     font-size: 0.9em;
+    color: #D2D2D2;
 }
 .movieList-movieReleaseDate{
     font-size: 0.8em;

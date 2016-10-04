@@ -10,7 +10,7 @@
     </div>
 
 
-    <div class="flex-container">
+    <div class="flex-container container-fluid">
         <?php
 
         // $movies array is passed in via the MovieController, which handles routing logic when user
@@ -26,9 +26,8 @@
             echo "<p class='movieList-movieGenres'>" . $movie->genre . "</p>";
             echo "<p class='movieList-movieReleaseDate'>" . date('d F Y', $movie->release_date);
             echo "</div>";
-            echo "<br>";
         }
-        echo '<pre>' . var_export($movies, true) . '</pre>';
+
 
         ?>
     </div>
