@@ -2,7 +2,7 @@
 
 
 .mavericks-carousel {
-
+    margin-top: -50px;
 }
 
 .mavericks-carousel-imgContainer{
@@ -28,6 +28,7 @@
 }
 
 .slick-active img{
+    transition: all 0.2s ease-in-out;
     -webkit-box-shadow: 0px 0px 30px -10px rgba(0,0,0,1);
     -moz-box-shadow: 0px 0px 30px -10px rgba(0,0,0,1);
     box-shadow: 0px 0px 30px -10px rgba(0,0,0,1);
@@ -63,7 +64,7 @@ i.mavericks-carousel-arrow:hover{
 i.mavericks-carousel-arrow.icon-arrow-left.slick-arrow:before{
     display: block;
     position: absolute;
-    z-index: 2000;
+    z-index: 1000;
     padding-left: 2%;
     top: 45%;
     font-size: 2.5em;
