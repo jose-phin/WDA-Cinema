@@ -17,7 +17,8 @@ elixir(function(mix) {
     mix.styles([
         'main.css',
         'movies.css',
-        'login.css'
+        'login.css',
+        'footer.css'
     ], 'public/css/site.css');
 
 });

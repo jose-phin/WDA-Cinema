@@ -16,7 +16,7 @@
 
             </div>
 
-            <div class="footer-grid-studentList col-sm-3 col-md-3">
+            <div class="footer-grid-studentList col-xs-6 col-sm-3 col-md-3">
                 <h5 class="footer-studentRoles">
                     Front-End / Design
                 </h5>
@@ -28,7 +28,7 @@
             </div>
 
 
-            <div class="footer-grid-studentList col-sm-3 col-md-3">
+            <div class="footer-grid-studentList col-xs-6 col-sm-3 col-md-3">
                 <h5 class="footer-studentRoles">
                     Back-End / Database
                 </h5>
