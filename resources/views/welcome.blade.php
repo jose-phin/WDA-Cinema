@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- Image -->
-    <div id="mavericks-carousel">
+    <div class="mavericks-carousel">
         <div>
             <img src="{{ asset('images/suicide_squad_grad.jpg') }}">
         </div>
@@ -35,16 +35,18 @@
     </div>
 
 </div>
+
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#mavericks-carousel').slick({
+        $('.mavericks-carousel').slick({
             dots: true,
             lazyLoad: 'ondemand',
             autoplay: true,
             autoplaySpeed: 3500,
-            fade: true,
+            fade: false,
             arrows: true,
-            pauseOnHover: false
+            pauseOnHover: false,
+            centerMode: true,
         });
     });
 </script>

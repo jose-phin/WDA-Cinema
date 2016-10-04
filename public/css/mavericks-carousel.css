@@ -1,35 +1,50 @@
 /* Carousel */
-#mavericks-carousel {
-    margin-bottom: 20px;
+.mavericks-carousel {
+    /*margin-bottom: 20px;*/
 }
 
-#mavericks-carousel img {
-    width: 100vw;
+.mavericks-carousel img {
+    width: 90vw;
+    margin: 0 auto;
 }
 
-.slick-slider ul {
-    margin: -100px 0 50px 0;
-}
+/*.slick-dots li {*/
+    /*display: block;*/
+    /*float: left;*/
+    /*margin: 0 5px;*/
+    /*width: 6px;*/
+    /*height: 6px;*/
+    /*background-color: #fff;*/
+    /*border-radius: 50%;*/
+    /*opacity: .85;*/
+/*}*/
 
-.slick-dots li {
+/*.slick-active {*/
+    /*background-color: #aaaaaa !important;*/
+/*}*/
+
+.slick-prev.slick-arrow{
     display: block;
-    float: left;
-    margin: 0 5px;
-    width: 6px;
-    height: 6px;
-    background-color: #fff;
-    border-radius: 50%;
-    opacity: .85;
+    position: absolute;
+    z-index: 1000;
+    padding: 50px;
+    height: 100%;
+    left: 0;
 }
 
-.slick-active {
-    background-color: #aaaaaa !important;
+.slick-next.slick-arrow{
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    padding: 50px;
+    height: 100%;
+    right: 0;
 }
 
 .slick-dots li:hover {
     cursor: pointer;
 }
 
-.slick-dots li button {
-    display: none;
-}
+/*.slick-dots li button {*/
+    /*display: none;*/
+/*}*/
