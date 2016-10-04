@@ -43,7 +43,7 @@
             autoplay: true,
             autoplaySpeed: 3500,
             fade: true,
-            arrows: false,
+            arrows: true,
             pauseOnHover: false
         });
     });
