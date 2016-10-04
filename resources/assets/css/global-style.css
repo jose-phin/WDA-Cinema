@@ -5,7 +5,7 @@
     font-weight: 300;
 }
 
-body {
+body {/**/
     background-color: #000;
     color: #fff;
 
@@ -22,14 +22,18 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
 }
 
-.titleHeader{
-    font-size: 2em;
-}
-
 p{
     font-weight: 200;
 }
 
+.titleHeader{
+    font-size: 2em;
+}
+
+.sectionHeader{
+    padding-bottom: 5px;
+    border-bottom: 1px solid #979797;
+}
 
 /* Navigation bar */
 .mavericks-nav {
@@ -51,6 +55,7 @@ p{
 
 .mavericks-nav a, .navbar-default .navbar-nav > li > a {
     color: #A4A4A4;
+    font-weight: 400;
 }
 
 .navbar-default .navbar-nav > li > a, .navbar-brand.navbar-title {
@@ -64,4 +69,8 @@ p{
 .navbar-default .navbar-nav > li > a:hover {
     border-bottom: 2px solid #fff;
     color: white;
+}
+
+.navbar-default .navbar-brand:hover{
+    color: #D8C39D;
 }

@@ -15,10 +15,11 @@ elixir(function(mix) {
 
     /* Combine all CSS files into site.css */
     mix.styles([
-        'main.css',
+        'global-style.css',
         'movies.css',
         'login.css',
-        'footer.css'
+        'footer.css',
+        'home.css'
     ], 'public/css/site.css');
 
 });
