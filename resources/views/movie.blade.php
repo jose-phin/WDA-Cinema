@@ -6,6 +6,7 @@
     <div class="pageTitle-container">
         <i class="movieList-pageTitle-icon icon-fire"></i>
         <h1 class="movieList-pageTitle">Movies Now Showing</h1>
+        <hr class="separator-movieList-nowPlaying">
     </div>
 
 
@@ -16,16 +17,19 @@
         // hits one of the Task 3 endpoints in routes.php
 
         foreach ($movies as $movie) {
+
             echo "<div class=\"movieList-movieItem\">";
 
             echo "<div class='movieList-moviePosterContainer'><img class='movieList-moviePoster' src='" . $movie->image_url . "'></div>";
-            echo "<h5 class='movieList-movieTitle'>".$movie->title."</h5>";
-            echo "<p>Director: " . $movie->director . "</p>";
-            echo "<p>Main Cast: " . $movie->main_cast . "</p>";
+            echo "<h5 class='movieList-movieTitle'>" . $movie->title . "</h5>";
+            echo "<p class='movieList-movieDirector'>". $movie->director . "</p>";
+            echo "<hr class='separator-movieList-detail'>";
+            echo "<p class='movieList-movieGenres'>" . $movie->genre . "</p>";
+            echo "<p class='movieList-movieReleaseDate'>" . date('d F Y', $movie->release_date);
             echo "</div>";
             echo "<br>";
         }
-
+        echo '<pre>' . var_export($movies, true) . '</pre>';
 
         ?>
     </div>

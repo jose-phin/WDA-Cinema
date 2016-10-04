@@ -76,11 +76,10 @@ p{
 }
 /* Movies */
 
-
-
 /* Movie Page Title: */
 .pageTitle-container{
     text-align: center;
+    padding-bottom: 20px;
 }
 
 /* Page title icon */
@@ -96,7 +95,14 @@ p{
     letter-spacing: 0px;
 }
 
+hr.separator-movieList-nowPlaying{
+    width: 40px;
+    background: #D8C39D;
+    height: 1px;
+    border: none;
+}
 
+/* Movie List Container */
 .flex-container {
     display: inline-flex;
     justify-content: flex-start;
@@ -108,7 +114,6 @@ p{
 /* Movie Item */
 .movieList-movieItem {
     width: 320px;
-    height: 350px;
     margin: 10px;
     padding: 10px;
 }
@@ -119,9 +124,9 @@ p{
 }
 
 .movieList-moviePosterContainer{
-    width: 120px;
+    width: 145px;
+    height: 215px;
     margin-bottom: 20px;
-
     /* Subtle shadow overlay makes the posters pop :) */
     box-shadow: inset -0.5px 1px 0px rgba(255,255,255,0.1),
     inset 0.5px -1px 0px rgba(255,255,255,0.1)
@@ -129,6 +134,7 @@ p{
 
 .movieList-moviePoster{
     width: 100%;
+    height: 100%;
     box-sizing: border-box;
     position: relative;
     z-index: -2;
@@ -137,7 +143,34 @@ p{
 /* Movie Title: */
 .movieList-movieTitle{
     font-size: 1.3em;
+
     letter-spacing: 0px;
+    margin-bottom: 10px;
+}
+
+.movieList-movieDirector{
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+hr.separator-movieList-detail{
+    width: 25px;
+    background: #fff;
+    height: 1px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.movieList-movieGenres{
+    font-size: 0.9em;
+}
+.movieList-movieReleaseDate{
+    font-size: 0.8em;
+    font-weight: 400;
+    color: #D2D2D2;
+    padding: 5px 0;
+
 }
 /* Login */
 

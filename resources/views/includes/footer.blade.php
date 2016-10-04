@@ -6,7 +6,7 @@
         </div>
 
         <div class="footer-studentRow row">
-            <div class="footer-grid-title col-sm-6 col-md-6">
+            <div class="footer-grid-title col-sm-6 col-md-4">
                 <h4 class="footer-assignmentTitle">
                     WDA Assignment One
                 </h4>
