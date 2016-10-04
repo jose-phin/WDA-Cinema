@@ -27,8 +27,9 @@ Route::get('user/profile', [
 Route::resource('user/wish', 'WishController');
 
 # Movie and Session Routes
+Route::get('movies/now_showing', 'MovieController@showNowShowing');
+Route::get('movies/coming_soon', 'MovieController@showComingSoon');
 
-Route::get('/movies', 'MovieController@showAllMovies');
 
 Route::get('sessions/by_movie/{id}', [
     'as' => 'sessionsByMovie', 'uses' => 'MovieSessionController@showSessionsByMovie'
