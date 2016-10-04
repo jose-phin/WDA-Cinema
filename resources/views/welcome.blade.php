@@ -24,6 +24,7 @@
             <div class="col-md-12">
                 <h1 class="titleHeader sectionHeader home-nowShowingTitle">Now Showing</h1>
 
+                    
                 <?php
 
                 ?>

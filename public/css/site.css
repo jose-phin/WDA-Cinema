@@ -76,6 +76,27 @@ p{
 }
 /* Movies */
 
+
+
+/* Movie Page Title: */
+.pageTitle-container{
+    text-align: center;
+}
+
+/* Page title icon */
+.movieList-pageTitle-icon.icon-fire:before{
+    font-size: 3em;
+    color: #D8C39D;
+}
+
+.movieList-pageTitle{
+    font-weight: 200;
+    font-size: 2em;
+    color: #D8C39D;
+    letter-spacing: 0px;
+}
+
+
 .flex-container {
     display: inline-flex;
     justify-content: flex-start;
@@ -83,11 +104,40 @@ p{
     width: 100%;
 }
 
-.item {
+
+/* Movie Item */
+.movieList-movieItem {
     width: 320px;
     height: 350px;
     margin: 10px;
     padding: 10px;
+}
+
+.movieList-movieItem > *{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.movieList-moviePosterContainer{
+    width: 120px;
+    margin-bottom: 20px;
+
+    /* Subtle shadow overlay makes the posters pop :) */
+    box-shadow: inset -0.5px 1px 0px rgba(255,255,255,0.1),
+    inset 0.5px -1px 0px rgba(255,255,255,0.1)
+}
+
+.movieList-moviePoster{
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: -2;
+}
+
+/* Movie Title: */
+.movieList-movieTitle{
+    font-size: 1.3em;
+    letter-spacing: 0px;
 }
 /* Login */
 
