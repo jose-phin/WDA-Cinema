@@ -17,7 +17,6 @@
         // hits one of the Task 3 endpoints in routes.php
 
         foreach ($movies as $movie) {
-
             echo "<div class=\"movieList-movieItem\">";
 
             echo "<div class='movieList-moviePosterContainer'><img class='movieList-moviePoster' src='" . $movie->image_url . "'></div>";

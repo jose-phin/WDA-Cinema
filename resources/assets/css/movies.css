@@ -67,7 +67,6 @@ hr.separator-movieList-nowPlaying{
 /* Movie Title: */
 .movieList-movieTitle{
     font-size: 1.3em;
-
     letter-spacing: 0px;
     margin-bottom: 10px;
 }
@@ -94,5 +93,4 @@ hr.separator-movieList-detail{
     font-weight: 400;
     color: #D2D2D2;
     padding: 5px 0;
-
 }
