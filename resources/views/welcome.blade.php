@@ -48,8 +48,8 @@
             pauseOnHover: false,
             centerMode: true,
             centerPadding: '60px',
-            nextArrow: '<i class="mavericks-carousel-arrow icon-arrow-right large-icons"></i>',
-            prevArrow: '<i class="mavericks-carousel-arrow icon-arrow-left large-icons"></i>',
+            nextArrow: '<i class="mavericks-carousel-arrow icon-arrow-right"></i>',
+            prevArrow: '<i class="mavericks-carousel-arrow icon-arrow-left"></i>',
             responsive: [{
                 breakpoint: 500,
                 settings: {
