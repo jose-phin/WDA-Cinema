@@ -24,9 +24,8 @@
             <div class="col-md-12">
                 <h1 class="titleHeader sectionHeader home-nowShowingTitle">Now Showing</h1>
 
-                    
-                <?php
 
+                <?php
                 ?>
 
             </div>
@@ -35,28 +34,28 @@
 
 
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.mavericks-carousel').slick({
-            dots: true,
-            lazyLoad: 'ondemand',
-            autoplay: false,
-            autoplaySpeed: 3500,
-            arrows: true,
-            pauseOnHover: false,
-            centerMode: true,
-            centerPadding: '60px',
-            nextArrow: '<i class="mavericks-carousel-arrow icon-arrow-right"></i>',
-            prevArrow: '<i class="mavericks-carousel-arrow icon-arrow-left"></i>',
-            responsive: [{
-                breakpoint: 500,
-                settings: {
-                    dots: false,
-                    arrows: false,
-                    centerMode: false
-                }
-            }]
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.mavericks-carousel').slick({
+                dots: true,
+                lazyLoad: 'ondemand',
+                autoplay: false,
+                autoplaySpeed: 3500,
+                arrows: true,
+                pauseOnHover: false,
+                centerMode: true,
+                centerPadding: '60px',
+                nextArrow: '<i class="mavericks-carousel-arrow icon-arrow-right"></i>',
+                prevArrow: '<i class="mavericks-carousel-arrow icon-arrow-left"></i>',
+                responsive: [{
+                    breakpoint: 500,
+                    settings: {
+                        dots: false,
+                        arrows: false,
+                        centerMode: false
+                    }
+                }]
+            });
         });
-    });
-</script>
+    </script>
 @endsection
