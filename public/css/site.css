@@ -1,35 +1,64 @@
-/* Homepage */
-
-body {
-    background-color: #000 !important;
-    color: #fff !important;
+/*Global style*/
+*{
+    font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
+    font-size: 13.5px;
+    font-weight: 300;
 }
 
+body {/**/
+    background-color: #000;
+    color: #fff;
+
+    /*Clearance for sticky nav*/
+    padding-top: 52px;
+}
+
+.content{
+    padding: 50px 0 100px;
+}
+
+/*Typography*/
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Rubik', sans-serif !important;
+    font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
+}
+
+p{
+    font-weight: 200;
+}
+
+.titleHeader{
+    font-size: 2em;
+}
+
+.sectionHeader{
+    padding-bottom: 5px;
+    border-bottom: 1px solid #979797;
 }
 
 /* Navigation bar */
+.mavericks-nav {
+    display: block;
+    background-color: #121212;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.7);
+}
+
 .navbar-title {
-    font-family: 'Rubik', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
 }
 
-#mavericks-nav {
-    display: block;
-    font-family: 'Rubik', sans-serif;
-    background-color: #000;
-    text-transform: uppercase;
-    margin-bottom: 1px;
-    border: none;
+.navbar-brand.navbar-title{
+    color: white;
 }
 
-#mavericks-nav a {
-    color: #ffffff;
+.mavericks-nav a, .navbar-default .navbar-nav > li > a {
+    color: #A4A4A4;
+    font-weight: 400;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-default .navbar-nav > li > a, .navbar-brand.navbar-title {
     border-bottom: 2px solid transparent;
     -webkit-transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
@@ -39,30 +68,111 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-default .navbar-nav > li > a:hover {
     border-bottom: 2px solid #fff;
+    color: white;
 }
 
-
-
-/* Footer */
-footer {
-    min-height: 300px;
-    padding-top: 20px;
-    color: #fff;
+.navbar-default .navbar-brand:hover{
+    color: #D8C39D;
 }
 /* Movies */
 
+/* Movie Page Title: */
+.pageTitle-container{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Page title icon */
+.movieList-pageTitle-icon.icon-fire:before{
+    font-size: 3em;
+    color: #D8C39D;
+}
+
+.movieList-pageTitle{
+    font-weight: 200;
+    font-size: 2em;
+    color: #D8C39D;
+    letter-spacing: 0px;
+}
+
+hr.separator-movieList-nowPlaying{
+    width: 40px;
+    background: #D8C39D;
+    height: 1px;
+    border: none;
+}
+
+/* Movie List Container */
 .flex-container {
-    display: inline-flex;
-    justify-content: flex-start;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
     flex-wrap: wrap;
     width: 100%;
 }
 
-.item {
-    width: 320px;
-    height: 350px;
+
+/* Movie Item */
+.movieList-movieItem {
+    flex-grow: 0;
+    padding: 20px 50px;
     margin: 10px;
-    padding: 10px;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.movieList-movieItem > *{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.movieList-moviePosterContainer{
+    width: 145px;
+    height: 215px;
+    margin-bottom: 20px;
+    /* Subtle shadow overlay makes the posters pop :) */
+    box-shadow: inset -0.5px 1px 0px rgba(255,255,255,0.1),
+    inset 0.5px -1px 0px rgba(255,255,255,0.1)
+}
+
+.movieList-moviePoster{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: -2;
+}
+
+/* Movie Title: */
+.movieList-movieTitle{
+    font-size: 1.3em;
+    letter-spacing: 0px;
+    margin-bottom: 10px;
+}
+
+.movieList-movieDirector{
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+hr.separator-movieList-detail{
+    width: 25px;
+    background: #fff;
+    height: 1px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.movieList-movieGenres{
+    font-size: 0.9em;
+    color: #D2D2D2;
+}
+.movieList-movieReleaseDate{
+    font-size: 0.8em;
+    font-weight: 400;
+    color: #D2D2D2;
+    padding: 5px 0;
 }
 /* Login */
 
@@ -77,6 +187,52 @@ footer {
     border-color: #3e3e3e;
     background-color: #000;
     color: #fff;
+}
+
+/* Footer */
+footer {
+    background: #121212;
+    min-height: 300px;
+    padding: 50px 0;
+    color: #fff;
+}
+
+.footer-logo{
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 40px;
+    -webkit-text-stroke: 1px #121212;
+}
+
+
+.footer-grid-title{
+    padding-bottom: 50px;
+}
+
+.footer-studentRow > div{
+    padding-bottom: 25px;
+}
+
+h4.footer-assignmentTitle{
+    margin-bottom: 0;
+}
+
+h5.footer-assignmentSubtitle{
+    margin-top: 5px;
+}
+
+h5.footer-assignmentSubtitle{
+    font-weight: 300;
+}
+
+h5.footer-studentRoles{
+    color: #A4A4A4;
+}
+
+.footer-studentList{
+    padding-left: 0;
+    list-style-type: none;
+    color: #A4A4A4;
 }
 
 /*# sourceMappingURL=site.css.map */

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <!-- Image -->
     <div class="mavericks-carousel">
         <div class="mavericks-carousel-imgContainer">
@@ -19,23 +18,22 @@
 
     <!-- Main -->
     <div class="container">
-        <div class="row">
+
+        {{--Now Showing Row Container--}}
+        <div class="row home-nowShowing-row">
             <div class="col-md-12">
-                <h2>Welcome!</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                <h1 class="titleHeader sectionHeader home-nowShowingTitle">Now Showing</h1>
+
+                    
+                <?php
+
+                ?>
 
             </div>
         </div>
-
-        <!-- Footer -->
-        @include('includes/footer')
-
     </div>
 
-</div>
+
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -48,8 +46,8 @@
             pauseOnHover: false,
             centerMode: true,
             centerPadding: '60px',
-            nextArrow: '<i class="mavericks-carousel-arrow icon-arrow-right large-icons"></i>',
-            prevArrow: '<i class="mavericks-carousel-arrow icon-arrow-left large-icons"></i>',
+            nextArrow: '<i class="mavericks-carousel-arrow icon-arrow-right"></i>',
+            prevArrow: '<i class="mavericks-carousel-arrow icon-arrow-left"></i>',
             responsive: [{
                 breakpoint: 500,
                 settings: {

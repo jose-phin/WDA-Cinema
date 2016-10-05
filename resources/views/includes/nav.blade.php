@@ -1,21 +1,28 @@
 <!-- Fixed navigation -->
-<!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-static-top" id="mavericks-nav">
+<nav class="mavericks-nav navbar navbar-default navbar-static-top navbar-fixed-top">
     <div class="container">
+        {{--Left of Nav--}}
         <div class="navbar-header">
+
+            {{--Hamburger Menu--}}
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+
+            {{--Logo--}}
             <a class="navbar-brand navbar-title" href="{{ url('/') }}"><i class="fa fa-film" aria-hidden="true"></i>&nbsp;Mavericks Inc. Cinema</a>
         </div>
+
+        {{--Right of Nav--}}
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <!-- Now Showing -->
-                <li><a href="{{ url('movies') }}">Now Showing</a></li>
+                <li><a href="{{ url('movies/now_showing') }}">Now Showing</a></li>
                 <li><a href="{{ url('movies/coming_soon') }}">Coming Soon</a></li>
+
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
