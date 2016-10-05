@@ -30,6 +30,22 @@ class MovieSessionController extends Controller
         return view('movie_sessions', ['sessions' => $sessions]);
     }
 
+
+    public function getSessionsByMovie($movie_id)
+    {
+        $sessions = MovieSession::whereHas('movie', function($q) use ($movie_id) {
+            $q->where('id', $movie_id);
+        })->get();
+
+        if (count($sessions) <= 0) {
+            abort(404, "Movie not found.");
+        }
+
+        return response()->json(['sessions' => $sessions]);
+    }
+
+
+
     /**
      * Fetches all sessions for any movie at a given cinema location
      *

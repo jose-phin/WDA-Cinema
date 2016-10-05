@@ -32,7 +32,7 @@ Route::get('movies/coming_soon', 'MovieController@showComingSoon');
 
 
 Route::get('sessions/by_movie/{id}', [
-    'as' => 'sessionsByMovie', 'uses' => 'MovieSessionController@showSessionsByMovie'
+    'as' => 'sessionsByMovie', 'uses' => 'MovieSessionController@getSessionsByMovie'
 ]);
 
 Route::get('sessions/by_cinema/{id}', [
