@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
 Route::auth();
 
@@ -27,16 +25,17 @@ Route::get('user/profile', [
 Route::resource('user/wish', 'WishController');
 
 # Movie and Session Routes
-Route::get('movies/now_showing', 'MovieController@showNowShowing');
-Route::get('movies/coming_soon', 'MovieController@showComingSoon');
 
+Route::get('movies', 'MovieController@showAllMovies');
 
-Route::get('sessions/by_movie/{id}', [
-    'as' => 'sessionsByMovie', 'uses' => 'MovieSessionController@getSessionsByMovie'
+Route::get('search', 'SearchController@index');
+
+Route::get('sessions/by_movie', [
+    'as' => 'sessionsByMovie', 'uses' => 'SearchController@getSessionsByMovie'
 ]);
 
-Route::get('sessions/by_cinema/{id}', [
-    'as' => 'sessionsByCinema', 'uses' => 'MovieSessionController@showSessionsByCinema'
+Route::get('sessions/by_location', [
+    'as' => 'sessionsByLocation', 'uses' => 'SearchController@getSessionsByLocation'
 ]);
 
 # Cart Routes
@@ -63,4 +62,3 @@ Route::post('user/cart/checkout', [
 Route::get('addtocart', [
     'uses' => 'CartController@index'
 ]);
-
