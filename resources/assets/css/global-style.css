@@ -14,7 +14,10 @@ body {/**/
 }
 
 .content{
-    padding: 50px 0 100px;
+    padding: 0 0 100px;
+    /* Had to remove 50px padding-top --> it's affecting other pages!
+     * Might put it in pageTitle-container instead :)
+     */
 }
 
 /*Typography*/
