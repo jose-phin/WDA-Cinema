@@ -19,8 +19,8 @@
         foreach ($movies as $movie) {
 
             echo "<div class=\"movieList-movieItem\">";
-            echo "<div class='movieList-moviePosterContainer'><a href='./" . $movie->title . "'><img class='movieList-moviePoster' src='" . $movie->image_url . "'></a></div>";
-            echo "<h5 class='movieList-movieTitle'><a class='movieList-movieTitle' href='./" . $movie->title . "'>" . $movie->title . "</a></h5>";
+            echo "<div class='movieList-moviePosterContainer'><a href='./movies/" . $movie->title . "'><img class='movieList-moviePoster' src='" . $movie->image_url . "'></a></div>";
+            echo "<h5 class='movieList-movieTitle'><a class='movieList-movieTitle' href='./movies/" . $movie->title . "'>" . $movie->title . "</a></h5>";
             echo "<p class='movieList-movieDirector'>". $movie->director . "</p>";
             echo "<hr class='separator-movieList-detail'>";
             echo "<p class='movieList-movieGenres'>" . $movie->genre . "</p>";
