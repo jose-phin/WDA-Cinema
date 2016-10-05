@@ -30,6 +30,10 @@ Route::resource('user/wish', 'WishController');
 Route::get('movies/now_showing', 'MovieController@showNowShowing');
 Route::get('movies/coming_soon', 'MovieController@showComingSoon');
 
+# Individual movie page
+Route::get('movies/{title}', [
+    'as' => 'movieByTitle', 'uses' => 'MovieController@showMovieByTitle'
+]);
 
 Route::get('sessions/by_movie/{id}', [
     'as' => 'sessionsByMovie', 'uses' => 'MovieSessionController@showSessionsByMovie'

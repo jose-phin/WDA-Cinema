@@ -1,4 +1,4 @@
-/* Login */
+/* Login and register */
 
 .panel-default {
     font-family: 'Rubik', sans-serif;
@@ -11,4 +11,22 @@
     border-color: #3e3e3e;
     background-color: #000;
     color: #fff;
+}
+
+.gold {
+    background: #A59578;
+    border: 1px solid #D8C39D;
+}
+
+.gold:hover {
+    background: #8B7957;
+    border: 1px solid #D8C39D;
+}
+
+.btn-link {
+    color: #D8C39D !important;
+}
+
+.btn-link:hover {
+    color: #8B7957;
 }

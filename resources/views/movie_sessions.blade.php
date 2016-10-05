@@ -53,8 +53,8 @@
         <?php
             echo "<h2>Sessions</h2>";
 
-            foreach ($sessions as $session)
-            {
+            foreach ($sessions as $session) {
+
                 echo "<div>";
                 echo "<p>Movie: ".$session->movie->title."</p>";
                 echo "<p>Location: ".$session->location->name."</p>";
@@ -63,6 +63,7 @@
                 echo "</div>";
 
                 echo "<br>";
+
             }
         ?>
     </div>
