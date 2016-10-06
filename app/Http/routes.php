@@ -34,12 +34,12 @@ Route::get('movies/{title}', [
 
 Route::get('search', 'SearchController@index');
 
-Route::get('sessions/by_movie', [
-    'as' => 'sessionsByMovie', 'uses' => 'SearchController@getSessionsByMovie'
-]);
-
 Route::get('sessions/by_location', [
     'as' => 'sessionsByLocation', 'uses' => 'SearchController@getSessionsByLocation'
+]);
+
+Route::get('sessions/by_movie', [
+    'as' => 'sessionsByMovie', 'uses' => 'SearchController@getSessionsByMovie'
 ]);
 
 # Cart Routes

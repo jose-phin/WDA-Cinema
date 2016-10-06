@@ -8,7 +8,7 @@
 - [Route Usage](#route-endpoint-usage)
     - [Users](#users)
     - [Movies](#movies)
-    - [Sessions](#sessions)
+    - [Searching and Sessions](#searching-and-sessions)
     - [Bookings](#bookings)
     - [Wishes](#wishes)
 - [Unit Test Usage](#unit-test-usage)
@@ -103,23 +103,23 @@ Fetches all movies marked as "Now Showing" in the DB and renders the `movie` vie
 
 Fetches all movies marked as "Coming Soon" in the DB and renders the `movie` view.
 
-### Sessions
+### Searching and Sessions
 
-#### GET /sessions/by_movie/{id}
+#### GET /sessions/by_movie
 
-Fetches all sessions for a **movie**, at *all* locations, and renders the `movie_sessions` template.
+Fetches all sessions for a given movie. Send "search by movie" queries here.
 
-Accepts a single param `{id}` which is the ID of the movie.
+`Request` should supply the movie `title`.
 
-When rendering the template, this route will provide a `$sessions` array that contains the details of each matching session.
+Returns a JSON array of matching sessions.
 
-#### GET /sessions/by_cinema/{id}
+#### GET /sessions/by_location
 
-Fetches all sessions for a **cinema**, for *any* movie, and renders the `movie_sessions` template.
+Fetches all sessions for a given location/cinema. Send "search by cinema" queries here.
 
-Accepts a single param `{id}` which is the ID of the cinema location.
+`Request` should supply the cinema/location `name`.
 
-When rendering the template, this route will provide a `$sessions` array that contains the details of each matching session.
+Returns a JSON array of matching sessions.
 
 ### Cart and Bookings
 
