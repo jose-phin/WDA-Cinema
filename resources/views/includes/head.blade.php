@@ -13,6 +13,8 @@
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
+{{--Event Listener--}}
+<script src="{{ URL::asset('js/eventListeners.js')}}"></script>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">

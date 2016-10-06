@@ -1,5 +1,29 @@
 /* Movies */
 
+/* Segmented Control */
+.movieList-segmentedControlContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.movieList-segmentedControl{
+    display: inline-block;
+    flex-grow: 0;
+    padding: 10px 50px;
+    text-align: center;
+    font-weight: 500;
+    color: #848484;
+    transition: all 0.2s ease-in-out;
+}
+
+.movieList-segmentedControl:hover{
+    color: #fff;
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
 /* Movie Page Title: */
 .pageTitle-container{
     text-align: center;
