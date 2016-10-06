@@ -6,10 +6,16 @@
     padding: 50px 0 20px 0;
 }
 
-/* Page title icon */
-.movieList-pageTitle-icon.icon-fire:before{
+/* Page title icons */
+.movieList-pageTitle-icon{
     font-size: 3em;
+}
+.movieList-pageTitle-icon.icon-fire:before{
     color: #D8C39D;
+}
+
+.movieList-pageTitle-icon.icon-hourglass:before{
+    color: #B6DDC8;
 }
 
 .movieList-pageTitle{
@@ -19,9 +25,20 @@
     letter-spacing: 0px;
 }
 
+.movieList-pageTitle-comingSoon{
+    color: #B6DDC8;
+}
+
 hr.separator-movieList-nowPlaying{
     width: 40px;
     background: #D8C39D;
+    height: 1px;
+    border: none;
+}
+
+hr.separator-movieList-comingSoon{
+    width: 40px;
+    background: #B6DDC8;
     height: 1px;
     border: none;
 }
