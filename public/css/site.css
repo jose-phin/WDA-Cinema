@@ -37,7 +37,7 @@ p{
 
 .sectionHeader{
     padding-bottom: 5px;
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid #343434;
 }
 
 /* Navigation bar */
@@ -149,7 +149,7 @@ hr.separator-movieList-comingSoon{
 }
 
 /* Movie List Container */
-.flex-container {
+.flex-container.moviesPage-flexContainer {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
@@ -407,5 +407,22 @@ h5.footer-studentRoles{
     list-style-type: none;
     color: #A4A4A4;
 }
+/* Movie List Container */
+.flex-container.homePage-flexContainer{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+}
 
+.homePage-movieItem{
+    padding: 10px 0px;
+    margin-right: 5%;
+    margin-left: 0px;
+    min-width: 0;
+
+}
 /*# sourceMappingURL=site.css.map */

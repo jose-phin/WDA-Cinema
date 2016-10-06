@@ -24,7 +24,7 @@
     </div>
 
 
-    <div class="flex-container container-fluid">
+    <div class="flex-container container-fluid moviesPage-flexContainer">
         <?php
         foreach ($movies as $movie) {
             if ($movie->is_now_showing == true){
@@ -52,7 +52,7 @@
     </div>
 
 
-    <div class="flex-container container-fluid">
+    <div class="flex-container container-fluid moviesPage-flexContainer">
         <?php
 
         // $movies array is passed in via the MovieController, which handles routing logic when user

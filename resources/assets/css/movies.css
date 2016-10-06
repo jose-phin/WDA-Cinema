@@ -68,7 +68,7 @@ hr.separator-movieList-comingSoon{
 }
 
 /* Movie List Container */
-.flex-container {
+.flex-container.moviesPage-flexContainer {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;

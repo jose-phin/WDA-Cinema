@@ -24,9 +24,20 @@
             <div class="col-md-12">
                 <h1 class="titleHeader sectionHeader home-nowShowingTitle">Now Showing</h1>
 
+                <div class="flex-container container-fluid homePage-flexContainer">
 
-                <?php
-                ?>
+                    <?php
+                        foreach ($movies as $movie) {
+                            if (($movie->is_now_showing == true)){
+                                echo "<div class=\"movieList-movieItem homePage-movieItem\">";
+                                echo "<div class='movieList-moviePosterContainer'><a href='./" . $movie->title . "'><img class='movieList-moviePoster' src='" . $movie->image_url . "'></a></div>";
+                                echo "</div>";
+                            }
+                        }
+
+                    ?>
+
+                </div>
 
             </div>
         </div>
