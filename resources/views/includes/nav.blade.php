@@ -19,9 +19,9 @@
         {{--Right of Nav--}}
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <!-- Now Showing -->
-                <li><a href="{{ url('movies/now_showing') }}">Now Showing</a></li>
-                <li><a href="{{ url('movies/coming_soon') }}">Coming Soon</a></li>
+                <!-- Movies -->
+                <li><a href="{{ url('movies/') }}">Now Showing</a></li>
+
 
                 <!-- Authentication Links -->
                 @if (Auth::guest())
