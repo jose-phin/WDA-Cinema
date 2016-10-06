@@ -22,7 +22,13 @@
         {{--Now Showing Row Container--}}
         <div class="row home-nowShowing-row">
             <div class="col-md-12">
-                <h1 class="titleHeader sectionHeader home-nowShowingTitle">Now Showing</h1>
+
+                <div class="titleHeaderContainer">
+                    <h1 class="titleHeader sectionHeader home-nowShowingTitle">Now Showing</h1>
+
+                    <a class="btn-homeNowShowing" href="{{ url('movies/') }}">All Movies</a>
+                </div>
+
 
                 <div class="flex-container container-fluid homePage-flexContainer">
 

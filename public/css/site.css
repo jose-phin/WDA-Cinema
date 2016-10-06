@@ -25,10 +25,21 @@ body {/**/
 /*Typography*/
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 p{
     font-weight: 200;
+}
+
+.titleHeaderContainer{
+    display: flex;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #979797;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
 }
 
 .titleHeader{
@@ -36,8 +47,6 @@ p{
 }
 
 .sectionHeader{
-    padding-bottom: 5px;
-    border-bottom: 1px solid #343434;
 }
 
 /* Navigation bar */
@@ -128,6 +137,7 @@ p{
     font-size: 2em;
     color: #D8C39D;
     letter-spacing: 0px;
+    margin: 20px 0;
 }
 
 .movieList-pageTitle-comingSoon{
@@ -415,7 +425,13 @@ h5.footer-studentRoles{
     flex-wrap: wrap;
     width: 100%;
     margin-left: 0;
+    margin-bottom: 0;
     padding-left: 0;
+    align-items: center;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+
 }
 
 .homePage-movieItem{
@@ -425,4 +441,25 @@ h5.footer-studentRoles{
     min-width: 0;
 
 }
+
+a.btn-homeNowShowing{
+    color: #D8C39D;
+    border: 1px solid #D8C39D;
+    border-radius: 5px;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    transition: all 0.1s ease-in-out;
+}
+
+a.btn-homeNowShowing:hover{
+    color: #000;
+    background: #D8C39D;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+
 /*# sourceMappingURL=site.css.map */
