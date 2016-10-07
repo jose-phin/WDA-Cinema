@@ -22,11 +22,6 @@
     </div>
 
 
-        <label for="movie_search">Search by movie name: </label>
-
-        <button id="movie_search_button">Search</button>
-
-        <br>
 
         <label for="location_search">Search by location: </label>
         <input id="location_search"/>
@@ -58,6 +53,22 @@
             list: {
                 match: {
                     enabled: true
+                },
+                onChooseEvent: function() {
+                    $.ajax({
+                        type: "GET",
+                        url: "{{ url('sessions/by_movie') }}",
+                        data: {
+                            title: $("#movie_search").val()
+                        },
+                        success: function(result) {
+                            $("#result_list").empty();
+
+                            $.each(result.sessions, function(k, v) {
+                                $("#result_list").append('<li>'  + v.location.name + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
+                            })
+                        }
+                    })
                 }
             },
             theme: "",
@@ -82,28 +93,6 @@
     </script>
 
     <script>
-        // Example of the AJAX call to get sessions by movie
-        $(document).ready(function() {
-           $("#movie_search_button").click(function(e) {
-               e.preventDefault();
-
-               $.ajax({
-                   type: "GET",
-                   url: "{{ url('sessions/by_movie') }}",
-                   data: {
-                       title: $("#movie_search").val()
-                   },
-                   success: function(result) {
-                       $("#result_list").empty();
-
-                       $.each(result.sessions, function(k, v) {
-                           $("#result_list").append('<li>'  + v.location.name + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
-                       })
-                   }
-               })
-           })
-        });
-
 
         // Example of the AJAX call to get sessions by location
         $(document).ready(function() {
@@ -134,34 +123,6 @@
             $('.easy-autocomplete input').removeAttr('style');
         });
 
-        $(document).ready(function(){
 
-            $("#eac-container-movie_search ul li").click(function(event){
-
-                console.log("click");
-            });
-
-            {{--$('#eac-container-movie_search ul li.selected').click(function(e) {--}}
-
-                {{--e.preventDefault();--}}
-
-                {{--console.log("hey");--}}
-                {{--$.ajax({--}}
-                    {{--type: "GET",--}}
-                    {{--url: "{{ url('sessions/by_movie') }}",--}}
-                    {{--data: {--}}
-                        {{--title: $("#movie_search").val()--}}
-                    {{--},--}}
-                    {{--success: function(result) {--}}
-                        {{--$("#result_list").empty();--}}
-
-                        {{--$.each(result.sessions, function(k, v) {--}}
-                            {{--$("#result_list").append('<li>'  + v.location.name + ', Theater ' + v.theater + ' at ' + v.time + '</li>');--}}
-                        {{--})--}}
-                    {{--}--}}
-                {{--})--}}
-
-            {{--})--}}
-        });
     </script>
 @endsection
