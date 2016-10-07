@@ -13,9 +13,12 @@
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
+<<<<<<< HEAD
 {{--Event Listener--}}
 <script src="{{ URL::asset('js/eventListeners.js')}}"></script>
 
+=======
+>>>>>>> 67a02cbba2b9d560913f4e09f224bcfe4962b60d
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -36,3 +39,7 @@
     <link rel="stylesheet" href=" {{ URL::asset('css/mavericks-carousel.css') }}">
 
 {{--<link href="{{ elixir('css/app.css') }}" rel="stylesheet">--}}
+
+<!-- Easy Autocomplete -->
+<script type="text/javascript" src="{{ URL::asset('js/jquery.easy-autocomplete.min.js') }}"></script>
+<link rel="stylesheet" href="{{ URL::asset('css/easy-autocomplete.min.css') }}">

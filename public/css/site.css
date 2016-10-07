@@ -463,3 +463,16 @@ a.btn-homeNowShowing:hover{
 
 
 /*# sourceMappingURL=site.css.map */
+
+/* Just some stuff used for the search proof-of-concept */
+ul {
+    color: black;
+}
+
+input {
+    color: black;
+}
+
+#result_list {
+    color: white;
+}

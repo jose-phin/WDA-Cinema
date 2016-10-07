@@ -50,7 +50,7 @@ class MovieController extends Controller
             abort(404, "Movie not found.");
         }
 
-        return view('individual_movie', ['movies' => Movie::where('title', $movieTitle)->get()]);
+        return view('individual_movie', ['movie' => Movie::where('title', $movieTitle)->first()]);
     }
 
 }
