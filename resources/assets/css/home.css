@@ -1,0 +1,44 @@
+/* Movie List Container */
+.flex-container.homePage-flexContainer{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    align-items: center;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+
+}
+
+.homePage-movieItem{
+    padding: 10px 0px;
+    margin-right: 5%;
+    margin-left: 0px;
+    min-width: 0;
+
+}
+
+a.btn-homeNowShowing{
+    color: #D8C39D;
+    border: 1px solid #D8C39D;
+    border-radius: 5px;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    transition: all 0.1s ease-in-out;
+}
+
+a.btn-homeNowShowing:hover{
+    color: #000;
+    background: #D8C39D;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+

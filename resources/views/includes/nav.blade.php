@@ -20,7 +20,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <!-- Movies -->
-                <li><a href="{{ url('movies/') }}">Now Showing</a></li>
+                <li><a href="{{ url('movies/') }}">Movies</a></li>
 
 
                 <!-- Authentication Links -->
