@@ -43,11 +43,12 @@ class SearchController extends Controller
      * Gets all sessions for a movie.
      *
      * @param Request $request request should include the title of the movie
-     * @return \Illuminate\Http\JsonResponse array of matching sessions
+     * @return \Illuminate\Http\JsonResponse JSON object containing the matching movie, and all associated sessions
      */
     public function getSessionsByMovie(Request $request)
     {
         $movie_title = $request->title;
+        $movie = Movie::where('title', $movie_title)->first();
 
         $sessions = MovieSession::whereHas('movie', function($q) use ($movie_title) {
             $q->where('title', $movie_title);
@@ -57,7 +58,7 @@ class SearchController extends Controller
             abort(404, "Movie not found.");
         }
 
-        return response()->json(['sessions' => $sessions]);
+        return response()->json(['movie' => $movie, 'sessions' => $sessions]);
     }
 
     /**
