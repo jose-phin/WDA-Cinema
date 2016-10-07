@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('search.js')
 @section('pageTitle', 'Dashboard')
 
 @section('content')
@@ -23,15 +23,22 @@
 
 
 
-        <label for="location_search">Search by location: </label>
-        <input id="location_search"/>
-        <button id="location_search_button">Search</button>
 
-        <div>
-            <h1>Results</h1>
-            <ul id="result_list"></ul>
-        </div>
+        {{--<label for="location_search">Search by location: </label>--}}
+        {{--<input id="location_search"/>--}}
+        {{--<button id="location_search_button">Search</button>--}}
 
+
+    <div>{{----}}
+        <h1>Results</h1>
+
+        
+        <ul id="result_list">
+
+
+
+        </ul>
+    </div>
 
 
 </div>
@@ -64,8 +71,11 @@
                         success: function(result) {
                             $("#result_list").empty();
 
+                            console.log(result);
+
                             $.each(result.sessions, function(k, v) {
-                                $("#result_list").append('<li>'  + v.location.name + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
+                                $("#result_list").append('<li>'
+                                        + v.location.name + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
                             })
                         }
                     })
