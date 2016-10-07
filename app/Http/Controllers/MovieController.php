@@ -40,17 +40,15 @@ class MovieController extends Controller
     }
 
     /**
-     * Fetch one movie based on ID
-     *
-     *
+     * Fetch one movie based on Id
      */
-    public function showMovieByTitle($movieTitle)
+    public function showMovieById($movieId)
     {
-        if (count(Movie::where('title', $movieTitle)->get()) <= 0) {
+        if (count(Movie::where('id', $movieId)->get()) <= 0) {
             abort(404, "Movie not found.");
         }
 
-        return view('individual_movie', ['movie' => Movie::where('title', $movieTitle)->first()]);
+        return view('individual_movie', ['movie' => Movie::where('id', $movieId)->first()]);
     }
 
 }

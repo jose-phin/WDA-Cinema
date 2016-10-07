@@ -28,8 +28,8 @@ Route::resource('user/wish', 'WishController');
 Route::get('movies', 'MovieController@showAllMovies');
 
 # Individual movie page
-Route::get('movies/{title}', [
-    'as' => 'movieByTitle', 'uses' => 'MovieController@showMovieByTitle'
+Route::get('movies/{id}', [
+    'as' => 'movieById', 'uses' => 'MovieController@showMovieById'
 ]);
 
 Route::get('search', 'SearchController@index');
