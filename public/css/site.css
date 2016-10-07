@@ -462,17 +462,95 @@ a.btn-homeNowShowing:hover{
 }
 
 
-/*# sourceMappingURL=site.css.map */
+/* Search Page*/
 
-/* Just some stuff used for the search proof-of-concept */
-ul {
-    color: black;
+/* EasyAutoComplete Style Overrides */
+
+/* EasyAutoComplete FORCES input widths to 465px,
+   this will clear that crappy width to flexible width
+*/
+.easy-autocomplete{
+    width: 100%;
 }
 
-input {
-    color: black;
+/* Search Container */
+.searchPage-searchByTitle-inputGroupContainer {
+    display: flex;
 }
 
-#result_list {
+/* EasyAutoComplete Container */
+.searchPage-searchByTitle-autoComplete{
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    align-items: center;
+}
+
+/*Search by Title Input Field*/
+.searchPage-searchByTitle-autoComplete .searchPage-searchByTitle-inputField {
+    flex: 1;
     color: white;
+    background: #000;
+    border: 0;
+    border-radius: 0;
+    font-size: 2em;
+    width: 100%;
+    border-bottom: 1px solid #737373;
+    padding: 10px 0px;
+    margin-left: 20px;
 }
+
+/* Getting rid of the unsightly blue glow */
+input.searchPage-searchByTitle-inputField{
+    outline: none;
+}
+
+input#movie_search::-webkit-input-placeholder {
+    color: #737373;
+}
+
+/* Search by Title Icon */
+.searchPage-searchByTitle-searchIcon  {
+    font-size: 2em;
+    align-items: center;
+    align-self: center;
+}
+
+/* AutoComplete container Override */
+
+#eac-container-movie_search ul{
+    padding: 10px 20px;
+    border: 0;
+    background: #121212;
+}
+
+#eac-container-movie_search ul li{
+    border: 0;
+    transition: all 0.1s ease-in-out;
+}
+
+#eac-container-movie_search ul li div{
+    border: 0;
+    font-size: 1.5em;
+    padding: 10px 20px 10px 0px;
+    transition: all 0.1s ease-in-out;
+}
+
+#eac-container-movie_search ul li.selected{
+    background: none;
+    transition: all 0.1s ease-in-out;
+}
+
+#eac-container-movie_search ul li.selected .eac-item{
+    color: #D8C39D;
+    transition: all 0.1s ease-in-out;
+}
+
+.easy-autocomplete-container ul li b {
+    font-size: inherit!important;
+    font-weight: 500!important;
+    color: #D8C39D;
+    transition: all 0.1s ease-in-out;
+}
+/*# sourceMappingURL=site.css.map */

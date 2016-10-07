@@ -3,11 +3,27 @@
 @section('pageTitle', 'Dashboard')
 
 @section('content')
-    <div class="container">
-        <h1>Session Search</h1>
+<div class="container">
+
+    <div class="pageTitle-container" id="">
+        <h1 class="movieList-pageTitle">Search Movie</h1>
+        <hr class="separator-movieList-nowPlaying">
+    </div>
+
+
+    <div class="searchPage-searchByTitleContainer">
+
+        <div class="searchPage-searchByTitle-inputGroupContainer">
+            <i class="searchPage-searchByTitle-searchIcon icon-magnifier"></i>
+            <input class="searchPage-searchByTitle-inputField" id="movie_search" autofocus/>
+
+        </div>
+
+    </div>
+
 
         <label for="movie_search">Search by movie name: </label>
-        <input id="movie_search"/>
+
         <button id="movie_search_button">Search</button>
 
         <br>
@@ -20,7 +36,10 @@
             <h1>Results</h1>
             <ul id="result_list"></ul>
         </div>
-    </div>
+
+
+
+</div>
 
     <script>
         // Read the arrays in as strings
@@ -40,7 +59,10 @@
                 match: {
                     enabled: true
                 }
-            }
+            },
+            theme: "",
+            cssClasses: "searchPage-searchByTitle-autoComplete",
+            placeholder: "Search by Movie Title"
         };
 
         var location_options = {
@@ -55,6 +77,8 @@
         // Attach the autocomplete to the input fields
         $("#movie_search").easyAutocomplete(movie_options);
         $("#location_search").easyAutocomplete(location_options);
+
+
     </script>
 
     <script>
@@ -80,6 +104,7 @@
            })
         });
 
+
         // Example of the AJAX call to get sessions by location
         $(document).ready(function() {
             $("#location_search_button").click(function(e) {
@@ -100,6 +125,43 @@
                     }
                 })
             })
+        });
+
+
+
+        $(document).ready(function(){
+            $('.easy-autocomplete').removeAttr('style');
+            $('.easy-autocomplete input').removeAttr('style');
+        });
+
+        $(document).ready(function(){
+
+            $("#eac-container-movie_search ul li").click(function(event){
+
+                console.log("click");
+            });
+
+            {{--$('#eac-container-movie_search ul li.selected').click(function(e) {--}}
+
+                {{--e.preventDefault();--}}
+
+                {{--console.log("hey");--}}
+                {{--$.ajax({--}}
+                    {{--type: "GET",--}}
+                    {{--url: "{{ url('sessions/by_movie') }}",--}}
+                    {{--data: {--}}
+                        {{--title: $("#movie_search").val()--}}
+                    {{--},--}}
+                    {{--success: function(result) {--}}
+                        {{--$("#result_list").empty();--}}
+
+                        {{--$.each(result.sessions, function(k, v) {--}}
+                            {{--$("#result_list").append('<li>'  + v.location.name + ', Theater ' + v.theater + ' at ' + v.time + '</li>');--}}
+                        {{--})--}}
+                    {{--}--}}
+                {{--})--}}
+
+            {{--})--}}
         });
     </script>
 @endsection
