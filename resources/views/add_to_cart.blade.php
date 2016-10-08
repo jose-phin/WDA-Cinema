@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pageTitle', 'Movies')
+@section('pageTitle', 'Add to Cart')
 @section('content')
 
     <!--
