@@ -47,6 +47,7 @@ p{
 }
 
 .sectionHeader{
+    align-self: center;
 }
 
 /* Navigation bar */
@@ -450,6 +451,7 @@ a.btn-homeNowShowing{
     vertical-align: middle;
     padding: 10px 30px;
     text-transform: uppercase;
+    font-weight:400;
     transition: all 0.1s ease-in-out;
 }
 
@@ -463,6 +465,12 @@ a.btn-homeNowShowing:hover{
 
 
 /* Search Page*/
+
+.searchPage-Container{
+    padding-bottom: 200px;
+}
+
+
 
 /* EasyAutoComplete Style Overrides */
 
@@ -495,7 +503,7 @@ a.btn-homeNowShowing:hover{
     border: 0;
     border-radius: 0;
     font-size: 2em;
-    width: 100%;
+    width: 95%;
     border-bottom: 1px solid #737373;
     padding: 10px 0px;
     margin-left: 20px;
@@ -523,6 +531,7 @@ input#movie_search::-webkit-input-placeholder {
     padding: 10px 20px;
     border: 0;
     background: #121212;
+    box-shadow: 0px 30px 70px 20px black;
 }
 
 #eac-container-movie_search ul li{
@@ -552,5 +561,81 @@ input#movie_search::-webkit-input-placeholder {
     font-weight: 500!important;
     color: #D8C39D;
     transition: all 0.1s ease-in-out;
+}
+
+
+
+
+
+
+
+
+/* Individual Movie Search Result */
+.result_list-container{
+
+}
+
+.foundItemContainer:nth-child(2){
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.searchPage-movieList.searchPage-searchByTitle.foundItemContainer{
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#searchByTitle-MovieItem{
+    align-self: flex-start;
+    order: 1;
+    margin: 0px;
+    padding-left: 0;
+}
+
+.searchPage-movieList.sessionsResultContainer{
+    flex-grow: 2;
+    padding: 20px 50px;
+    margin: 10px;
+    align-self: flex-start;
+    order: 2;
+    margin-left: 0;
+}
+
+
+.searchPage-movieList.sessionsResult.sessionResult-title > h4{
+    font-weight: 400;
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-title > h4 > .icon-check{
+    font-size: 1.3em;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-content .sessionItem{
+    padding: 10px 0;
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-content .sessionItem:first-child{
+    margin-top: 1em;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-content .sessionItem .sessionLocation{
+    font-size: 1.2em;
+    color: #D8C39D;
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-content .sessionItem .sessionDetails{
+    padding: 5px 0;
+    font-weight: 400;
+    color: #D2D2D2;
+}
+
+.searchPage-movieList span.theaterNumber-square{
+    box-sizing: border-box;
+    font-weight: 400;
+    border: 1px solid #D2D2D2;
+    padding: 2px 7.5px;
 }
 /*# sourceMappingURL=site.css.map */

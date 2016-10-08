@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@include('search.js')
+
 @section('pageTitle', 'Dashboard')
 
 @section('content')
-<div class="container">
+<div class="container searchPage-Container">
 
     <div class="pageTitle-container" id="">
         <h1 class="movieList-pageTitle">Search Movie</h1>
@@ -16,9 +16,7 @@
         <div class="searchPage-searchByTitle-inputGroupContainer">
             <i class="searchPage-searchByTitle-searchIcon icon-magnifier"></i>
             <input class="searchPage-searchByTitle-inputField" id="movie_search" autofocus/>
-
         </div>
-
     </div>
 
 
@@ -29,15 +27,14 @@
         {{--<button id="location_search_button">Search</button>--}}
 
 
-    <div>{{----}}
-        <h1>Results</h1>
+    <div class="result_list-container">
 
-        
-        <ul id="result_list">
+        <div id="result_list">
 
 
 
-        </ul>
+        </div>
+
     </div>
 
 
@@ -69,14 +66,20 @@
                             title: $("#movie_search").val()
                         },
                         success: function(result) {
+
+                            $movie = result.movie;
+                            $releaseDate = intToDate($movie.release_date);
+
+
                             $("#result_list").empty();
 
-                            console.log(result);
 
-                            $.each(result.sessions, function(k, v) {
-                                $("#result_list").append('<li>'
-                                        + v.location.name + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
-                            })
+
+                            appendMovie($movie);
+                            appendSessions(result.sessions);
+                            appendSessionList(result.sessions);
+
+
                         }
                     })
                 }
@@ -135,4 +138,6 @@
 
 
     </script>
+
+<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 @endsection

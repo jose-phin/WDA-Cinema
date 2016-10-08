@@ -39,3 +39,5 @@
 <!-- Easy Autocomplete -->
 <script type="text/javascript" src="{{ URL::asset('js/jquery.easy-autocomplete.min.js') }}"></script>
 <link rel="stylesheet" href="{{ URL::asset('css/easy-autocomplete.min.css') }}">
+
+
