@@ -114,6 +114,28 @@
 
     <script>
 
+        $('.searchPage-searchByLocation-locationButton').click(function(e){
+
+            $text = $(this).html();
+
+            $.ajax({
+                type: "GET",
+                url: "{{ url('sessions/by_location') }}",
+                data: {
+                    name: $text
+                },
+                success: function(result) {
+                    $("#result_list").empty();
+
+                    $.each(result.sessions, function(k, v) {
+                        $("#result_list").append('<li>' + v.movie.title + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
+                    })
+                }
+            })
+
+            console.log($text);
+        });
+
         // Example of the AJAX call to get sessions by location
         $(document).ready(function() {
             $("#location_search_button").click(function(e) {
