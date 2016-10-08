@@ -340,6 +340,84 @@ h3.singleMovie-movieTitle {
     color: #ffffff;
     font-size: 1.2em;
 }
+
+/* Buy tickets modal */
+.modal-title {
+    padding: 20px;
+    border-bottom: 1px solid #343434 !important;
+}
+
+.modal-body {
+    padding: 40px 20px 20px 20px;
+}
+
+.modal-content {
+    background-color: #1B1B1B;
+}
+
+.modal-footer {
+    border-top: 1px solid #343434 !important;
+}
+
+.dropDown-red select {
+    border: 0;
+    color: #eee;
+    background: transparent;
+    font-family: 'Rubik', Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    padding: 5px 20px;
+    width: 360px;
+    height: 50px;
+    -webkit-appearance: none;
+}
+
+.dropDown-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dropDown-red {
+    overflow: hidden;
+    width: 320px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    margin: 0 20px 40px 0;
+    background: #9D0E16 url("../images/caret.png") no-repeat scroll 285px center;;
+}
+
+/* Modal table */
+.table {
+    margin-bottom: 25px;
+}
+
+.table>thead {
+    border-bottom: 2px solid #222;
+}
+
+.table>thead:first-child>tr:first-child>th {
+    font-size: 17px;
+}
+
+.table>thead>tr>th, .table tr td {
+    border-bottom: 1px solid #222;
+}
+
+.right-align {
+    text-align: right !important;
+    margin: 0;
+}
+
+.total-text, .total-price {
+    font-size: 20px !important;
+}
+
+.total-price {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3%;
+}
 /* Login and register */
 
 .panel-default {
@@ -463,16 +541,3 @@ a.btn-homeNowShowing:hover{
 
 
 /*# sourceMappingURL=site.css.map */
-
-/* Just some stuff used for the search proof-of-concept */
-ul {
-    color: black;
-}
-
-input {
-    color: black;
-}
-
-#result_list {
-    color: white;
-}
