@@ -98,7 +98,6 @@
 
         populateLocationButtons(locations);
 
-
         function populateLocationButtons(locations) {
 
             $.each(locations, function(k, v){
@@ -113,9 +112,18 @@
     </script>
 
     <script>
-
+//        Search by Location
         $('.searchPage-searchByLocation-locationButton').click(function(e){
 
+            $('.searchPage-searchByLocation-locationButton').removeAttr('style');
+
+            $(this).css({
+                'transform' : 'scale(1.05)',
+                'background' : '#D8C39D',
+                'box-shadow' : '0px 0px 50px 25px rgba(0,0,0,0.8)',
+                'z-index' : '90',
+                'color' : 'black',
+            });
             $text = $(this).html();
 
             $.ajax({
@@ -133,30 +141,8 @@
                 }
             })
 
-            console.log($text);
         });
 
-        // Example of the AJAX call to get sessions by location
-        $(document).ready(function() {
-            $("#location_search_button").click(function(e) {
-                e.preventDefault();
-
-                $.ajax({
-                    type: "GET",
-                    url: "{{ url('sessions/by_location') }}",
-                    data: {
-                        name: $("#location_search").val()
-                    },
-                    success: function(result) {
-                        $("#result_list").empty();
-
-                        $.each(result.sessions, function(k, v) {
-                            $("#result_list").append('<li>' + v.movie.title + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
-                        })
-                    }
-                })
-            })
-        });
 
 
 
