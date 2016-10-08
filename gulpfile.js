@@ -19,7 +19,8 @@ elixir(function(mix) {
         'movies.css',
         'login.css',
         'footer.css',
-        'home.css'
+        'home.css',
+        'search.css'
     ], 'public/css/site.css');
 
 });

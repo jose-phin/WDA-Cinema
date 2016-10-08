@@ -3,24 +3,42 @@
 @section('pageTitle', 'Dashboard')
 
 @section('content')
-    <div class="container">
-        <h1>Session Search</h1>
+<div class="container searchPage-Container">
 
-        <label for="movie_search">Search by movie name: </label>
-        <input id="movie_search"/>
-        <button id="movie_search_button">Search</button>
+    <div class="pageTitle-container" id="">
+        <h1 class="movieList-pageTitle">Search Movie</h1>
+        <hr class="separator-movieList-nowPlaying">
+    </div>
 
-        <br>
 
-        <label for="location_search">Search by location: </label>
-        <input id="location_search"/>
-        <button id="location_search_button">Search</button>
+    <div class="searchPage-searchByTitleContainer">
 
-        <div>
-            <h1>Results</h1>
-            <ul id="result_list"></ul>
+        <div class="searchPage-searchByTitle-inputGroupContainer">
+            <i class="searchPage-searchByTitle-searchIcon icon-magnifier"></i>
+            <input class="searchPage-searchByTitle-inputField" id="movie_search" autofocus/>
         </div>
     </div>
+
+
+
+
+        {{--<label for="location_search">Search by location: </label>--}}
+        {{--<input id="location_search"/>--}}
+        {{--<button id="location_search_button">Search</button>--}}
+
+
+    <div class="result_list-container">
+
+        <div id="result_list">
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
 
     <script>
         // Read the arrays in as strings
@@ -39,8 +57,36 @@
             list: {
                 match: {
                     enabled: true
+                },
+                onChooseEvent: function() {
+                    $.ajax({
+                        type: "GET",
+                        url: "{{ url('sessions/by_movie') }}",
+                        data: {
+                            title: $("#movie_search").val()
+                        },
+                        success: function(result) {
+
+                            $movie = result.movie;
+                            $releaseDate = intToDate($movie.release_date);
+
+
+                            $("#result_list").empty();
+
+
+
+                            appendMovie($movie);
+                            appendSessions(result.sessions);
+                            appendSessionList(result.sessions);
+
+
+                        }
+                    })
                 }
-            }
+            },
+            theme: "",
+            cssClasses: "searchPage-searchByTitle-autoComplete",
+            placeholder: "Search by Movie Title"
         };
 
         var location_options = {
@@ -55,30 +101,11 @@
         // Attach the autocomplete to the input fields
         $("#movie_search").easyAutocomplete(movie_options);
         $("#location_search").easyAutocomplete(location_options);
+
+
     </script>
 
     <script>
-        // Example of the AJAX call to get sessions by movie
-        $(document).ready(function() {
-           $("#movie_search_button").click(function(e) {
-               e.preventDefault();
-
-               $.ajax({
-                   type: "GET",
-                   url: "{{ url('sessions/by_movie') }}",
-                   data: {
-                       title: $("#movie_search").val()
-                   },
-                   success: function(result) {
-                       $("#result_list").empty();
-
-                       $.each(result.sessions, function(k, v) {
-                           $("#result_list").append('<li>'  + v.location.name + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
-                       })
-                   }
-               })
-           })
-        });
 
         // Example of the AJAX call to get sessions by location
         $(document).ready(function() {
@@ -101,5 +128,16 @@
                 })
             })
         });
+
+
+
+        $(document).ready(function(){
+            $('.easy-autocomplete').removeAttr('style');
+            $('.easy-autocomplete input').removeAttr('style');
+        });
+
+
     </script>
+
+<script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 @endsection

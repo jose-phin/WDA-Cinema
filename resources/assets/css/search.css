@@ -1,0 +1,174 @@
+/* Search Page*/
+
+.searchPage-Container{
+    padding-bottom: 200px;
+}
+
+
+
+/* EasyAutoComplete Style Overrides */
+
+/* EasyAutoComplete FORCES input widths to 465px,
+   this will clear that crappy width to flexible width
+*/
+.easy-autocomplete{
+    width: 100%;
+}
+
+/* Search Container */
+.searchPage-searchByTitle-inputGroupContainer {
+    display: flex;
+}
+
+/* EasyAutoComplete Container */
+.searchPage-searchByTitle-autoComplete{
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    align-items: center;
+}
+
+/*Search by Title Input Field*/
+.searchPage-searchByTitle-autoComplete .searchPage-searchByTitle-inputField {
+    flex: 1;
+    color: white;
+    background: #000;
+    border: 0;
+    border-radius: 0;
+    font-size: 2em;
+    width: 95%;
+    border-bottom: 1px solid #737373;
+    padding: 10px 0px;
+    margin-left: 20px;
+}
+
+/* Getting rid of the unsightly blue glow */
+input.searchPage-searchByTitle-inputField{
+    outline: none;
+}
+
+input#movie_search::-webkit-input-placeholder {
+    color: #737373;
+}
+
+/* Search by Title Icon */
+.searchPage-searchByTitle-searchIcon  {
+    font-size: 2em;
+    align-items: center;
+    align-self: center;
+}
+
+/* AutoComplete container Override */
+
+#eac-container-movie_search ul{
+    padding: 10px 20px;
+    border: 0;
+    background: #121212;
+    box-shadow: 0px 30px 70px 20px black;
+}
+
+#eac-container-movie_search ul li{
+    border: 0;
+    transition: all 0.1s ease-in-out;
+}
+
+#eac-container-movie_search ul li div{
+    border: 0;
+    font-size: 1.5em;
+    padding: 10px 20px 10px 0px;
+    transition: all 0.1s ease-in-out;
+}
+
+#eac-container-movie_search ul li.selected{
+    background: none;
+    transition: all 0.1s ease-in-out;
+}
+
+#eac-container-movie_search ul li.selected .eac-item{
+    color: #D8C39D;
+    transition: all 0.1s ease-in-out;
+}
+
+.easy-autocomplete-container ul li b {
+    font-size: inherit!important;
+    font-weight: 500!important;
+    color: #D8C39D;
+    transition: all 0.1s ease-in-out;
+}
+
+
+
+
+
+
+
+
+/* Individual Movie Search Result */
+.result_list-container{
+
+}
+
+.foundItemContainer:nth-child(2){
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.searchPage-movieList.searchPage-searchByTitle.foundItemContainer{
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#searchByTitle-MovieItem{
+    align-self: flex-start;
+    order: 1;
+    margin: 0px;
+    padding-left: 0;
+}
+
+.searchPage-movieList.sessionsResultContainer{
+    flex-grow: 2;
+    padding: 20px 50px;
+    margin: 10px;
+    align-self: flex-start;
+    order: 2;
+    margin-left: 0;
+}
+
+
+.searchPage-movieList.sessionsResult.sessionResult-title > h4{
+    font-weight: 400;
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-title > h4 > .icon-check{
+    font-size: 1.3em;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-content .sessionItem{
+    padding: 10px 0;
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-content .sessionItem:first-child{
+    margin-top: 1em;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-content .sessionItem .sessionLocation{
+    font-size: 1.2em;
+    color: #D8C39D;
+}
+
+.searchPage-movieList.sessionsResult.sessionResult-content .sessionItem .sessionDetails{
+    padding: 5px 0;
+    font-weight: 400;
+    color: #D2D2D2;
+}
+
+.searchPage-movieList span.theaterNumber-square{
+    box-sizing: border-box;
+    font-weight: 400;
+    border: 1px solid #D2D2D2;
+    padding: 2px 7.5px;
+}

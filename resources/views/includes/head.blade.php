@@ -28,7 +28,6 @@
     <!-- Global style -->
     <link rel="stylesheet" href=" {{ URL::asset('css/site.css') }}">
 
-
     <!-- Carousel -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
@@ -36,8 +35,9 @@
     <!--Carousel on home page-->
     <link rel="stylesheet" href=" {{ URL::asset('css/mavericks-carousel.css') }}">
 
-{{--<link href="{{ elixir('css/app.css') }}" rel="stylesheet">--}}
 
 <!-- Easy Autocomplete -->
 <script type="text/javascript" src="{{ URL::asset('js/jquery.easy-autocomplete.min.js') }}"></script>
 <link rel="stylesheet" href="{{ URL::asset('css/easy-autocomplete.min.css') }}">
+
+
