@@ -716,4 +716,58 @@ input#movie_search::-webkit-input-placeholder {
     border: 1px solid #D2D2D2;
     padding: 2px 7.5px;
 }
+
+.searchPage-movieList span.sessionDateTime-square{
+
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+/* Search by Location */
+.searchPage-searchByLocationContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    color: #D2D2D2;
+    -webkit-flex-flow: wrap row;
+    flex-flow: wrap row;
+}
+
+.searchPage-searchByLocation-title{
+    flex-grow: 0;
+    margin-left: 20px;
+}
+
+.searchPage-searchByLocation-inputGroupContainer{
+    flex-grow: 0;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.searchPage-searchByLocation-locationButton{
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 400;
+    transition: all 0.1s ease-in-out;
+}
+
+.searchPage-searchByLocation-locationButton:hover{
+    transform: scale(1.05);
+    background: #333333;
+    box-shadow: 0px 0px 50px 25px rgba(0,0,0,0.8);
+    z-index: 90;
+    transition: all 0.1s ease-in-out;
+}
+
 /*# sourceMappingURL=site.css.map */

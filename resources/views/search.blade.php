@@ -11,6 +11,7 @@
     </div>
 
 
+    {{-- Search by Title --}}
     <div class="searchPage-searchByTitleContainer">
 
         <div class="searchPage-searchByTitle-inputGroupContainer">
@@ -21,6 +22,13 @@
 
 
 
+    <div class="searchPage-searchByLocationContainer">
+        <div class="searchPage-searchByLocation-title">by Location</div>
+        <div class="searchPage-searchByLocation-inputGroupContainer">
+
+        </div>
+    </div>
+
 
         {{--<label for="location_search">Search by location: </label>--}}
         {{--<input id="location_search"/>--}}
@@ -28,10 +36,7 @@
 
 
     <div class="result_list-container">
-
         <div id="result_list">
-
-
 
         </div>
 
@@ -73,12 +78,9 @@
 
                             $("#result_list").empty();
 
-
-
                             appendMovie($movie);
                             appendSessions(result.sessions);
                             appendSessionList(result.sessions);
-
 
                         }
                     })
@@ -89,19 +91,24 @@
             placeholder: "Search by Movie Title"
         };
 
-        var location_options = {
-            data: locations,
-            list: {
-                match: {
-                    enabled: true
-                }
-            }
-        };
 
         // Attach the autocomplete to the input fields
         $("#movie_search").easyAutocomplete(movie_options);
-        $("#location_search").easyAutocomplete(location_options);
 
+
+        populateLocationButtons(locations);
+
+
+        function populateLocationButtons(locations) {
+
+            $.each(locations, function(k, v){
+                $('.searchPage-searchByLocation-inputGroupContainer').append(
+                        "<div class='searchPage-searchByLocation-locationButton'>"
+                                + v
+                        +"</div>"
+                );
+            })
+        }
 
     </script>
 

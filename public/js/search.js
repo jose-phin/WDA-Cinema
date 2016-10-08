@@ -78,9 +78,11 @@ function appendSessionList(sessions){
                     + v.location.name
                 +'</div>'
                 +'<div class="sessionDetails">'
-                    + 'Theater <span class="theaterNumber-square">'+ v.theater + '</span>' + ' on ' + sessionDate
+                    + 'Theater <span class="theaterNumber-square">'+ v.theater
+                    +'</span>' + ' on <span class="sessionDateTime-square">' + sessionDate + '</span>'
                 + '</div>'
 
             +'</div>');
     })
 }
+
