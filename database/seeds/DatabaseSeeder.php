@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         // Create random session times for random movies
         // NOTE: This HAS to be in this position, as it relies on data created in the previous seeders to work
-        factory(App\MovieSession::class, 20)->create();
+        factory(App\MovieSession::class, 30)->create();
 
         // Run our test seeder to create a dummy user and dummy booking
         $this->call(UserTestSeeder::class);
