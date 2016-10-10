@@ -71,6 +71,7 @@
                             title: $("#movie_search").val()
                         },
                         success: function(result) {
+                            $('.searchPage-searchByLocation-locationButton').removeAttr('style');
 
                             $movie = result.movie;
                             $releaseDate = intToDate($movie.release_date);
@@ -95,8 +96,9 @@
         // Attach the autocomplete to the input fields
         $("#movie_search").easyAutocomplete(movie_options);
 
-
+        // Loads in all cinema locations to Location Search section
         populateLocationButtons(locations);
+
 
         function populateLocationButtons(locations) {
 
@@ -121,7 +123,7 @@
                 'transform' : 'scale(1.05)',
                 'background' : '#D8C39D',
                 'box-shadow' : '0px 0px 50px 25px rgba(0,0,0,0.8)',
-                'z-index' : '90',
+                'z-index' : '10',
                 'color' : 'black',
             });
             $text = $(this).html();
@@ -135,12 +137,17 @@
                 success: function(result) {
                     $("#result_list").empty();
 
+
                     $.each(result.sessions, function(k, v) {
-                        $("#result_list").append('<li>' + v.movie.title + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
+
+                        $movie = v.movie;
+                        $releaseDate = intToDate($movie.release_date);
+
+                        console.log(v);
+                        appendMovieBySession(v);
                     })
                 }
             })
-
         });
 
 

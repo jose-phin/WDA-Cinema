@@ -604,6 +604,9 @@ input#movie_search::-webkit-input-placeholder {
 }
 
 /* AutoComplete container Override */
+.easy-autocomplete-container{
+    z-index: 999!important;
+}
 
 #eac-container-movie_search ul{
     padding: 10px 20px;
@@ -653,7 +656,7 @@ input#movie_search::-webkit-input-placeholder {
 
 }
 
-.foundItemContainer:nth-child(2){
+.foundItemContainer:not(:first-child){
     border-top: 1px solid rgba(255,255,255,0.2);
 }
 
@@ -766,7 +769,7 @@ input#movie_search::-webkit-input-placeholder {
     transform: scale(1.05);
     background: #333333;
     box-shadow: 0px 0px 50px 25px rgba(0,0,0,0.8);
-    z-index: 100;
+    z-index: 5;
     transition: all 0.1s ease-in-out;
     cursor: pointer;
 }
