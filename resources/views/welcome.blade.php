@@ -56,7 +56,7 @@
             $('.mavericks-carousel').slick({
                 dots: true,
                 lazyLoad: 'ondemand',
-                autoplay: false,
+                autoplay: true,
                 autoplaySpeed: 3500,
                 arrows: true,
                 pauseOnHover: false,

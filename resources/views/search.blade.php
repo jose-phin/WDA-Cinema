@@ -11,6 +11,7 @@
     </div>
 
 
+    {{-- Search by Title --}}
     <div class="searchPage-searchByTitleContainer">
 
         <div class="searchPage-searchByTitle-inputGroupContainer">
@@ -21,6 +22,13 @@
 
 
 
+    <div class="searchPage-searchByLocationContainer">
+        <div class="searchPage-searchByLocation-title">by Location</div>
+        <div class="searchPage-searchByLocation-inputGroupContainer">
+
+        </div>
+    </div>
+
 
         {{--<label for="location_search">Search by location: </label>--}}
         {{--<input id="location_search"/>--}}
@@ -28,10 +36,7 @@
 
 
     <div class="result_list-container">
-
         <div id="result_list">
-
-
 
         </div>
 
@@ -66,6 +71,7 @@
                             title: $("#movie_search").val()
                         },
                         success: function(result) {
+                            $('.searchPage-searchByLocation-locationButton').removeAttr('style');
 
                             $movie = result.movie;
                             $releaseDate = intToDate($movie.release_date);
@@ -73,12 +79,9 @@
 
                             $("#result_list").empty();
 
-
-
                             appendMovie($movie);
                             appendSessions(result.sessions);
                             appendSessionList(result.sessions);
-
 
                         }
                     })
@@ -89,45 +92,64 @@
             placeholder: "Search by Movie Title"
         };
 
-        var location_options = {
-            data: locations,
-            list: {
-                match: {
-                    enabled: true
-                }
-            }
-        };
 
         // Attach the autocomplete to the input fields
         $("#movie_search").easyAutocomplete(movie_options);
-        $("#location_search").easyAutocomplete(location_options);
 
+        // Loads in all cinema locations to Location Search section
+        populateLocationButtons(locations);
+
+
+        function populateLocationButtons(locations) {
+
+            $.each(locations, function(k, v){
+                $('.searchPage-searchByLocation-inputGroupContainer').append(
+                        "<div class='searchPage-searchByLocation-locationButton'>"
+                                + v
+                        +"</div>"
+                );
+            })
+        }
 
     </script>
 
     <script>
+//        Search by Location
+        $('.searchPage-searchByLocation-locationButton').click(function(e){
 
-        // Example of the AJAX call to get sessions by location
-        $(document).ready(function() {
-            $("#location_search_button").click(function(e) {
-                e.preventDefault();
+            $('.searchPage-searchByLocation-locationButton').removeAttr('style');
 
-                $.ajax({
-                    type: "GET",
-                    url: "{{ url('sessions/by_location') }}",
-                    data: {
-                        name: $("#location_search").val()
-                    },
-                    success: function(result) {
-                        $("#result_list").empty();
+            $(this).css({
+                'transform' : 'scale(1.05)',
+                'background' : '#D8C39D',
+                'box-shadow' : '0px 0px 50px 25px rgba(0,0,0,0.8)',
+                'z-index' : '10',
+                'color' : 'black',
+            });
+            $text = $(this).html();
 
-                        $.each(result.sessions, function(k, v) {
-                            $("#result_list").append('<li>' + v.movie.title + ', Theater ' + v.theater + ' at ' + v.time + '</li>');
-                        })
-                    }
-                })
+            $.ajax({
+                type: "GET",
+                url: "{{ url('sessions/by_location') }}",
+                data: {
+                    name: $text
+                },
+                success: function(result) {
+                    $("#result_list").empty();
+
+
+                    $.each(result.sessions, function(k, v) {
+
+                        $movie = v.movie;
+                        $releaseDate = intToDate($movie.release_date);
+
+                        console.log(v);
+                        appendMovieBySession(v);
+                    })
+                }
             })
         });
+
 
 
 

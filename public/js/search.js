@@ -70,7 +70,7 @@ function appendSessions(sessions){
 function appendSessionList(sessions){
     $.each(sessions, function(k, v) {
 
-        var sessionDate = customTimeToDate(v.time);
+    var sessionDate = customTimeToDate(v.time);
 
         $(".sessionResult-content").append(
             '<div class="sessionItem">'
@@ -78,9 +78,68 @@ function appendSessionList(sessions){
                     + v.location.name
                 +'</div>'
                 +'<div class="sessionDetails">'
-                    + 'Theater <span class="theaterNumber-square">'+ v.theater + '</span>' + ' on ' + sessionDate
+                    + 'Theater <span class="theaterNumber-square">'+ v.theater
+                    +'</span>' + ' on <span class="sessionDateTime-square">' + sessionDate + '</span>'
                 + '</div>'
 
             +'</div>');
     })
+}
+
+
+function appendSessionContainerByLocation(v){
+    $(".searchPage-searchByTitle.foundItemContainer").append(
+        "<div class='searchPage-movieList sessionsResultContainer'>"
+        +"<div class='searchPage-movieList sessionsResult sessionResult-title'> <h4> <i class='icon-check'></i> Now Showing at </h4>" + "</div>"
+        +"<div class='searchPage-movieList sessionsResult sessionResult-content'></div>"
+        +"</div>"
+    );
+
+
+}
+
+function appendSessionsByLocation(session){
+    console.log("bylocation " + session.theater);
+    var sessionDate = customTimeToDate(session.time);
+
+    $(".sessionResult-content").append(
+        '<div class="sessionItem">'
+        +'<div class="sessionDetails">'
+        + 'Theater <span class="theaterNumber-square">'+ session.theater
+        +'</span>' + ' on <span class="sessionDateTime-square">' + sessionDate + '</span>'
+        + '</div>'
+        +'</div>');
+}
+
+
+
+function appendMovieBySession(v){
+    $movie = v.movie;
+    var sessionDate = customTimeToDate(v.time);
+
+
+    $("#result_list").append(
+        "<div class='searchPage-movieList searchPage-searchByTitle foundItemContainer'>"
+            +"<div class='movieList-movieItem' id='searchByTitle-MovieItem'>"
+                +"<div class='movieList-moviePosterContainer'><a href='./" + $movie.title + "'><img class='movieList-moviePoster' src='" + $movie.image_url + "'></a></div>"
+                +"<h5 class='movieList-movieTitle'><a class='movieList-movieTitle' href='./" + $movie.title + "'>" + $movie.title + "</a></h5>"
+                +"<p class='movieList-movieDirector'>" + $movie.director + "</p>"
+                +"<hr class='separator-movieList-detail'>"
+                +"<p class='movieList-movieGenres'>" + $movie.genre + "</p>"
+                +"<p class='movieList-movieReleaseDate'> Released: " + $releaseDate
+            +"</div>"
+
+            +"<div class='searchPage-movieList sessionsResultContainer'>"
+                +"<div class='searchPage-movieList sessionsResult sessionResult-title'> <h4> <i class='icon-check'></i> Now Showing at </h4>" + "</div>"
+                +"<div class='searchPage-movieList sessionsResult sessionResult-content'>"
+                    +'<div class="sessionItem">'
+                        +'<div class="sessionDetails">'
+                            + 'Theater <span class="theaterNumber-square">'+ v.theater
+                            +'</span>' + ' on <span class="sessionDateTime-square">' + sessionDate + '</span>'
+                        + '</div>'
+                    +'</div>'
+                +"</div>"
+            +"</div>"
+        +"</div>"
+    );
 }
