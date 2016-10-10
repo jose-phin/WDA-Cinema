@@ -41,7 +41,7 @@ class LocationTableSeeder extends Seeder
         ]);
 
         DB::table('locations')->insert([
-            'name' => 'Victoria Garderns',
+            'name' => 'Victoria Gardens',
         ]);
 
         DB::table('locations')->insert([
