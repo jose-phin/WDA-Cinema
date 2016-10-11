@@ -9,7 +9,7 @@
     - [Users](#users)
     - [Movies](#movies)
     - [Searching and Sessions](#searching-and-sessions)
-    - [Bookings](#bookings)
+    - [Bookings](#cart-and-bookings)
     - [Wishes](#wishes)
 - [Unit Test Usage](#unit-test-usage)
 
@@ -120,6 +120,25 @@ Fetches all sessions for a given location/cinema. Send "search by cinema" querie
 `Request` should supply the cinema/location `name`.
 
 Returns a JSON array of matching sessions.
+
+#### GET /sessions/by_location_grouped
+
+Fetches all sessions for a given location, but groups them by movie.
+
+`Request` should supply the cinema/location name.
+
+`Response` is a JSON object that takes the following form:
+
+```
+data:
+    <movie_id_1>:
+        movie: <Movie object>
+        sessions: <array of sessions>
+    <movie_id_2>:
+        ...
+```
+
+or null if there are no sessions associated with the provided location.
 
 ### Cart and Bookings
 

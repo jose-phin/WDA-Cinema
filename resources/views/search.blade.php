@@ -137,7 +137,6 @@
                 success: function(result) {
                     $("#result_list").empty();
 
-
                     $.each(result.sessions, function(k, v) {
 
                         $movie = v.movie;
@@ -147,7 +146,8 @@
                         appendMovieBySession(v);
                     })
                 }
-            })
+            });
+
         });
 
 

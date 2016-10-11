@@ -81,4 +81,46 @@ class SearchController extends Controller
         return response()->json(['sessions' => $sessions]);
     }
 
+    /**
+     * Gets all sessions for a location/cinema, and groups the results by movie.
+     *
+     * @param Request $request request should include the name of the cinema
+     * @return \Illuminate\Http\JsonResponse array of JSON objects holding sessions for each movie
+     * or null if no sessions available for that location
+     */
+    public function getSessionsByLocationGroupedByMovie(Request $request) {
+        $location_name = $request->name;
+
+        // Find all sessions at the specified location
+        $location = Location::where('name', $location_name)->first();
+        $sessions = $location->sessions()->get();
+
+        $sessionsByMovie = null;
+
+        // If we have matching sessions, move through them and sort them by movie
+        if (count($sessions) > 0) {
+            $sessionsByMovie = array();
+
+            foreach ($sessions as $session) {
+                $curSessionMovieId = $session->movie->id;
+
+                // If the movie ID already exists in our sessionsByMovie array, just append to the sessions subarray
+                if (array_key_exists($curSessionMovieId, $sessionsByMovie)) {
+                    array_push($sessionsByMovie[$curSessionMovieId]['sessions'], $session);
+                } else {
+                    $newMovieArray = array(
+                        'movie' => $session->movie,
+                        'sessions' => array()
+                    );
+
+                    array_push($newMovieArray['sessions'], $session);
+                    $sessionsByMovie[$curSessionMovieId] = $newMovieArray;
+                }
+
+            }
+        }
+
+        return response()->json(['data' => $sessionsByMovie]);
+    }
+
 }

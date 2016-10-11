@@ -38,6 +38,8 @@ Route::get('sessions/by_location', [
     'as' => 'sessionsByLocation', 'uses' => 'SearchController@getSessionsByLocation'
 ]);
 
+Route::get('sessions/by_location_grouped', 'SearchController@getSessionsByLocationGroupedByMovie');
+
 Route::get('sessions/by_movie', [
     'as' => 'sessionsByMovie', 'uses' => 'SearchController@getSessionsByMovie'
 ]);
