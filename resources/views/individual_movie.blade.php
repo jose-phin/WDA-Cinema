@@ -33,7 +33,7 @@
             echo "<div class='singleMovie-subSection'><p class='singleMovie-subHeading'>Runtime</p>";
             echo "<p>" . $movie->running_time . "</div>";
 
-            echo "<button type='submit' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'><a href='#'>Buy Tickets</a></button>";
+            echo "<button type='submit' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'><a href='#'>Add to Cart</a></button>";
             echo "</div></div>";
 
             ?>
@@ -42,10 +42,11 @@
                 <div class="modal fade ticket-modal-lg" tabindex="-1" role="dialog" aria-labelledby="Buy Tickets">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
-                            <h3 class="modal-title buy-tickets">Buy Tickets</h3>
+                            <h3 class="modal-title buy-tickets">Add to Cart</h3>
                             <div class="modal-body">
 
-                                <form>
+                                <form id="cartForm" method="POST" action="{{ url('user/cart/add') }}">
+                                    {{ csrf_field() }}
 
                                     <!-- Select a location -->
                                     <div class="dropDown-container">
@@ -57,7 +58,7 @@
 
                                         <!-- Select a session -->
                                         <div class="dropDown-red">
-                                            <select id="selectSession">
+                                            <select id="selectSession" name="session_id">
                                                 <option value="-1" selected="true" disabled="disabled">Select a session time</option>
                                             </select>
                                         </div>
@@ -77,19 +78,19 @@
                                         <tr>
                                             <td>Adult</td>
                                             <td class="price">25.00</td>
-                                            <td><select class="quantity"></select></td>
+                                            <td><select class="quantity" name="adult_qty"></select></td>
                                             <td><span class="subtotal">$0.00</span></td>
                                         </tr>
                                         <tr>
                                             <td>Concession</td>
                                             <td class="price">20.00</td>
-                                            <td><select class="quantity"></select></td>
+                                            <td><select class="quantity" name="concession_qty"></select></td>
                                             <td><span class="subtotal">$0.00</span></td>
                                         </tr>
                                         <tr>
                                             <td>Child</td>
                                             <td class="price">15.00</td>
-                                            <td><select class="quantity"></select></td>
+                                            <td><select class="quantity" name="child_qty"></select></td>
                                             <td><span class="subtotal" id="last">$0.00</span></td>
                                         </tr>
                                         </tbody>
@@ -106,7 +107,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary buy-now" disabled>Buy now</button>
+                                {{--<button type="button" class="btn btn-primary buy-now" disabled>Add to Cart</button>--}}
+                                <button type="submit" form="cartForm" class="btn btn-primary buy-now" disabled>Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -160,7 +162,7 @@
                 /* Find unique cinemas */
                 for (i = 0; i < data.location.length; i++) {
                     for (j = 0; j < locations.length; j++) {
-                        if (data.location[j].name == data.location[i].name) {
+                        if (locations[j].name == data.location[i].name) {
                             console.log("Not unique!");
                             unique = false;
                         }
