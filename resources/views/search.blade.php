@@ -16,7 +16,7 @@
 
         <div class="searchPage-searchByTitle-inputGroupContainer">
             <i class="searchPage-searchByTitle-searchIcon icon-magnifier"></i>
-            <input class="searchPage-searchByTitle-inputField" id="movie_search" autofocus/>
+            <input class="searchPage-searchByTitle-inputField" id="movie_search" name="movie_search" autofocus/>
         </div>
     </div>
 
@@ -137,7 +137,6 @@
                 success: function(result) {
                     $("#result_list").empty();
 
-
                     $.each(result.sessions, function(k, v) {
 
                         $movie = v.movie;
@@ -147,7 +146,8 @@
                         appendMovieBySession(v);
                     })
                 }
-            })
+            });
+
         });
 
 

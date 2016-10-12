@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 /**
  * Class UserTestSeeder
- *R®
+ *
  * This seeder exist purely for testing the User model.
  * It consists of a single user named "Tony Stark", that has 3 dummy bookings created for him.
  *
@@ -25,6 +25,15 @@ class UserTestSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
+        // Add a single item to his cart
+        DB::table('bookings')->insert([
+            'session_id' => 1,
+            'user_id' => $starkId,
+            'adult_qty' => 1,
+            'child_qty' => 1,
+            'concession_qty' => 0,
+            'paid' => false,
+        ]);
 
         // Add two dummy wish list items
         DB::table('wishes')->insert([

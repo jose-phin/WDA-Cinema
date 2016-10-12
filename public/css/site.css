@@ -775,3 +775,7 @@ input#movie_search::-webkit-input-placeholder {
 }
 
 /*# sourceMappingURL=site.css.map */
+
+.quantity {
+    color: grey;
+}

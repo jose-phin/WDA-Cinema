@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // Create some random users for testing
-        factory(App\User::class, 20)->create();
+        // factory(App\User::class, 20)->create();
 
         // Creates dummy movie and location data, see the respective seeders for more info
         $this->call(MoviesTableSeeder::class);
