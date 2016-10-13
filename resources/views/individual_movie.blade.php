@@ -33,7 +33,7 @@
             echo "<div class='singleMovie-subSection'><p class='singleMovie-subHeading'>Runtime</p>";
             echo "<p>" . $movie->running_time . "</div>";
 
-            echo "<button type='submit' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'><a href='#'>Add to Cart</a></button>";
+            echo "<button type='submit' id='cartButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'><a href='#'>Add to Cart</a></button>";
             echo "</div></div>";
 
             ?>
@@ -218,6 +218,27 @@
                 });
 
             });
+        </script>
+
+        <script>
+            /* Check that a user is logged in - if not, send them to the login screen */
+            $('#cartButton').click(function(e) {
+                e.preventDefault();
+                var loggedIn = false;
+
+                @if(Auth::check())
+                    loggedIn = true;
+                @endif
+
+                if (!loggedIn) {
+                    window.location.replace("../login");
+
+                    // Return false to ensure "Add to Cart" animation doesn't trigger
+                    return false;
+                } else {
+                    return true;
+                }
+            })
         </script>
 
     </div>
