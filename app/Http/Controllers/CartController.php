@@ -90,15 +90,33 @@ class CartController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function checkout(Request $request) {
+
+        $user_form_fields = array();
+
+        // Validate the user payment details
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|max:255',
             'address' => 'required',
             'suburb' => 'required',
-            'post_code' => 'required|digits:4',
+            'post_code' => 'required|numeric',
             'mobile_number' => 'required|numeric',
-            'credit_card_details' => 'required'
+            'credit_card_number' => 'required|numeric'
         ]);
 
+        // Sanitize the user payment form fields
+        array_push($user_form_fields, filter_var($request->name, FILTER_SANITIZE_STRING));
+        array_push($user_form_fields, filter_var($request->address, FILTER_SANITIZE_STRING));
+        array_push($user_form_fields, filter_var($request->suburb, FILTER_SANITIZE_STRING));
+        array_push($user_form_fields, filter_var($request->post_code, FILTER_SANITIZE_NUMBER_INT));
+        array_push($user_form_fields, filter_var($request->mobile_number, FILTER_SANITIZE_NUMBER_INT));
+        array_push($user_form_fields, filter_var($request->credit_card_number, FILTER_SANITIZE_NUMBER_INT));
+
+        // Check to ensure sanitizing worked
+        foreach ($user_form_fields as $form_field) {
+            if ($form_field == false) {
+                return redirect()->back()->with('message', ['Form sanitizing failed.']);
+            }
+        }
 
         $user = $request->user();
 

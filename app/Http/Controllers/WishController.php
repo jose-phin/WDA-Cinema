@@ -46,6 +46,7 @@ class WishController extends Controller
         $wish = new Wish;
         $wish->user_id = $user->id;
         $wish->movie_id = $request->movie_id;
+        $wish->notes = $request->notes;
 
         $wish->save();
 
