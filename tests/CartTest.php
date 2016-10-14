@@ -43,4 +43,38 @@ class CartTest extends TestCase
 
         $this->dontSeeInDatabase('bookings', ['id' => 1]);
     }
+
+    public function testCheckoutCartWithValidPaymentInfoUpdatesBookingInDB()
+    {
+        $user = App\User::find(1);
+
+        $this->actingAs($user)
+             ->post(route('checkoutCart', [
+                 'name' => 'Tony Stark',
+                 'address' => '1 Avengers Tower',
+                 'suburb' => 'New York City',
+                 'post_code' => '1000',
+                 'mobile_number' => '0400000000',
+                 'credit_card_number' => '0000000000000000',
+             ]));
+
+        $this->seeInDatabase('bookings', ['id' => 1, 'paid' => true]);
+    }
+
+    public function testCheckoutCardWithInvalidPaymentInfoDoesNotUpdateBookingInDB()
+    {
+        $user = App\User::find(1);
+
+        $this->actingAs($user)
+            ->post(route('checkoutCart', [
+                'name' => 'Tony Stark',
+                'address' => '1 Avengers Tower',
+                'suburb' => 'New York City',
+                'post_code' => 'Something',
+                'mobile_number' => 'Not adding one',
+                'credit_card_number' => 'Some credit card number',
+            ]));
+
+        $this->dontSeeInDatabase('bookings', ['id' => 1, 'paid' => true]);
+    }
 }
