@@ -28,14 +28,17 @@
         <?php
         foreach ($movies as $movie) {
             if ($movie->is_now_showing == true){
+                echo "<a href='./movies/" . $movie->id . "' class='movieList-movieItemContainer'>";
                 echo "<div class=\"movieList-movieItem\">";
-                echo "<div class='movieList-moviePosterContainer'><a href='./movies/" . $movie->id . "'><img class='movieList-moviePoster' src='" . $movie->image_url . "'></a></div>";
-                echo "<h5 class='movieList-movieTitle'><a class='movieList-movieTitle' href='./movies/" . $movie->id . "'>" . $movie->title . "</a></h5>";
+                echo "<div class='movieList-moviePosterContainer'><img class='movieList-moviePoster' src='" . $movie->image_url . "'><img class='movieList-moviePoster posterGlow' src='" . $movie->image_url . "'></div>";
+                echo "<h5 class='movieList-movieTitle'>" . $movie->title . "</h5>";
                 echo "<p class='movieList-movieDirector'>". $movie->director . "</p>";
                 echo "<hr class='separator-movieList-detail'>";
                 echo "<p class='movieList-movieGenres'>" . $movie->genre . "</p>";
                 echo "<p class='movieList-movieReleaseDate'>" . date('d F Y', $movie->release_date);
                 echo "</div>";
+                echo "</a>";
+
             }
         }
         ?>
@@ -60,14 +63,16 @@
 
         foreach ($movies as $movie) {
             if ($movie->is_now_showing == false){
+                echo "<a href='./movies/" . $movie->id . "' class='movieList-movieItemContainer'>";
                 echo "<div class=\"movieList-movieItem\">";
-                echo "<div class='movieList-moviePosterContainer'><a href='./movies/" . $movie->id . "'><img class='movieList-moviePoster' src='" . $movie->image_url . "'></a></div>";
-                echo "<h5 class='movieList-movieTitle'><a class='movieList-movieTitle' href='./movies/" . $movie->id . "'>" . $movie->title . "</a></h5>";
+                echo "<div class='movieList-moviePosterContainer'><img class='movieList-moviePoster' src='" . $movie->image_url . "'><img class='movieList-moviePoster posterGlow' src='" . $movie->image_url . "'></div>";
+                echo "<h5 class='movieList-movieTitle'>" . $movie->title . "</h5>";
                 echo "<p class='movieList-movieDirector'>". $movie->director . "</p>";
                 echo "<hr class='separator-movieList-detail'>";
                 echo "<p class='movieList-movieGenres'>" . $movie->genre . "</p>";
                 echo "<p class='movieList-movieReleaseDate'>" . date('d F Y', $movie->release_date);
                 echo "</div>";
+                echo "</a>";
             }
         }
 
