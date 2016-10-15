@@ -212,6 +212,17 @@ hr.separator-movieList-detail{
     display: block;
 }
 
+.singleMovie-buttonContainer {
+    float: left;
+    display: flex;
+    width: 100%;
+}
+
+.singleMovie-buttonContainer :first-child {
+    margin-right: 10px;
+}
+
+
 .singleMovie-moviePosterLg {
     z-index: 1;
     width: 100%;

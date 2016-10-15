@@ -20,7 +20,8 @@ elixir(function(mix) {
         'login.css',
         'footer.css',
         'home.css',
-        'search.css'
+        'search.css',
+        'user-profile.css'
     ], 'public/css/site.css');
 
 });
