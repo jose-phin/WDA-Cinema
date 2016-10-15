@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Movie;
 use App\Http\Requests;
@@ -41,14 +42,29 @@ class MovieController extends Controller
 
     /**
      * Fetch one movie based on Id
+     *
+     * @param string $movieId
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showMovieById($movieId)
+    public function showMovieById($movieId, Request $request)
     {
         if (count(Movie::where('id', $movieId)->get()) <= 0) {
             abort(404, "Movie not found.");
         }
 
-        return view('individual_movie', ['movie' => Movie::where('id', $movieId)->first()]);
+        $wishId = null;
+
+        if(Auth::check()) {
+            $wish = $request->user()->wishes->where("movie_id", $movieId)->first();
+
+            if(isSet($wish)){
+                $wishId = $wish->id;
+            }
+        }
+
+        return view('individual_movie', ['movie' => Movie::where('id', $movieId)->first(), 'wish_id' => $wishId]);
+
     }
 
 }
