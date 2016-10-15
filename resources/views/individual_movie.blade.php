@@ -63,7 +63,7 @@
                                 <form method="POST" action="{{ url('user/wish') }}">
                                     {{ csrf_field() }}
                                     <input id="wishlistId" type="hidden" value="{{$movie->id}}" name="movie_id">
-                                    <input id="wishlistNotes" type="hidden" value="Recently added to wishlist" name="notes">
+                                    <input id="wishlistNotes" type="hidden" value="" name="notes">
                                     <button type='submit' id='wishlistButton' class='btn btn-primary redButton'>
                                         Add to Wishlist
                                     </button>
