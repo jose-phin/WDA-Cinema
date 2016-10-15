@@ -113,36 +113,38 @@ function appendSessionsByLocation(session){
 
 
 // @Chloe this is the function in question
-function appendMovieBySession(v){
-    $movie = v.movie;
+function appendMovieBySession(movieData){
+    var movie = movieData.movie;
+    var sessions = movieData.sessions;
 
-    console.log("movie + session object: ", v);
-
+    var safeMovieName = movie.title.replace(/\W+/g, "");
+    var encodedMovieTitle = encodeURI(movie.title);
+    var sessionId = safeMovieName + "-sessionItems";
     $("#result_list").append(
         "<div class='searchPage-movieList searchPage-searchByTitle foundItemContainer'>"
-            +"<div class='movieList-movieItem' id='searchByTitle-MovieItem'>"
-                +"<div class='movieList-moviePosterContainer'><a href='./" + $movie.title + "'><img class='movieList-moviePoster' src='" + $movie.image_url + "'></a></div>"
-                +"<h5 class='movieList-movieTitle'><a class='movieList-movieTitle' href='./" + $movie.title + "'>" + $movie.title + "</a></h5>"
-                +"<p class='movieList-movieDirector'>" + $movie.director + "</p>"
+            +"<div class='movieList-movieItem' id='" + safeMovieName + "-searchByTitle-MovieItem'>"
+                +"<div class='movieList-moviePosterContainer'><a href='/" + encodedMovieTitle + "'><img class='movieList-moviePoster' src='" + movie.image_url + "'></a></div>"
+                +"<h5 class='movieList-movieTitle'><a class='movieList-movieTitle' href='/" + encodedMovieTitle + "'>" + movie.title + "</a></h5>"
+                +"<p class='movieList-movieDirector'>" + movie.director + "</p>"
                 +"<hr class='separator-movieList-detail'>"
-                +"<p class='movieList-movieGenres'>" + $movie.genre + "</p>"
-                +"<p class='movieList-movieReleaseDate'> Released: " + $releaseDate
+                +"<p class='movieList-movieGenres'>" + movie.genre + "</p>"
+                +"<p class='movieList-movieReleaseDate'> Released: " + intToDate(movie.release_date)
             +"</div>"
 
             +"<div class='searchPage-movieList sessionsResultContainer'>"
                 +"<div class='searchPage-movieList sessionsResult sessionResult-title'> <h4> <i class='icon-check'></i> Now Showing at </h4>" + "</div>"
                 +"<div class='searchPage-movieList sessionsResult sessionResult-content'>"
-                    +'<div class="sessionItem">'
+                    +'<div id="' + sessionId + '" class="sessionItem">'
                     +'</div>'
                 +"</div>"
             +"</div>"
         +"</div>"
     );
 
-    $.each(v.sessions, function(k, session){
-        console.log("sessions :", session);
+    $.each(sessions, function(sessionKey, session){
+        if(session.movie_id !== movie.id.toString()) return null;
         var sessionDate = customTimeToDate(session.time);
-        $(".sessionItem").append(
+        $("#" + sessionId).append(
             '<div class="sessionDetails">'
             + 'Theater <span class="theaterNumber-square">'+ session.theater
             +'</span>' + ' on <span class="sessionDateTime-square">' + sessionDate + '</span>'

@@ -136,14 +136,8 @@
                 },
                 success: function(result) {
                     $("#result_list").empty();
-
-
-                    $.each(result.data, function(k, v) {
-
-                        $movie = v.movie;
-                        $releaseDate = intToDate($movie.release_date);
-
-                        appendMovieBySession(v);
+                    $.each(result.data, function(movieKey, movieObject) {
+                        appendMovieBySession(movieObject);
                     })
                 },
                 error: function(result) {
