@@ -60,7 +60,7 @@
 
                     echo "<div>";
 
-                    if (empty($wish)) {
+                    if (empty($wishes)) {
 
                         echo "<p>You currently have no movies on your wishlist!</p>";
                         echo "</div>";
@@ -71,7 +71,7 @@
                         echo "<ul>";
 
                         foreach($wishes as $wish) {
-                            echo "<li>" . $wish->movie->title . " ($wish->notes) " . "</li>";
+                            echo "<li>" . $wish->movie->title . "</li>";
                         }
 
                         echo "</ul>";
