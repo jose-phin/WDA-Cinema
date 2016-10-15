@@ -50,33 +50,60 @@
                 ?>
 
                 <h2>My Wishlist</h2>
+                    <div>
+                        @if (empty($wishes))
+                            <p>You currently have no movies on your wishlist!</p>
+                        @else
+                            <div>
+                            @foreach($wishes as $i=>$wish)
+                                    <div class="wishlist-item--container">
+                                        <div class="wishlist-item--title-container">
+                                            <p>
+                                                {{$wish->movie->title}} @if(isset($wish->notes) && strcmp($wish->notes, "") !== 0) ({{$wish->notes}}) @endif
+                                            </p>
+                                            <button id="wishlist-edit--button-{{$i}}" type='submit' class='btn btn-link' onclick="toggleNotesEdit(event, '{{$i}}')">
+                                                Edit
+                                            </button>
+                                            <form method="POST" action="{{ url('user/wish/' . $wish->id) }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type='submit' class='btn btn-link'>
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <form id="wishlist-edit-{{$i}}" class="wishlist-item--edit" method="POST" action="{{ url('user/wish/' . $wish->id) }}">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="_method" value="PUT">
 
-                <?php
-
-                    echo "<div>";
-
-                    if (empty($wishes)) {
-
-                        echo "<p>You currently have no movies on your wishlist!</p>";
-                        echo "</div>";
-                        echo "<br>";
-
-                    } else {
-
-                        echo "<ul>";
-
-                        foreach($wishes as $wish) {
-                            echo "<li>" . $wish->movie->title . " ($wish->notes) " . "</li>";
-                        }
-
-                        echo "</ul>";
-                        echo "</div>";
-                    }
-                ?>
-
+                                            <input type="text" name="notes">
+                                            <button type="submit" class='btn btn-link'>Update</button>
+                                        </form>
+                                    </div>
+                            @endforeach
+                            </div>
+                        @endif
+                    </div>
+                <br>
             </div>
         </div>
 
     </div>
 </div>
+
+<script>
+    function toggleNotesEdit(e, elementIndex) {
+        e.preventDefault();
+        var editElement = $("#wishlist-edit-" + elementIndex);
+        if( editElement.css("display") === "flex") {
+            editElement.css("display", "none");
+            $("#wishlist-edit--button-" + elementIndex).text("Edit");
+        }
+        else if( editElement.css("display") === "none" ) {
+            editElement.css("display", "flex");
+            $("#wishlist-edit--button-" + elementIndex).text("Hide");
+        }
+        console.log(  );
+    }
+</script>
 @endsection

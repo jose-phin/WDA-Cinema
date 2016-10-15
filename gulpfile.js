@@ -21,7 +21,8 @@ elixir(function(mix) {
         'footer.css',
         'home.css',
         'search.css',
-        'cart.css'
+        'cart.css',
+        'user-profile.css'
     ], 'public/css/site.css');
 
 });
