@@ -1,48 +1,6 @@
-<!DOCTYPE html>
-
-<!--
-    Proof-of-concept for view presented to a user after a booking has been successfully made.
-
-    Feel free to delete this and replace with something more appropriate!
--->
-
-<html>
-<head>
-    <title>Laravel</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-    <style>
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
-
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
-
-        .title {
-            font-size: 96px;
-        }
-    </style>
-</head>
-<body>
+@extends('layouts.app')
+@section('pageTitle', 'Success!')
+@section('content')
 <div class="container">
     <div class="content">
         <?php
@@ -58,5 +16,4 @@
         ?>
     </div>
 </div>
-</body>
-</html>
+@endsection

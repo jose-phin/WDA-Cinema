@@ -64,6 +64,10 @@ Route::post('user/cart/checkout', [
     'as' => 'checkoutCart', 'uses' => 'CartController@checkout'
 ]);
 
+Route::get('user/cart/success', [
+   'as' => 'checkoutSuccess', 'uses' => 'CartController@success'
+]);
+
 // Dummy route used to test adding of booking to cart
 Route::get('addtocart', [
     'uses' => 'CartController@index'

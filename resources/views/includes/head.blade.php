@@ -13,9 +13,12 @@
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-
-{{--Event Listener--}}
+<!-- Event Listener -->
 <script src="{{ URL::asset('js/eventListeners.js')}}"></script>
+
+<!-- jQuery Validator -->
+<script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
+<script src="{{ URL::asset('js/additional-methods.min.js') }}"></script>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
