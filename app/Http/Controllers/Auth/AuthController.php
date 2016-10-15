@@ -69,4 +69,33 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * Attach a user's last location to the session to allow redirect after login.
+     *
+     * Code adapted from https://laracasts.com/discuss/channels/laravel/redirect-to-page-where-login-button-was-clicked
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        if(!session()->has('from')){
+            session()->put('from', url()->previous());
+        }
+        return view('auth.login');
+    }
+
+    /**
+     * Overrides AuthenticatesRegisterAndUsers trait to send user back to their last location.
+     *
+     * Code adapted from https://laracasts.com/discuss/channels/laravel/redirect-to-page-where-login-button-was-clicked
+     *
+     * @param $request
+     * @param $user
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function authenticated($request,$user)
+    {
+        return redirect(session()->pull('from',$this->redirectTo));
+    }
 }

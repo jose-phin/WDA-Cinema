@@ -72,3 +72,8 @@ Route::get('user/cart/success', [
 Route::get('addtocart', [
     'uses' => 'CartController@index'
 ]);
+
+// Route used for login redirection
+Route::get('user/cart/auth_redirect', [
+    'as' => 'authAndRedirect', 'uses' => 'CartController@authRedirect'
+]);
