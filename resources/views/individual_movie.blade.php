@@ -54,7 +54,13 @@
                     <div class="singleMovie-buttonContainer">
                         @if($movie->is_now_showing == True)
                         <button type='submit' id='cartButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'>
-                            <a href='#'>Add to Cart</a>
+
+                            @if(Auth::check())
+                                <a href='#'>Add to Cart</a>
+                            @else
+                                <a href='{{ url('user/cart/auth_redirect') }}'>Add to Cart</a>
+                            @endif
+
                         </button>
                         @endif
 
@@ -277,7 +283,7 @@
                 @endif
 
                 if (!loggedIn) {
-                    window.location.replace("../login");
+                    window.location.replace('{{ url('user/cart/auth_redirect') }}');
 
                     // Return false to ensure "Add to Cart" animation doesn't trigger
                     return false;

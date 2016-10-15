@@ -140,4 +140,14 @@ class CartController extends Controller
     }
 
 
+    /**
+     * Dummy controller function to facilitate login redirection to a user's previous location.
+     * Used in the "Add to Cart" flow.
+     *
+     * @param Request $request
+     * @return null
+     */
+    public function authRedirect(Request $request) {
+        return null;
+    }
 }

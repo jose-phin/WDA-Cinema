@@ -40,7 +40,7 @@ class SearchController extends Controller
     }
 
     /**
-     * Gets all sessions for a movie.
+     * Gets all sessions for a given movie at any location.
      *
      * @param Request $request request should include the title of the movie
      * @return \Illuminate\Http\JsonResponse JSON object containing the matching movie, and all associated sessions
@@ -50,8 +50,8 @@ class SearchController extends Controller
         $movie_title = $request->title;
         $movie = Movie::where('title', $movie_title)->first();
 
-        $sessions = MovieSession::whereHas('movie', function($q) use ($movie_title) {
-            $q->where('title', $movie_title);
+        $sessions = MovieSession::whereHas('movie', function($query) use ($movie_title) {
+            $query->where('title', $movie_title);
         })->with('location')->get();
 
         if (count($sessions) <= 0) {
@@ -62,7 +62,7 @@ class SearchController extends Controller
     }
 
     /**
-     * Gets all sessions for a location/cinema.
+     * Gets all sessions for any movie at a location/cinema.
      *
      * @param Request $request request should include the name of the cinema
      * @return \Illuminate\Http\JsonResponse array of matching sessions
