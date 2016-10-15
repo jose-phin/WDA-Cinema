@@ -299,6 +299,26 @@ h3.singleMovie-movieTitle {
     font-size: 1.2em;
 }
 
+.btn-secondary.redButton{
+    background: none;
+    color: #AC1018;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.1s ease-in-out;
+}
+
+.wishlistButton:hover{
+    background: #AC1018;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.btn-secondary.redButton > .icon-addToWishlist{
+    font-size: 1.1em;
+}
+
 /* Buy tickets modal */
 .modal-title {
     padding: 20px;
