@@ -51,12 +51,27 @@
                             {{$movie->running_time}}
                         </p>
                     </div>
+                    <div class="singleMovie-buttonContainer">
+                        @if($movie->is_now_showing == True)
+                        <button type='submit' id='cartButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'>
+                            <a href='#'>Add to Cart</a>
+                        </button>
+                        @endif
 
-            <button type='submit' id='cartButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'>
-                <a href='#'>Add to Cart</a>
-            </button>
-        </div>
-    </div>
+                        @if(Auth::check())
+                        <form method="POST" action="{{ url('user/wish') }}">
+                            {{ csrf_field() }}
+                            <input id="wishlistId" type="hidden" value="{{$movie->id}}" name="movie_id">
+                            <input id="wishlistNotes" type="hidden" value="Recently added to wishlist" name="notes">
+                            <button type='submit' id='wishlistButton' class='btn btn-primary redButton'>
+                                Add to Wishlist
+                            </button>
+                        </form>
+                        @endif
+
+                    </div>
+                </div>
+            </div>
 
             <!-- Buy tickets modal -->
                 <div class="modal fade ticket-modal-lg" tabindex="-1" role="dialog" aria-labelledby="Buy Tickets">
@@ -172,6 +187,7 @@
 
         <script>
             $(document).ready(function() {
+                console.log("{{$movie}}");
 
                 var i, j, k, subtotal;
                 var locations = [];
