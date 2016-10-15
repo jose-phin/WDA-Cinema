@@ -59,14 +59,25 @@
                         @endif
 
                         @if(Auth::check())
-                        <form method="POST" action="{{ url('user/wish') }}">
-                            {{ csrf_field() }}
-                            <input id="wishlistId" type="hidden" value="{{$movie->id}}" name="movie_id">
-                            <input id="wishlistNotes" type="hidden" value="Recently added to wishlist" name="notes">
-                            <button type='submit' id='wishlistButton' class='btn btn-primary redButton'>
-                                Add to Wishlist
-                            </button>
-                        </form>
+                            @if(!isSet($wish_id))
+                                <form method="POST" action="{{ url('user/wish') }}">
+                                    {{ csrf_field() }}
+                                    <input id="wishlistId" type="hidden" value="{{$movie->id}}" name="movie_id">
+                                    <input id="wishlistNotes" type="hidden" value="Recently added to wishlist" name="notes">
+                                    <button type='submit' id='wishlistButton' class='btn btn-primary redButton'>
+                                        Add to Wishlist
+                                    </button>
+                                </form>
+                            @else
+                                <form method="POST" action="{{ url('user/wish/' . $wish_id) }}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="DELETE">
+
+                                    <button type='submit' id='wishlistButton' class='btn btn-primary redButton'>
+                                        Remove from Wishlist
+                                    </button>
+                                </form>
+                            @endif
                         @endif
 
                     </div>
