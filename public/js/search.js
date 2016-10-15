@@ -112,11 +112,11 @@ function appendSessionsByLocation(session){
 }
 
 
-
+// @Chloe this is the function in question
 function appendMovieBySession(v){
     $movie = v.movie;
-    var sessionDate = customTimeToDate(v.time);
 
+    console.log("movie + session object: ", v);
 
     $("#result_list").append(
         "<div class='searchPage-movieList searchPage-searchByTitle foundItemContainer'>"
@@ -133,13 +133,20 @@ function appendMovieBySession(v){
                 +"<div class='searchPage-movieList sessionsResult sessionResult-title'> <h4> <i class='icon-check'></i> Now Showing at </h4>" + "</div>"
                 +"<div class='searchPage-movieList sessionsResult sessionResult-content'>"
                     +'<div class="sessionItem">'
-                        +'<div class="sessionDetails">'
-                            + 'Theater <span class="theaterNumber-square">'+ v.theater
-                            +'</span>' + ' on <span class="sessionDateTime-square">' + sessionDate + '</span>'
-                        + '</div>'
                     +'</div>'
                 +"</div>"
             +"</div>"
         +"</div>"
     );
+
+    $.each(v.sessions, function(k, session){
+        console.log("sessions :", session);
+        var sessionDate = customTimeToDate(session.time);
+        $(".sessionItem").append(
+            '<div class="sessionDetails">'
+            + 'Theater <span class="theaterNumber-square">'+ session.theater
+            +'</span>' + ' on <span class="sessionDateTime-square">' + sessionDate + '</span>'
+            + '</div>'
+        );
+    })
 }
