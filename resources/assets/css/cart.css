@@ -1,0 +1,78 @@
+/* Cart */
+
+.cart-title {
+    margin-top: 30px;
+    border-bottom: 1px solid #fff;
+}
+
+.cart-table {
+    width: 100%;
+    border-spacing: 30px;
+    border-collapse: collapse;
+    line-height: 20px;
+}
+
+.cart-table tr {
+    border-bottom: 1px solid #121212;
+    border-spacing: 50px;
+}
+
+.cart-table tr:last-child {
+    border-bottom: none;
+}
+
+.cart-moviePoster {
+    width: 100px;
+    height: 150px;
+}
+
+.cart-moviePoster-td {
+    width: 120px;
+    height: 200px;
+}
+
+.cart-movieInfo {
+    width: 300px;
+}
+
+.cart-h4 {
+    margin-bottom: 5px;
+}
+
+/* Payment form */
+
+.pay-now-body {
+    min-height: 300px;
+}
+
+.pay-now {
+    height: 55px;
+}
+
+.pay-now label {
+    font-weight: 300;
+    line-height: 37px;
+}
+
+.grey-line {
+    border-top: 1px solid #343434 !important;
+    background: none;
+    padding-top: 20px;
+    padding-bottom: -5px;
+}
+
+.modal-footer-btn {
+    display: block;
+    margin: 5px;
+    float: right;
+}
+
+.sml-margin {
+    margin-top: -10px;
+}
+
+.error {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: -6px;
+}
