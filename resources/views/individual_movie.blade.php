@@ -187,7 +187,6 @@
 
         <script>
             $(document).ready(function() {
-                console.log("{{$movie}}");
 
                 var i, j, k, subtotal;
                 var locations = [];
