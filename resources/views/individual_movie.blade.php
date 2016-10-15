@@ -43,42 +43,26 @@
                             </p>
                         </div>
 
-                        <div class='singleMovie-subSection'>
-                            <p class='singleMovie-subHeading'>
-                                Runtime
-                            </p>
-                            <p>
-                                {{$movie->running_time}}
-                            </p>
-                        </div>
-                        <div class="singleMovie-buttonContainer">
-                            @if($movie->is_now_showing == True)
-                                <button type='submit' id='cartButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'>
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
-                                </button>
-                            @endif
+                    <div class='singleMovie-subSection'>
+                        <p class='singleMovie-subHeading'>
+                            Runtime
+                        </p>
+                        <p>
+                            {{$movie->running_time}}
+                        </p>
+                    </div>
+                    <div class="singleMovie-buttonContainer">
+                        @if($movie->is_now_showing == True)
+                        <button type='submit' id='cartButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'>
 
                             @if(Auth::check())
-                                @if(!isSet($wish_id))
-                                    <form method="POST" action="{{ url('user/wish') }}">
-                                        {{ csrf_field() }}
-                                        <input id="wishlistId" type="hidden" value="{{$movie->id}}" name="movie_id">
-                                        <input id="wishlistNotes" type="hidden" value="" name="notes">
-                                        <button type='submit' id='wishlistButton' class='btn btn-secondary redButton wishlistButton'>
-                                            <i class="icon-addToWishlist icon-heart"></i>Add to Wishlist
-                                        </button>
-                                    </form>
-                                @else
-                                    <form method="POST" action="{{ url('user/wish/' . $wish_id) }}">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" name="_method" value="DELETE">
-
-                                        <button type='submit' id='wishlistButton' class='btn btn-secondary redButton wishlistButton'>
-                                            <i class="icon-addToWishlist icon-ban"></i> Remove from Wishlist
-                                        </button>
-                                    </form>
-                                @endif
+                                <a href='#'>Add to Cart</a>
+                            @else
+                                <a href='{{ url('user/cart/auth_redirect') }}'>Add to Cart</a>
                             @endif
+
+                        </button>
+                        @endif
 
                         </div>
                     </div>
@@ -256,7 +240,12 @@
                         loggedIn = true;
                 @endif
                 if (!loggedIn) {
+<<<<<<< HEAD
                     window.location.replace("../login");
+=======
+                    window.location.replace('{{ url('user/cart/auth_redirect') }}');
+
+>>>>>>> 9b34ad0f71e8721b83b57fb83504bc8b4dc07dee
                     // Return false to ensure "Add to Cart" animation doesn't trigger
                     return false;
                 } else {
