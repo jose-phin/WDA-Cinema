@@ -1,5 +1,19 @@
 /* Cart */
 
+.cart-container {
+    min-height: 400px;
+}
+
+.cart-link {
+    font-size: 14px;
+    color: #D8C39D;
+    text-decoration: underline;
+}
+
+.cart-link:hover {
+    color: #A59578;
+}
+
 .cart-title {
     margin-top: 30px;
     border-bottom: 1px solid #fff;
@@ -75,4 +89,17 @@
     color: #ff0000;
     font-size: 12px;
     margin-top: -6px;
+}
+
+.seat-qty {
+    display: block;
+    float: right;
+    color: #000000;
+    width: 25px;
+    height: 20px;
+}
+
+.seat-type {
+    width: 140px;
+    margin: 5px 0;
 }

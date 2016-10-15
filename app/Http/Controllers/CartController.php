@@ -59,7 +59,7 @@ class CartController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function updateTicketQuantities(Request $request) {
-        $booking = Booking::find($request->booking_id);
+        $booking = Booking::find($request->id);
 
         $booking->adult_qty = $request->adult_qty;
         $booking->child_qty = $request->child_qty;
@@ -78,7 +78,6 @@ class CartController extends Controller
      */
     public function delete($id) {
         Booking::destroy($id);
-
         return redirect('user/cart');
     }
 

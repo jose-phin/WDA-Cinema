@@ -6,41 +6,60 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-10">
-            <h2 class="cart-title">My Cart</h2>
-            <br>
+        <div class="col-md-12 cart-container">
+            <h2 class="title">My Cart</h2>
+            <hr class="grey-line">
             <?php
 
-                echo "<table class=\"cart-table\">";
+                if ($cart_items->isEmpty()) {
 
-                foreach ($cart_items as $booking) {
+                    echo "<p>You haven't added anything to your cart yet.";
+                    echo "<p>Visit the <a class='cart-link' href='" . url('movies') . "'>movies</a> catalogue to see what's currently playing.</p>";
 
-                    echo "<tr>";
+                } else {
 
-                    echo "<td class=\"cart-moviePoster-td\">";
-                    echo "<div class='cart-moviePoster'><img class='movieList-moviePoster' src='" .  $booking->session->movie->image_url . "'></div></td>";
-                    echo "<td class=\"cart-movieInfo\"><h4 class=\"cart-h4\">" . $booking->session->movie->title . "</h4>";
-                    echo "<i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> &nbsp;" . $booking->session->location->name . "<br>";
-                    echo "<i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> " . $booking->session->time . "<br>";
-                    echo "<i class=\"fa fa-film\" aria-hidden=\"true\"></i> Theater #" . $booking->session->theater;
-                    echo "</td><td>";
+                    echo "<table class=\"cart-table\">";
 
-                    echo "<h4 class=\"cart-h4\">Tickets</h4>";
-                    echo "<i class=\"fa fa-user\" aria-hidden=\"true\"></i> Adult x " . $booking->adult_qty . "<br>";
-                    echo "<i class=\"fa fa-user\" aria-hidden=\"true\"></i> Child x " . $booking->child_qty . "<br>";
-                    echo "<i class=\"fa fa-user\" aria-hidden=\"true\"></i> Concession x " . $booking->concession_qty . "</td>";
+                    foreach ($cart_items as $i=>$booking) {
 
-                    echo "<td>";
-                    echo "<form method='POST' action='cart/delete/" . $booking->session->id . "'>";
-                    echo csrf_field();
-                    echo "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">";
-                    echo "<button type=\"submit\" class=\"btn btn-primary redButton\">Delete</button>";
-                    echo "</form>";
-                    echo "</tr></td>";
+                        echo "<tr>";
+
+                        echo "<td class=\"cart-moviePoster-td\">";
+                        echo "<div class='cart-moviePoster'><img class='movieList-moviePoster' src='" . $booking->session->movie->image_url . "'></div></td>";
+                        echo "<td class=\"cart-movieInfo\"><h4 class=\"cart-h4\">" . $booking->session->movie->title . "</h4>";
+                        echo "<i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> &nbsp;" . $booking->session->location->name . "<br>";
+                        echo "<i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> " . $booking->session->time . "<br>";
+                        echo "<i class=\"fa fa-film\" aria-hidden=\"true\"></i> Theater #" . $booking->session->theater;
+                        echo "</td><td>";
+
+                        echo "<form id=\"booking-row-" . $i . "\" method=\"POST\" action=\"cart/update/" . $booking->id . "\"><h4 class=\"cart-h4\">Tickets</h4>";
+                        echo csrf_field();
+                        echo "<input type=\"hidden\" name=\"_method\" value=\"PUT\">";
+                        echo "<div class=\"seat-type\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i> Adult";
+                        echo "<input id=\"adult-seat\" class=\"seat-qty\" maxlength=\"2\" size=\"2\" type=\"text\" name=\"adult_qty\" value=\"" . $booking->adult_qty . "\"></div>";
+
+                        echo "<div class=\"seat-type\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i> Child";
+                        echo "<input id=\"child-seat\" class=\"seat-qty\" maxlength=\"2\" size=\"2\" type=\"text\" name=\"child_qty\" value=\"" . $booking->child_qty . "\"></div>";
+
+                        echo "<div class=\"seat-type\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i> Concession";
+                        echo "<input id=\"concession-seat\" class=\"seat-qty\" maxlength=\"2\" size=\"2\" type=\"text\" name=\"concession_qty\" value=\"" . $booking->concession_qty . "\"></div>";
+
+                        echo "<td></form>";
+
+                        echo "<button type=\"submit\" form=\"booking-row-" . $i . "\" class=\"btn btn-primary redButton update-seat\" disabled>Update</button>";
+
+                        echo "<form method=\"POST\" action=\"cart/delete/" . $booking->id . "\">";
+                        echo csrf_field();
+                        echo "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">";
+                        echo "<button type=\"submit\" class=\"btn btn-primary redButton\">Delete&nbsp;</button></form>";
+
+                        echo "</tr></td>";
+
+                    }
+
+                    echo "</table>";
 
                 }
-
-                echo "</table>";
 
             ?>
 
@@ -177,7 +196,7 @@
                                 </div>
                             </div>
 
-
+                        </form>
 
                         </div> <!-- End modal body -->
                         <div class="modal-footer">
@@ -189,21 +208,47 @@
                             </div>
                         </div>
 
-                        </form><!-- End form -->
-
                     </div>
                 </div>
 
             </div> <!-- End modal -->
 
-            <!-- Pay now button -->
-            <button type='submit' id='payNowButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.pay-now-modal-lg'>
-                <a href='#'>Pay Now</a>
-            </button>
+            @if ($cart_items->isEmpty())
+
+                @else
+
+                    <hr class="grey-line">
+
+                    <!-- Pay now button -->
+                    <div class="col-md-12">
+                        <button type='submit' id='payNowButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.pay-now-modal-lg'>
+                            Pay Now
+                        </button>
+                    </div>
+
+            @endif
 
         </div>
     </div>
  </div>
 </div>
 <script type="text/javascript" src="{{ URL::asset('js/checkOutFormValidator.js') }}"></script>
+<script>
+    /* Seat listener */
+    $(document).ready(function() {
+
+        $('.seat-qty').change(function()  {
+            console.log("I saw that.");
+            var new_adult_qty = $("#adult-seat").val();
+            var new_child_qty = $("#child-seat").val();
+            var new_concession_qty = $("#concession-seat").val();
+            console.log("Adult: " + new_adult_qty);
+            console.log("Child: " + new_child_qty);
+            console.log("Concession: " + new_concession_qty);
+            $(this).closest('tr').find('.update-seat').prop("disabled", false);
+
+        });
+
+    });
+</script>
 @endsection
