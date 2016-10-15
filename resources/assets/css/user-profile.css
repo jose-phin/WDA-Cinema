@@ -1,0 +1,18 @@
+.wishlist-item--container {
+    display: flex;
+    flex-direction: column;
+}
+
+.wishlist-item--title-container {
+    display: flex;
+    align-items: center;
+}
+
+.wishlist-item--title-container  > * {
+    margin: 0;
+}
+
+.wishlist-item--edit {
+    display: none;
+    color: black;
+}

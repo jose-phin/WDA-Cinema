@@ -7,7 +7,7 @@
 
 }
 
-body {/**/
+body {
     background-color: #000;
     color: #fff;
 
@@ -266,6 +266,17 @@ hr.separator-movieList-detail{
     display: block;
 }
 
+.singleMovie-buttonContainer {
+    float: left;
+    display: flex;
+    width: 100%;
+}
+
+.singleMovie-buttonContainer :first-child {
+    margin-right: 10px;
+}
+
+
 .singleMovie-moviePosterLg {
     z-index: 1;
     width: 100%;
@@ -301,16 +312,6 @@ h3.singleMovie-movieTitle {
     line-height: 0;
     font-size: 1.2em;
     font-weight: 500;
-}
-
-.singleMovie-buttonContainer {
-     float: left;
-     display: flex;
-     width: 100%;
- }
-
-.singleMovie-buttonContainer :first-child {
-    margin-right: 10px;
 }
 
 .singleMovie-secondaryInformation {
@@ -784,8 +785,22 @@ input#movie_search::-webkit-input-placeholder {
     cursor: pointer;
 }
 
-/*# sourceMappingURL=site.css.map */
-
-.quantity {
-    color: grey;
+.wishlist-item--container {
+    display: flex;
+    flex-direction: column;
 }
+
+.wishlist-item--title-container {
+    display: flex;
+    align-items: center;
+}
+
+.wishlist-item--title-container  > * {
+    margin: 0;
+}
+
+.wishlist-item--edit {
+    display: none;
+    color: black;
+}
+/*# sourceMappingURL=site.css.map */
