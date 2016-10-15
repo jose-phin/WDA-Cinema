@@ -8,7 +8,7 @@
         <div class="footer-studentRow row">
             <div class="footer-grid-title col-sm-6 col-md-4">
                 <h4 class="footer-assignmentTitle">
-                    WDA Assignment One
+                    WDA Assignment Two
                 </h4>
                 <h5 class="footer-assignmentSubtitle">
                     *(in alphabetical order)

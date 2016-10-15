@@ -276,6 +276,10 @@ h3.singleMovie-movieTitle {
 
 /* Movie buttons */
 
+.singleMovie-text {
+    margin: 10px 0;
+}
+
 .singleMovie-infoContainer {
     float: left;
     height: 180px;
@@ -300,24 +304,24 @@ h3.singleMovie-movieTitle {
 }
 
 .btn-secondary.redButton{
-    background: none;
-    color: #AC1018;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.1s ease-in-out;
-}
+     background: none;
+     color: #AC1018;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: all 0.1s ease-in-out;
+ }
 
 .wishlistButton:hover{
-    background: #AC1018;
-    color: black;
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
+     background: #AC1018;
+     color: black;
+     transform: scale(1.1);
+     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+ }
 
-.btn-secondary.redButton > .icon-addToWishlist{
-    font-size: 1.1em;
-}
+.btn-secondary.redButton > .icon-addToWishlist {
+  font-size: 1.1em;
+ }
 
 /* Buy tickets modal */
 .modal-title {
@@ -389,6 +393,10 @@ h3.singleMovie-movieTitle {
 
 .total-text, .total-price {
     font-size: 20px !important;
+}
+
+.price::before {
+    content: "$";
 }
 
 .total-price {
