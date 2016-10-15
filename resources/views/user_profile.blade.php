@@ -1,14 +1,9 @@
 <link href="{{ asset('css/site.css') }}" media="all" rel="stylesheet" type="text/css" />
 
 @extends('layouts.app')
-
+@section('pageTitle', 'My Profile')
 @section('content')
 
-    <!--
-        Proof-of-concept for a user's cart.
-
-        Displays all bookings and wishes made by a user.
-    -->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -26,7 +21,7 @@
 
                     echo "<div>";
 
-                    if (empty($booking)) {
+                    if (empty($bookings)) {
 
                         echo "<p>You currently have no bookings!</p>";
                         echo "</div>";
@@ -71,7 +66,7 @@
                         echo "<ul>";
 
                         foreach($wishes as $wish) {
-                            echo "<li>" . $wish->movie->title . "</li>";
+                            echo "<li>" . $wish->movie->title . " ($wish->notes) " . "</li>";
                         }
 
                         echo "</ul>";

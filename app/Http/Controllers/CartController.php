@@ -124,6 +124,20 @@ class CartController extends Controller
                 ->where('paid', false)
                 ->update(['paid' => true]);
 
-        return redirect('user/profile');
+        return redirect('user/cart/success');
+
     }
+
+    /**
+     * Return user to booking success after submitting
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function success(Request $request) {
+        $user = $request->user();
+        return view('booking_success', ['booking' => $user->bookings()->where('paid', true)->get()->last()]);
+    }
+
+
 }
