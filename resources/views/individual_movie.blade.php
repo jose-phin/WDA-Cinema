@@ -64,8 +64,8 @@
                                     {{ csrf_field() }}
                                     <input id="wishlistId" type="hidden" value="{{$movie->id}}" name="movie_id">
                                     <input id="wishlistNotes" type="hidden" value="" name="notes">
-                                    <button type='submit' id='wishlistButton' class='btn btn-primary redButton'>
-                                        Add to Wishlist
+                                    <button type='submit' id='wishlistButton' class='btn btn-secondary redButton wishlistButton'>
+                                        <i class="icon-addToWishlist icon-heart"></i>Add to Wishlist
                                     </button>
                                 </form>
                             @else
@@ -73,8 +73,8 @@
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="DELETE">
 
-                                    <button type='submit' id='wishlistButton' class='btn btn-primary redButton'>
-                                        Remove from Wishlist
+                                    <button type='submit' id='wishlistButton' class='btn btn-secondary redButton wishlistButton'>
+                                        <i class="icon-addToWishlist icon-ban"></i> Remove from Wishlist
                                     </button>
                                 </form>
                             @endif

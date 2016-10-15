@@ -50,21 +50,44 @@
                 ?>
 
                 <h2>My Wishlist</h2>
-                    <div>
+                    <div class="wishlist-tableContainer">
                         @if (empty($wishes))
-                            <p>You currently have no movies on your wishlist!</p>
+                            <p>You currently have no movies on your wish list!</p>
                         @else
-                            <div>
+                            <div class="wishlist-tableContent">
+                                <div class="wishlist-tableColumnHeadings">
+                                    <div class="wishlist-tableColumnHeadings-movie">
+                                        Movie
+                                    </div>
+                                    <div class="wishlist-tableColumnHeadings-notes">
+                                        Notes
+                                    </div>
+                                    <div class="wishlist-tableColumnHeadings-options">
+                                        Options
+                                    </div>
+                                </div>
                             @foreach($wishes as $i=>$wish)
-                                    <div class="wishlist-item--container">
-                                        <div class="wishlist-item--title-container">
-                                            <p>
-                                                {{$wish->movie->title}} @if(isset($wish->notes) && strcmp($wish->notes, "") !== 0) ({{$wish->notes}}) @endif
-                                            </p>
-                                            <button id="wishlist-edit--button-{{$i}}" type='submit' class='btn btn-link' onclick="toggleNotesEdit(event, '{{$i}}')">
+                                    <div class="wishlist-item-container">
+                                        <div class="wishlist-item-movieContainer">
+                                            <div class='movieList-moviePosterContainer wishlist-item-moviePosterContainer'><img class='movieList-moviePoster' src='{{$wish->movie->image_url}}'><img class='movieList-moviePoster posterGlow' src='{{$wish->movie->image_url}}'></div>
+                                            <h5 class="movieList-movieTitle wishlist-item">
+                                                {{$wish->movie->title}}
+                                            </h5>
+                                        </div>
+                                        <div class="wishlist-notes">
+                                            <div class="wishlist-notes-content">
+                                                @if(isset($wish->notes) && strcmp($wish->notes, "") !== 0) {{$wish->notes}}
+                                                @else
+                                                    <div class="notesPlaceholder"> Add your notes here. </div>
+                                                @endif
+                                            </div>
+
+                                        </div>
+                                        <div class="wishlist-item-options">
+                                            <button id="wishlist-edit--button-{{$i}}" type='submit' class='btn btn-link wishlist-item-optionsEdit' onclick="toggleNotesEdit(event, '{{$i}}')">
                                                 Edit
                                             </button>
-                                            <form method="POST" action="{{ url('user/wish/' . $wish->id) }}">
+                                            <form method="POST" action="{{ url('user/wish/' . $wish->id) }}" class="wishlist-item-optionsDeleteForm">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type='submit' class='btn btn-link'>

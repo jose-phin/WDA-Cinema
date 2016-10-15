@@ -1,18 +1,127 @@
-.wishlist-item--container {
-    display: flex;
-    flex-direction: column;
+.wishlist-tableContainer{
+    margin-top: 1em;
 }
 
-.wishlist-item--title-container {
+.wishlist-tableColumnHeadings{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-left: 10px;
+}
+
+.wishlist-tableColumnHeadings > *{
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    font-weight: 400;
+}
+
+.wishlist-tableColumnHeadings-movie{
+    min-width: 210px;
+}
+
+.wishlist-tableColumnHeadings-notes{
+    width: 100%;
+}
+
+.wishlist-tableColumnHeadings-options{
+    width: 210px;
+}
+
+.wishlist-item-container {
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    transition: all 0.1s ease-in-out;
+}
+
+.wishlist-item-container:not(first-child){
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.wishlist-item-container:hover{
+    background: rgba(100,100,100,0.1);
+}
+
+.wishlist-item-movieContainer {
+    display: block;
+    align-items: center;
+    flex-grow: 0;
+    min-width: 200px;
+    max-width: 200px;
+    padding: 20px 0;
+    transition: all 0.1s ease-in-out;
+}
+
+.wishlist-item-movieContainer > *{
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+
+.wishlist-item-moviePosterContainer{
+    width: 100px;
+    height: 148px;
 }
 
 .wishlist-item--title-container  > * {
     margin: 0;
 }
 
+.movieList-movieTitle.wishlist-item{
+    margin-top: 10px;
+}
+
+/* Notes */
+.wishlist-notes{
+    padding: 20px;
+    display: inline-block;
+    margin-right: auto;
+    position: relative;
+    flex-grow: 1;
+}
+
+.wishlist-notes-content{
+    font-size: 1.1em;
+}
+
+.notesPlaceholder{
+    text-align: center;
+    color: rgb(50,50,50);
+    width: 100%;
+}
+
+
+/* Options */
+.wishlist-item-options{
+    display: flex;
+    align-items: center;
+    max-width: 170px;
+    justify-content: center;
+}
+
+.wishlist-item-options > *{
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.1s ease-in-out;
+
+}
+
+
 .wishlist-item--edit {
     display: none;
     color: black;
+}
+
+.wishlist-item-optionsDeleteForm{
+    padding: 0;
+    margin: 0;
+}
+
+.wishlist-item-optionsEdit, .wishlist-item-optionsDeleteForm{
+    width: 100px;
+
 }
