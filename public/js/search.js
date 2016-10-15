@@ -45,14 +45,15 @@ function customTimeToDate(customTime){
 function appendMovie($movie){
     $("#result_list").append(
         "<div class='searchPage-movieList searchPage-searchByTitle foundItemContainer'>"
+        +"<a href='./movies/" + $movie.id + "' class='movieList-movieItemContainer'>"
         +"<div class='movieList-movieItem' id='searchByTitle-MovieItem'>"
-        +"<div class='movieList-moviePosterContainer'><a href='./" + $movie.title + "'><img class='movieList-moviePoster' src='" + $movie.image_url + "'></a></div>"
-        +"<h5 class='movieList-movieTitle'><a class='movieList-movieTitle' href='./" + $movie.title + "'>" + $movie.title + "</a></h5>"
+        +"<div class='movieList-moviePosterContainer'><img class='movieList-moviePoster' src='" + $movie.image_url + "'></div>"
+        +"<h5 class='movieList-movieTitle'>" + $movie.title + "</h5>"
         +"<p class='movieList-movieDirector'>" + $movie.director + "</p>"
         +"<hr class='separator-movieList-detail'>"
         +"<p class='movieList-movieGenres'>" + $movie.genre + "</p>"
         +"<p class='movieList-movieReleaseDate'> Released: " + $releaseDate
-        +"</div></div>"
+        +"</div></a></div>"
     );
 }
 
@@ -112,7 +113,7 @@ function appendSessionsByLocation(session){
 }
 
 
-// @Chloe this is the function in question
+
 function appendMovieBySession(movieData){
     var movie = movieData.movie;
     var sessions = movieData.sessions;
@@ -122,14 +123,15 @@ function appendMovieBySession(movieData){
     var sessionId = safeMovieName + "-sessionItems";
     $("#result_list").append(
         "<div class='searchPage-movieList searchPage-searchByTitle foundItemContainer'>"
+            +"<a href='./movies/" + movie.id + "' class='movieList-movieItemContainer'>"
             +"<div class='movieList-movieItem' id='" + safeMovieName + "-searchByTitle-MovieItem'>"
-                +"<div class='movieList-moviePosterContainer'><a href='/" + encodedMovieTitle + "'><img class='movieList-moviePoster' src='" + movie.image_url + "'></a></div>"
-                +"<h5 class='movieList-movieTitle'><a class='movieList-movieTitle' href='/" + encodedMovieTitle + "'>" + movie.title + "</a></h5>"
+                +"<div class='movieList-moviePosterContainer'><img class='movieList-moviePoster' src='" + movie.image_url + "'></div>"
+                +"<h5 class='movieList-movieTitle'><h3 class='movieList-movieTitle'>" + movie.title + "</h3></h5>"
                 +"<p class='movieList-movieDirector'>" + movie.director + "</p>"
                 +"<hr class='separator-movieList-detail'>"
                 +"<p class='movieList-movieGenres'>" + movie.genre + "</p>"
                 +"<p class='movieList-movieReleaseDate'> Released: " + intToDate(movie.release_date)
-            +"</div>"
+            +"</div></a>"
 
             +"<div class='searchPage-movieList sessionsResultContainer'>"
                 +"<div class='searchPage-movieList sessionsResult sessionResult-title'> <h4> <i class='icon-check'></i> Now Showing at </h4>" + "</div>"
