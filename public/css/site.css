@@ -7,7 +7,7 @@
 
 }
 
-body {/**/
+body {
     background-color: #000;
     color: #fff;
 
@@ -170,6 +170,13 @@ hr.separator-movieList-comingSoon{
 
 
 /* Movie Item */
+.movieList-movieItemContainer:hover{
+    text-decoration: none;
+}
+.movieList-movieItemContainer > a:hover{
+    text-decoration: none!important;
+}
+
 .movieList-movieItem {
     flex-grow: 0;
     padding: 20px 50px;
@@ -182,23 +189,42 @@ hr.separator-movieList-comingSoon{
 .movieList-movieItem > *{
     text-align: center;
     margin: 0 auto;
+    text-decoration: none;
 }
 
 .movieList-movieItem:hover{
     border-radius: 5px;
     transform: scale(1.05);
     transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.movieList-movieItem > a:hover{
+    text-decoration: none;
 }
 
 .movieList-moviePosterContainer{
+    position: relative;
     width: 145px;
     height: 215px;
+    margin: 0 auto;
     margin-bottom: 20px;
-    z-index: 0;
+    z-index: 200;
     /* Subtle shadow overlay makes the posters pop :) */
     box-shadow: inset -0.5px 1px 0px rgba(255,255,255,0.1),
     inset 0.5px -1px 0px rgba(255,255,255,0.1);
     transition: all 0.2s ease-in-out;
+}
+
+.movieList-moviePosterContainer::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    box-shadow: inset -0.5px 1px 0px rgba(255,255,255,0.1), inset 0.5px -1px 0px rgba(255,255,255,0.1);
 }
 
 .movieList-moviePosterContainer:hover{
@@ -216,8 +242,17 @@ hr.separator-movieList-comingSoon{
     z-index: -2;
 }
 
+.posterGlow{
+    z-index: -10;
+    transform: translateY(calc(-100%)) scale(1.05);
+    filter: blur(40px) brightness(0.9);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+
 /* Movie Title */
-.movieList-movieTitle a, .movieList-movieTitle a:visited {
+.movieList-movieTitle, .movieList-movieTitle a:visited {
     color: #ffffff;
     font-size: 1em;
     font-weight: 500;
@@ -225,15 +260,17 @@ hr.separator-movieList-comingSoon{
     /*margin-bottom: 10px;*/
 }
 
-.movieList-movieTitle a:hover, .movieList-movieTitle a:active {
+.movieList-movieTitle:hover, .movieList-movieTitle:active {
     color: #A59578;
     text-decoration: none;
 }
 
 .movieList-movieDirector{
+    color: #fff;
     margin-top: 8px;
     font-size: 0.9em;
     font-style: italic;
+    text-decoration: none;
 }
 
 hr.separator-movieList-detail{
@@ -301,16 +338,6 @@ h3.singleMovie-movieTitle {
     line-height: 0;
     font-size: 1.2em;
     font-weight: 500;
-}
-
-.singleMovie-buttonContainer {
-     float: left;
-     display: flex;
-     width: 100%;
- }
-
-.singleMovie-buttonContainer :first-child {
-    margin-right: 10px;
 }
 
 .singleMovie-secondaryInformation {
@@ -785,7 +812,3 @@ input#movie_search::-webkit-input-placeholder {
 }
 
 /*# sourceMappingURL=site.css.map */
-
-.quantity {
-    color: grey;
-}

@@ -35,9 +35,9 @@
                     <?php
                         foreach ($movies as $movie) {
                             if (($movie->is_now_showing == true)){
-                                echo "<div class=\"movieList-movieItem homePage-movieItem\">";
-                                echo "<div class='movieList-moviePosterContainer'><a href='./" . $movie->title . "'><img class='movieList-moviePoster' src='" . $movie->image_url . "'></a></div>";
-                                echo "</div>";
+                                echo "<div class=\"movieList-movieItem homePage-movieItem\"><a href='./movies/" . $movie->id . "'>";
+                                echo "<div class='movieList-moviePosterContainer'><img class='movieList-moviePoster' src='" . $movie->image_url . "'></div>";
+                                echo "</a></div>";
                             }
                         }
 

@@ -116,7 +116,7 @@
     <script>
 //        Search by Location
         $('.searchPage-searchByLocation-locationButton').click(function(e){
-
+            $('.searchPage-searchByTitle-inputField').val('');
             $('.searchPage-searchByLocation-locationButton').removeAttr('style');
 
             $(this).css({
@@ -130,21 +130,19 @@
 
             $.ajax({
                 type: "GET",
-                url: "{{ url('sessions/by_location') }}",
+                url: "{{ url('sessions/by_location_grouped') }}",
                 data: {
                     name: $text
                 },
                 success: function(result) {
                     $("#result_list").empty();
-
-                    $.each(result.sessions, function(k, v) {
-
-                        $movie = v.movie;
-                        $releaseDate = intToDate($movie.release_date);
-
-                        console.log(v);
-                        appendMovieBySession(v);
+                    $.each(result.data, function(movieKey, movieObject) {
+                        appendMovieBySession(movieObject);
                     })
+                },
+                error: function(result) {
+                    $("#result_list").empty();
+                    console.log(result);
                 }
             });
 
