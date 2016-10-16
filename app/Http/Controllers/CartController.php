@@ -141,9 +141,8 @@ class CartController extends Controller
      */
     public function success(Request $request) {
         $user = $request->user();
-        return view('booking_success', ['booking' => $user->bookings()->where('paid', true)->get()->last()]);
+        return view('booking_success', ['bookings' => $user->bookings()->where('paid', true)->get()]);
     }
-
 
     /**
      * Dummy controller function to facilitate login redirection to a user's previous location.

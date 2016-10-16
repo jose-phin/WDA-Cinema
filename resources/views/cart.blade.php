@@ -13,7 +13,6 @@
                 <hr class="separator-movieList-nowPlaying">
             </div>
 
-
             <!-- Table -->
             <div class="cart-tableContainer">
                 @if ($cart_items->isEmpty())
