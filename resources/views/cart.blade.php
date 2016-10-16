@@ -120,7 +120,7 @@
 
                             <!-- Personal details -->
                             <div class="form-group pay-now">
-                                <label class="col-sm-2" for="name">Name</label>
+                                <label class="col-sm-2" for="name">Name*</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="name" id="name" placeholder="John Doe">
                                 </div>
@@ -128,7 +128,7 @@
 
                             <!-- Address -->
                             <div class="form-group pay-now">
-                                <label class="col-sm-2" for="name">Address</label>
+                                <label class="col-sm-2" for="name">Address*</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="address" id="address" placeholder="1 Rainbow Way">
                                 </div>
@@ -137,7 +137,7 @@
 
                             <!-- Suburb -->
                             <div class="form-group pay-now">
-                                <label class="col-sm-2" for="name">Suburb</label>
+                                <label class="col-sm-2" for="name">Suburb*</label>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" name="suburb" id="suburb" placeholder="Melbourne">
                                 </div>
@@ -145,7 +145,7 @@
 
                             <!-- Postcode -->
                             <div class="form-group pay-now">
-                                <label class="col-sm-2" for="name">Post Code</label>
+                                <label class="col-sm-2" for="name">Post Code*</label>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" name="post_code" id="post_code" placeholder="3000">
                                 </div>
@@ -168,15 +168,15 @@
 
                             <!-- Name on Card -->
                             <div class="form-group pay-now">
-                                <label class="col-sm-2" for="card-holder-name">Name on Card</label>
+                                <label class="col-sm-2" for="card-holder-name">Name on Card*</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="card_holder_name" id="card_holder_name" placeholder="John Doe">
+                                    <input type="text" class="form-control" name="card_holder_name" id="card_holder_name" placeholder="">
                                 </div>
                             </div>
 
                             <!-- Card number -->
                             <div class="form-group pay-now">
-                                <label class="col-sm-2" for="card-number">Card Number</label>
+                                <label class="col-sm-2" for="card-number">Card Number*</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="credit_card_number" id="credit_card_number" placeholder="">
                                 </div>
@@ -184,7 +184,7 @@
 
                             <!-- Expiry -->
                             <div class="form-group pay-now">
-                                <label class="col-sm-2" for="card-number">Expiry Date</label>
+                                <label class="col-sm-2" for="card-number">Expiry Date*</label>
                                 <div class="col-sm-9">
                                     <div class="row">
                                         <div class="col-xs-3">
@@ -226,7 +226,7 @@
 
                             <!-- CVC -->
                             <div class="form-group pay-now">
-                                <label class="col-sm-2" for="card-number">CVC</label>
+                                <label class="col-sm-2" for="card-number">CVC*</label>
                                 <div class="col-sm-3">
                                     <input type="text" class="form-control" name="card_cvc" id="card_cvc" placeholder="">
                                 </div>
