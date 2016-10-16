@@ -71,7 +71,7 @@ function appendSessions(sessions){
 function appendSessionList(sessions){
     $.each(sessions, function(k, v) {
 
-    var sessionDate = customTimeToDate(v.time);
+    var sessionDate = v.time;
 
         $(".sessionResult-content").append(
             '<div class="sessionItem">'
@@ -145,7 +145,7 @@ function appendMovieBySession(movieData){
 
     $.each(sessions, function(sessionKey, session){
         if(session.movie_id !== movie.id.toString()) return null;
-        var sessionDate = customTimeToDate(session.time);
+        var sessionDate = session.time;
         $("#" + sessionId).append(
             '<div class="sessionDetails">'
             + 'Theater <span class="theaterNumber-square">'+ session.theater

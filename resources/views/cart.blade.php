@@ -153,7 +153,7 @@
 
                             <!-- Mobile number -->
                             <div class="form-group pay-now">
-                                <label class="col-sm-2" for="name">Mobile No.</label>
+                                <label class="col-sm-2" for="name">Mobile No.*</label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" name="mobile_number" id="mobile_number" placeholder="">
                                 </div>

@@ -14,6 +14,7 @@ $("#checkOut").validate({
             digits: true
         },
         mobile_number: {
+            required: true,
             maxlength: 10,
             digits: true
         },

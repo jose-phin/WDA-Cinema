@@ -40,8 +40,11 @@ $factory->define(App\MovieSession::class, function (Faker\Generator $faker) {
 
     $datetime->add(new DateInterval("PT".$diff."M"));
 
+    // Format date in something a bit more readable for a user
+    $dateString = $datetime->format('d F Y \a\t g:ia');
+
     return [
-        'time' => $datetime,
+        'time' => $dateString,
         'theater' => $faker->numberBetween(1, 10),
         'movie_id' => $faker->numberBetween(1, 5),
         'location_id' => $faker->numberBetween(1, 9),
