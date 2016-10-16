@@ -239,7 +239,7 @@
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                             <div class="modal-footer-btn">
-                                <button type="submit" form="checkOut" class="btn btn-primary redButton">Checkout</button>
+                                <button type="submit" form="checkOut" class="btn btn-primary redButtonSml">Checkout</button>
                             </div>
                         </div>
 
