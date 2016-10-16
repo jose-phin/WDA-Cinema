@@ -180,13 +180,17 @@
 /* Success page */
 .success-movie {
     display: block;
-    height: 155px;
+    height: 180px;
 }
 
 .success-movie img {
-    width: 100px;
+    width: 120px;
     float: left;
-    margin-right: 15px;
+    margin-right: 20px;
+}
+
+.success-movie-info {
+    display: block;
 }
 
 .cart-empty {
