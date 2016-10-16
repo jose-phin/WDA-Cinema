@@ -75,6 +75,7 @@
 
                             $movie = result.movie;
                             $releaseDate = intToDate($movie.release_date);
+                            $releaseDate = intToDate($movie.release_date);
 
 
                             $("#result_list").empty();

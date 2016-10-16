@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LocationTableSeeder::class);
 
         // Create random session times for random movies
-        // NOTE: This HAS to be in this position, as it relies on data created in the previous seeders to work
         factory(App\MovieSession::class, 30)->create();
     }
 }

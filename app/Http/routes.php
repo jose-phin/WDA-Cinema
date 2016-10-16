@@ -22,6 +22,7 @@ Route::get('user/profile', [
     'uses' => 'UserController@showProfile'
 ]);
 
+# Wish Resource Route
 Route::resource('user/wish', 'WishController');
 
 # Movie and Session Routes
@@ -66,11 +67,6 @@ Route::post('user/cart/checkout', [
 
 Route::get('user/cart/success', [
    'as' => 'checkoutSuccess', 'uses' => 'CartController@success'
-]);
-
-// Dummy route used to test adding of booking to cart
-Route::get('addtocart', [
-    'uses' => 'CartController@index'
 ]);
 
 // Route used for login redirection
