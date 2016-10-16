@@ -89,12 +89,13 @@
                             </span>
                         </div>
                     @endforeach
-                @endif
 
-                <!-- Total cost -->
-                <div class="cart-total-cost">
-                    <p>Total <span class="total-cost"></span></p>
-                </div>
+                    <!-- Total cost -->
+                    <div class="cart-total-cost">
+                        <p>Total <span class="total-cost"></span></p>
+                    </div>
+
+                @endif
 
             </div>
 
