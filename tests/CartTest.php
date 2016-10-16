@@ -56,6 +56,9 @@ class CartTest extends TestCase
                  'post_code' => '1000',
                  'mobile_number' => '0400000000',
                  'credit_card_number' => '0000000000000000',
+                 'expiry_month' => '01',
+                 'expiry_year' => '17',
+                 'card_cvc' => '123',
              ]));
 
         $this->seeInDatabase('bookings', ['id' => 1, 'paid' => true]);
@@ -73,6 +76,9 @@ class CartTest extends TestCase
                 'post_code' => 'Something',
                 'mobile_number' => 'Not adding one',
                 'credit_card_number' => 'Some credit card number',
+                'expiry_month' => '01',
+                'expiry_year' => '17',
+                'card_cvc' => '1',
             ]));
 
         $this->dontSeeInDatabase('bookings', ['id' => 1, 'paid' => true]);

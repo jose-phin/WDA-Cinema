@@ -38,7 +38,9 @@ $("#checkOut").validate({
         post_code: "Please enter a valid postcode.",
         mobile_number: "Please enter a valid mobile number",
         credit_card_number: "Please enter a valid credit card number.",
-        card_cvc: "Please enter a valid CVC."
+        card_cvc: "Please enter a valid CVC.",
+        expiry_month: "Please select a valid month.",
+        expiry_year: "Please select a valid year."
     },
     submitHandler: function(form) {
         if ($(form).valid()) {
