@@ -24,11 +24,11 @@
                                 <div class="cart-tableColumnHeadings-movie">
                                     Movie
                                 </div>
-                                <div class="cart-tableColumnHeadings-notes">
+                                <div class="cart-tableColumnHeadings-information">
                                     Booking Information
                                 </div>
-                                <div class="cart-tableColumnHeadings-options">
-                                    Actions
+                                <div class="userProfile-tableColumnHeadings-payment">
+                                    Payment Summary
                                 </div>
                             </div>
                         </div>
@@ -41,12 +41,17 @@
                                     </h5>
                                 </div>
                                 <div class="wishlist-notes">
-                                    <div class="wishlist-notes-content">
+                                    <div class="userProfile-information-content">
                                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{$booking->session->location->name}}</p>
                                         <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{$booking->session->time}}</p>
                                         <p><i class="fa fa-ticket" aria-hidden="true"></i> Adults x {{$booking->adult_qty}}<br>
                                         <i class="fa fa-ticket" aria-hidden="true"></i> Children x {{$booking->child_qty}}<br>
                                         <i class="fa fa-ticket" aria-hidden="true"></i> Concession x {{$booking->concession_qty}}</p>
+                                    </div>
+                                </div>
+                                <div class="cart-payment">
+                                    <div class="userProfile-payment-content">
+                                        <p id="payment-summary">$<span class="subtotal">{{ number_format(($booking->adult_qty * 25) + ($booking->child_qty * 15) + ($booking->concession_qty * 20), 2) }}</span></p>
                                     </div>
                                 </div>
                             </div>

@@ -117,7 +117,6 @@
 
 }
 
-
 .wishlist-item--edit {
     display: none;
     color: black;
@@ -130,5 +129,13 @@
 
 .wishlist-item-optionsEdit, .wishlist-item-optionsDeleteForm{
     width: 100px;
+}
 
+/* User profile table */
+.userProfile-information-content {
+    width: 480px;
+}
+
+.userProfile-payment-content {
+    width: 420px;
 }

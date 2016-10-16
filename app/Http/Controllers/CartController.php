@@ -146,7 +146,6 @@ class CartController extends Controller
         return view('booking_success', ['bookings' => session()->get('bookings')]);
     }
 
-
     /**
      * Dummy controller function to facilitate login redirection to a user's previous location.
      * Used in the "Add to Cart" flow.
