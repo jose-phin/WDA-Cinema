@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <div class="content">
+<<<<<<< HEAD
 
         <div class="pageTitle-container" id="">
             <h1 class="movieList-pageTitle">Your booking was successful!</h1>
@@ -23,6 +24,20 @@
             @endforeach
         </div>
 
+=======
+        <?php
+
+            echo "<h2>Booking Success!</h2>";
+
+            foreach ($bookings as $booking) {
+                echo "<div>";
+                echo "<p>Movie: " . $booking->session->movie->title . "</p>";
+                echo "<p>Date/Time: " . $booking->session->time . "</p>";
+                echo "<p>Theater: " . $booking->session->theater . "</p>";
+                echo "<p>Location: " . $booking->session->location->name . "</p>";
+            }
+        ?>
+>>>>>>> master
     </div>
 </div>
 @endsection

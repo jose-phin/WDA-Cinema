@@ -54,14 +54,30 @@
                     <div class="singleMovie-buttonContainer">
                         @if($movie->is_now_showing == True)
                         <button type='submit' id='cartButton' class='btn btn-primary redButton wishlistButton' data-toggle='modal' data-target='.ticket-modal-lg'>
-
-                            @if(Auth::check())
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to Cart
-                            @else
-                                <a href='{{ url('user/cart/auth_redirect') }}'>Add to Cart</a>
-                            @endif
-
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to Cart
                         </button>
+                        @endif
+
+                        @if(Auth::check())
+                            @if(!isSet($wish_id))
+                                <form method="POST" action="{{ url('user/wish') }}">
+                                    {{ csrf_field() }}
+                                    <input id="wishlistId" type="hidden" value="{{$movie->id}}" name="movie_id">
+                                    <input id="wishlistNotes" type="hidden" value="" name="notes">
+                                    <button type='submit' id='wishlistButton' class='btn btn-secondary redButton wishlistButton'>
+                                        <i class="icon-addToWishlist icon-heart"></i>Add to Wishlist
+                                    </button>
+                                </form>
+                            @else
+                                <form method="POST" action="{{ url('user/wish/' . $wish_id) }}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="DELETE">
+
+                                    <button type='submit' id='wishlistButton' class='btn btn-secondary redButton wishlistButton'>
+                                        <i class="icon-addToWishlist icon-ban"></i> Remove from Wishlist
+                                    </button>
+                                </form>
+                            @endif
                         @endif
 
                         </div>

@@ -125,23 +125,31 @@ class CartController extends Controller
 
         $user = $request->user();
 
+        // Retrieve the items to be checked out to display on success page
+        $checkedOut = Booking::where('user_id', $user->id)->where('paid', false)->get();
+
+        // Check out our items
         Booking::where('user_id', $user->id)
                 ->where('paid', false)
                 ->update(['paid' => true]);
 
-        return redirect('user/cart/success');
-
+        // Pass the checked out items as session data
+        return redirect('user/cart/success')->with('bookings', $checkedOut);
     }
 
     /**
      * Return user to booking success after submitting
      *
-     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+<<<<<<< HEAD
     public function success(Request $request) {
         $user = $request->user();
         return view('booking_success', ['bookings' => $user->bookings()->where('paid', true)->get()]);
+=======
+    public function success() {
+        return view('booking_success', ['bookings' => session()->get('bookings')]);
+>>>>>>> master
     }
 
     /**
