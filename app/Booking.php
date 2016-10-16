@@ -11,9 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * id (PK)
  * session_id (FK references movie_sessions.id)
- * user_id (FK references users.id)
- * amount
- * type
+ * remaining fields are detailed in the $fillable array
  *
  * @package App
  */

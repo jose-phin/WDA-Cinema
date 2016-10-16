@@ -1,16 +1,12 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-
 class IndividualMovieTest extends TestCase
 {
     public function setUp() {
         parent::setUp();
 
         $this->artisan('migrate');
-        $this->artisan('db:seed');
+        $this->seed('TestingSeeder');
     }
 
     public function tearDown()
