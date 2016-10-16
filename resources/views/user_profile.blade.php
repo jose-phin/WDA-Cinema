@@ -9,7 +9,7 @@
             <div class="col-md-12">
 
                 <div class="pageTitle-container" id="">
-                    <h1 class="movieList-pageTitle">My Profile</h1>
+                    <h1 class="movieList-pageTitle">My Account</h1>
                     <hr class="separator-movieList-nowPlaying">
                 </div>
 
@@ -58,7 +58,7 @@
 
                 <h2>My Wishlist</h2>
                 <div class="wishlist-tableContainer">
-                    @if ($wishes->isEmpty()))
+                    @if ($wishes->isEmpty())
                         <p>You currently have no movies on your wish list.</p>
                     @else
                         <div class="wishlist-tableContent">

@@ -413,3 +413,7 @@ h3.singleMovie-movieTitle {
     justify-content: flex-end;
     margin-right: 3%;
 }
+
+select.quantity {
+    color: grey;
+}
