@@ -4,6 +4,51 @@
     height: 35px;
 }
 
+.cart-container {
+    min-height: 400px;
+}
+
+.cart-link {
+    font-size: 14px;
+    color: #D8C39D;
+    text-decoration: underline;
+}
+
+.cart-link:hover {
+    color: #A59578;
+}
+
+.cart-title {
+    margin-top: 30px;
+    border-bottom: 1px solid #fff;
+}
+
+.cart-table {
+    width: 100%;
+    border-spacing: 30px;
+    border-collapse: collapse;
+    line-height: 20px;
+}
+
+.cart-table tr {
+    border-bottom: 1px solid #121212;
+    border-spacing: 50px;
+}
+
+.cart-table tr:last-child {
+    border-bottom: none;
+}
+
+.cart-moviePoster {
+    width: 100px;
+    height: 150px;
+}
+
+.cart-moviePoster-td {
+    width: 120px;
+    height: 200px;
+}
+
 .seat-type input {
     float: right;
 }
@@ -109,11 +154,24 @@
 }
 
 .cart-total-cost {
-    height: 65px;
-    padding: 20px;
+    height: 55px;
+    padding: 25px 20px 0 20px;
     text-align: right;
 }
 
 .cart-total-cost p, .cart-total-cost span {
     font-size: 18px !important;
+}
+
+.seat-qty {
+    display: block;
+    float: right;
+    color: #000000;
+    width: 25px;
+    height: 20px;
+}
+
+.seat-type {
+    width: 140px;
+    margin: 5px 0;
 }

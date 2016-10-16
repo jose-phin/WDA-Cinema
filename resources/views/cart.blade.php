@@ -188,7 +188,7 @@
                                     <div class="row">
                                         <div class="col-xs-3">
                                             <select class="form-control col-sm-2" name="expiry_month" id="expiry_month">
-                                                <option>Month</option>
+                                                <option value="">Month</option>
                                                 <option value="01">Jan (01)</option>
                                                 <option value="02">Feb (02)</option>
                                                 <option value="03">Mar (03)</option>
@@ -205,7 +205,7 @@
                                         </div>
                                         <div class="col-xs-3">
                                             <select class="form-control" name="expiry_year" id="expiry_year">
-                                                <option>Year</option>
+                                                <option value="">Year</option>
                                                 <option value="16">2016</option>
                                                 <option value="17">2017</option>
                                                 <option value="18">2018</option>
@@ -249,12 +249,20 @@
             </div> <!-- End modal -->
 
             <!-- Pay now button -->
-            <div class="col-md-12 col-md-offset-5">
-                <br><br>
-                <button type='submit' id='payNowButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.pay-now-modal-lg'>
-                    <a href='#'>Pay Now</a>
-                </button>
-            </div>
+            @if ($cart_items->isEmpty())
+
+                @else
+
+                    <hr class="grey-line">
+
+                    <!-- Pay now button -->
+                    <div class="col-md-12 col-md-offset-5">
+                        <button type='submit' id='payNowButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.pay-now-modal-lg'>
+                            Pay Now
+                        </button>
+                    </div>
+
+            @endif
 
         </div>
     </div>
@@ -275,7 +283,7 @@
 
         /* Total cost */
         var sum = 0;
-        $('.subtotal').each(function(){
+        $('.subtotal').each(function() {
             sum += parseFloat($(this).text());
             $('.total-cost').text("$" + sum.toFixed(2));
         });

@@ -1,9 +1,8 @@
-/*Global style*/
-*{
+/* Global style */
+* {
     font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
     font-size: 13.5px;
     font-weight: 300;
-    /* Enables anti-aliasing for smoother fonts */
 
 }
 
@@ -15,21 +14,18 @@ body {
     padding-top: 52px;
 }
 
-.content{
+.content {
     padding: 0 0 100px;
-    /* Had to remove 50px padding-top --> it's affecting other pages!
-     * Might put it in pageTitle-container instead :)
-     */
 }
 
-/*Typography*/
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-p{
+p {
     font-weight: 200;
 }
 

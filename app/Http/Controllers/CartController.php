@@ -78,7 +78,6 @@ class CartController extends Controller
      */
     public function delete($id) {
         Booking::destroy($id);
-
         return redirect('user/cart');
     }
 
@@ -100,7 +99,10 @@ class CartController extends Controller
             'suburb' => 'required',
             'post_code' => 'required|numeric',
             'mobile_number' => 'required|numeric',
-            'credit_card_number' => 'required|numeric'
+            'credit_card_number' => 'required|numeric',
+            'expiry_month' => 'required|digits:2',
+            'expiry_year' => 'required|digits:2',
+            'card_cvc' => 'required|digits_between:3,4',
         ]);
 
         // Sanitize the user payment form fields
@@ -110,6 +112,9 @@ class CartController extends Controller
         array_push($user_form_fields, filter_var($request->post_code, FILTER_SANITIZE_NUMBER_INT));
         array_push($user_form_fields, filter_var($request->mobile_number, FILTER_SANITIZE_NUMBER_INT));
         array_push($user_form_fields, filter_var($request->credit_card_number, FILTER_SANITIZE_NUMBER_INT));
+        array_push($user_form_fields, filter_var($request->expiry_month, FILTER_SANITIZE_NUMBER_INT));
+        array_push($user_form_fields, filter_var($request->expiry_year, FILTER_SANITIZE_NUMBER_INT));
+        array_push($user_form_fields, filter_var($request->card_cvc, FILTER_SANITIZE_NUMBER_INT));
 
         // Check to ensure sanitizing worked
         foreach ($user_form_fields as $form_field) {
