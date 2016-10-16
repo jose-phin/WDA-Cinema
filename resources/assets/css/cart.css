@@ -172,6 +172,7 @@
 }
 
 .seat-type {
+    height: 24px;
     width: 140px;
     margin: 5px 0;
 }
@@ -186,4 +187,9 @@
     width: 100px;
     float: left;
     margin-right: 15px;
+}
+
+.cart-empty {
+    min-height: 300px;
+    text-align: center;
 }

@@ -142,14 +142,8 @@ class CartController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-<<<<<<< HEAD
-    public function success(Request $request) {
-        $user = $request->user();
-        return view('booking_success', ['bookings' => $user->bookings()->where('paid', true)->get()]);
-=======
     public function success() {
         return view('booking_success', ['bookings' => session()->get('bookings')]);
->>>>>>> master
     }
 
     /**

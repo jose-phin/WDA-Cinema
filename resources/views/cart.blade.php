@@ -16,9 +16,10 @@
             <!-- Table -->
             <div class="cart-tableContainer">
                 @if ($cart_items->isEmpty())
+                    <div class="cart-empty">
                     <p>You haven't added anything to your cart yet.</p>
                     <p>Visit the <a class='cart-link' href="{{ URL('movies') }}">movies</a> catalogue to see what's currently playing.</p>
-
+                    </div>
                 @else
                     <div class="cart-tableColumnHeadings">
                         <div class="cart-tableColumnHeadings-movie">
