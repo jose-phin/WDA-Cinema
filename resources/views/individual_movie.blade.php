@@ -53,10 +53,10 @@
                     </div>
                     <div class="singleMovie-buttonContainer">
                         @if($movie->is_now_showing == True)
-                        <button type='submit' id='cartButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.ticket-modal-lg'>
+                        <button type='submit' id='cartButton' class='btn btn-primary redButton wishlistButton' data-toggle='modal' data-target='.ticket-modal-lg'>
 
                             @if(Auth::check())
-                                <a href='#'>Add to Cart</a>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to Cart
                             @else
                                 <a href='{{ url('user/cart/auth_redirect') }}'>Add to Cart</a>
                             @endif

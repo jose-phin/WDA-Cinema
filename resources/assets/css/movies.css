@@ -24,7 +24,7 @@
     transition: all 0.2s ease-in-out;
 }
 
-/* Movie Page Title: */
+/* Movie page title */
 .pageTitle-container{
     text-align: center;
     padding: 50px 0 20px 0;
@@ -264,6 +264,10 @@ h3.singleMovie-movieTitle {
     width: 650px;
 }
 
+.singleMovie-secondaryInformation p {
+    margin-top: 8px;
+}
+
 .singleMovie-movieSynopsis {
     float: left;
     margin: 30px 0;
@@ -300,15 +304,14 @@ h3.singleMovie-movieTitle {
 }
 
 .btn-secondary.redButton{
-    background: none;
-    color: #AC1018;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.1s ease-in-out;
 }
 
-.wishlistButton:hover{
+.wishlistButton:hover {
     background: #AC1018;
     color: black;
     transform: scale(1.1);
