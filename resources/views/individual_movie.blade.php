@@ -240,12 +240,8 @@
                         loggedIn = true;
                 @endif
                 if (!loggedIn) {
-<<<<<<< HEAD
-                    window.location.replace("../login");
-=======
                     window.location.replace('{{ url('user/cart/auth_redirect') }}');
 
->>>>>>> 9b34ad0f71e8721b83b57fb83504bc8b4dc07dee
                     // Return false to ensure "Add to Cart" animation doesn't trigger
                     return false;
                 } else {

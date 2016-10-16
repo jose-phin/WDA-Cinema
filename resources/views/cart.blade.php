@@ -153,7 +153,7 @@
                                     <div class="row">
                                         <div class="col-xs-3">
                                             <select class="form-control col-sm-2" name="expiry_month" id="expiry_month">
-                                                <option>Month</option>
+                                                <option value="">Month</option>
                                                 <option value="01">Jan (01)</option>
                                                 <option value="02">Feb (02)</option>
                                                 <option value="03">Mar (03)</option>
@@ -170,7 +170,7 @@
                                         </div>
                                         <div class="col-xs-3">
                                             <select class="form-control" name="expiry_year" id="expiry_year">
-                                                <option>Year</option>
+                                                <option value="">Year</option>
                                                 <option value="16">2016</option>
                                                 <option value="17">2017</option>
                                                 <option value="18">2018</option>
