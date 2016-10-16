@@ -6,62 +6,98 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 cart-container">
-            <h2 class="title">My Cart</h2>
-            <hr class="grey-line">
-            <?php
+        <div class="col-md-12">
 
-                if ($cart_items->isEmpty()) {
+            <div class="pageTitle-container" id="">
+                <h1 class="movieList-pageTitle">My Cart</h1>
+                <hr class="separator-movieList-nowPlaying">
+            </div>
 
-                    echo "<p>You haven't added anything to your cart yet.";
-                    echo "<p>Visit the <a class='cart-link' href='" . url('movies') . "'>movies</a> catalogue to see what's currently playing.</p>";
 
-                } else {
+            <!-- Table -->
+            <div class="cart-tableContainer">
+                @if ($cart_items->isEmpty())
+                    <p>You haven't added anything to your cart yet.</p>
+                    <p>Visit the <a class='cart-link' href="{{ URL('movies') }}">movies</a> catalogue to see what's currently playing.</p>
 
-                    echo "<table class=\"cart-table\">";
+                @else
+                    <div class="cart-tableColumnHeadings">
+                        <div class="cart-tableColumnHeadings-movie">
+                            Movie
+                        </div>
+                        <div class="cart-tableColumnHeadings-information">
+                            Booking Information
+                        </div>
+                        <div class="cart-tableColumnHeadings-payment">
+                            Payment Summary
+                        </div>
+                        <div class="cart-tableColumnHeadings-actions">
+                            Actions
+                        </div>
+                    </div>
+                    @foreach($cart_items as $i=>$booking)
+                        <div class="wishlist-item-container">
+                            <div class="wishlist-item-movieContainer">
+                                <div class='movieList-moviePosterContainer wishlist-item-moviePosterContainer'><img class='movieList-moviePoster' src='{{$booking->session->movie->image_url}}'><img class='movieList-moviePoster posterGlow' src='{{$booking->session->movie->image_url}}'></div>
+                                <h5 class="movieList-movieTitle wishlist-item">
+                                    {{$booking->session->movie->title}}
+                                </h5>
+                            </div>
+                            <div class="cart-information">
+                                <div class="cart-information-content">
+                                    <form id="booking-row-{{$i}}" method="POST" action="cart/update/{{$booking->id}}">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="_method" value="PUT">
+                                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{$booking->session->location->name}}</p>
+                                        <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{$booking->session->time}}</p>
+                                        <p><div class="seat-type">
+                                                <i class="fa fa-ticket" aria-hidden="true"></i> Adults
+                                                <input id="adult-seat" class="seat-qty" maxlength="2" size="2" type="text" name="adult_qty" style="color: black" value="{{$booking->adult_qty}}">
+                                           </div>
+                                           <div class="seat-type">
+                                                <i class="fa fa-ticket" aria-hidden="true"></i> Children
+                                                <input id="child-seat" class="seat-qty" maxlength="2" size="2" type="text" name="child_qty" style="color: black" value="{{$booking->child_qty}}">
+                                           </div>
+                                           <div class="seat-type">
+                                           <i class="fa fa-ticket" aria-hidden="true"></i> Concession
+                                           <input id="concession-seat" class="seat-qty" maxlength="2" size="2" type="text" name="concession_qty" style="color: black" value="{{$booking->concession_qty}}">
+                                           </div>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="cart-payment">
+                                <div class="cart-payment-content">
+                                    <p id="payment-summary">$<span class="subtotal">{{ number_format(($booking->adult_qty * 25) + ($booking->child_qty * 15) + ($booking->concession_qty * 20), 2) }}</span></p>
+                                </div>
+                            </div>
+                            <span id="actions">
+                            <div class="cart-actions">
+                                <div class="cart-actions-content">
+                                    <span>
+                                        <button type="submit" form="booking-row-{{$i}}" class="btn btn-primary update-seat redButtonSml" disabled>Update</button>
+                                    </span>
+                                    <p>
+                                        <form method="POST" action="cart/delete/{{$booking->id}}">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-primary redButtonSml">&nbsp;Delete&nbsp;</button>
+                                        </form>
+                                    </p>
+                                </div>
+                            </div>
+                            </span>
+                        </div>
+                    @endforeach
 
-                    foreach ($cart_items as $i=>$booking) {
+                    <!-- Total cost -->
+                    <div class="cart-total-cost">
+                        <p>Total <span class="total-cost"></span></p>
+                    </div>
 
-                        echo "<tr>";
+                @endif
 
-                        echo "<td class=\"cart-moviePoster-td\">";
-                        echo "<div class='cart-moviePoster'><img class='movieList-moviePoster' src='" . $booking->session->movie->image_url . "'></div></td>";
-                        echo "<td class=\"cart-movieInfo\"><h4 class=\"cart-h4\">" . $booking->session->movie->title . "</h4>";
-                        echo "<i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> &nbsp;" . $booking->session->location->name . "<br>";
-                        echo "<i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> " . $booking->session->time . "<br>";
-                        echo "<i class=\"fa fa-film\" aria-hidden=\"true\"></i> Theater #" . $booking->session->theater;
-                        echo "</td><td>";
-
-                        echo "<form id=\"booking-row-" . $i . "\" method=\"POST\" action=\"cart/update/" . $booking->id . "\"><h4 class=\"cart-h4\">Tickets</h4>";
-                        echo csrf_field();
-                        echo "<input type=\"hidden\" name=\"_method\" value=\"PUT\">";
-                        echo "<div class=\"seat-type\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i> Adult";
-                        echo "<input id=\"adult-seat\" class=\"seat-qty\" maxlength=\"2\" size=\"2\" type=\"text\" name=\"adult_qty\" value=\"" . $booking->adult_qty . "\"></div>";
-
-                        echo "<div class=\"seat-type\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i> Child";
-                        echo "<input id=\"child-seat\" class=\"seat-qty\" maxlength=\"2\" size=\"2\" type=\"text\" name=\"child_qty\" value=\"" . $booking->child_qty . "\"></div>";
-
-                        echo "<div class=\"seat-type\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i> Concession";
-                        echo "<input id=\"concession-seat\" class=\"seat-qty\" maxlength=\"2\" size=\"2\" type=\"text\" name=\"concession_qty\" value=\"" . $booking->concession_qty . "\"></div>";
-
-                        echo "<td></form>";
-
-                        echo "<button type=\"submit\" form=\"booking-row-" . $i . "\" class=\"btn btn-primary redButton update-seat\" disabled>Update</button>";
-
-                        echo "<form method=\"POST\" action=\"cart/delete/" . $booking->id . "\">";
-                        echo csrf_field();
-                        echo "<input type=\"hidden\" name=\"_method\" value=\"DELETE\">";
-                        echo "<button type=\"submit\" class=\"btn btn-primary redButton\">Delete&nbsp;</button></form>";
-
-                        echo "</tr></td>";
-
-                    }
-
-                    echo "</table>";
-
-                }
-
-            ?>
+            </div>
 
         </div>
 
@@ -196,7 +232,7 @@
                                 </div>
                             </div>
 
-                        </form>
+                            </form><!-- End form -->
 
                         </div> <!-- End modal body -->
                         <div class="modal-footer">
@@ -204,7 +240,7 @@
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                             <div class="modal-footer-btn">
-                                <button type="submit" form="checkOut" class="btn btn-primary redButton">Checkout</button>
+                                <button type="submit" form="checkOut" class="btn btn-primary redButtonSml">Checkout</button>
                             </div>
                         </div>
 
@@ -213,6 +249,7 @@
 
             </div> <!-- End modal -->
 
+            <!-- Pay now button -->
             @if ($cart_items->isEmpty())
 
                 @else
@@ -220,7 +257,7 @@
                     <hr class="grey-line">
 
                     <!-- Pay now button -->
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-md-offset-5">
                         <button type='submit' id='payNowButton' class='btn btn-primary redButton' data-toggle='modal' data-target='.pay-now-modal-lg'>
                             Pay Now
                         </button>
@@ -234,19 +271,22 @@
 </div>
 <script type="text/javascript" src="{{ URL::asset('js/checkOutFormValidator.js') }}"></script>
 <script>
-    /* Seat listener */
     $(document).ready(function() {
 
+        /* Seat listener */
         $('.seat-qty').change(function()  {
-            console.log("I saw that.");
             var new_adult_qty = $("#adult-seat").val();
-            var new_child_qty = $("#child-seat").val();
             var new_concession_qty = $("#concession-seat").val();
-            console.log("Adult: " + new_adult_qty);
-            console.log("Child: " + new_child_qty);
-            console.log("Concession: " + new_concession_qty);
-            $(this).closest('tr').find('.update-seat').prop("disabled", false);
+            var new_child_qty = $("#child-seat").val();
+            var new_total = (new_adult_qty * 25) + (new_concession_qty * 20) + (new_child_qty * 15);
+            $(this).parentsUntil('.wishlist-item-container').siblings().find('.update-seat').prop("disabled", false);
+        });
 
+        /* Total cost */
+        var sum = 0;
+        $('.subtotal').each(function() {
+            sum += parseFloat($(this).text());
+            $('.total-cost').text("$" + sum.toFixed(2));
         });
 
     });
