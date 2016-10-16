@@ -289,6 +289,101 @@
             $('.total-cost').text("$" + sum.toFixed(2));
         });
 
+        //attach a onChange listener to the expiry year
+        $("#expiry_year").on("change", function(){
+            var currentTime = new Date();
+            var currentYearShortForm = currentTime.getFullYear().toString().substr(2,2);
+            if(currentYearShortForm === $("#expiry_year").val()) {
+                appendRestOfMonthsInYear();
+            } else {
+                appendAllMonthsToExpiryMonths();
+            }
+        });
+
     });
+
+    function appendRestOfMonthsInYear(){
+        var months = createMonthArray();
+        removeOptionsFromExpiryMonth();
+
+        var monthsDropdown = $("#expiry_month");
+
+        $("<option>", {
+            "value": "",
+            "text": "Month"
+        }).appendTo(monthsDropdown);
+
+        var currentTime = new Date();
+        var currentMonth = currentTime.getMonth();
+
+        for(var i = currentMonth; i < 12; i++){
+
+            var monthValueInt = i + 1;
+            var monthValueString = "";
+
+            if (monthValueInt < 10) {
+                monthValueString = "0" + monthValueInt.toString();
+            } else {
+                monthValueString = monthValueInt.toString();
+            }
+
+            $("<option>", {
+                "value": monthValueString,
+                "text": months[i] + " (" + monthValueString + ")"
+            }).appendTo(monthsDropdown);
+
+        }
+    }
+
+    function appendAllMonthsToExpiryMonths() {
+        var months = createMonthArray();
+        removeOptionsFromExpiryMonth();
+        var monthsDropdown = $("#expiry_month");
+
+        $("<option>", {
+            "value": "",
+            "text": "Month"
+        }).appendTo(monthsDropdown);
+
+        months.forEach(function(month, i){
+            var monthValueInt = i + 1;
+            var monthValueString = "";
+
+            if (monthValueInt < 10) {
+                monthValueString = "0" + monthValueInt.toString();
+            } else {
+                monthValueString = monthValueInt.toString();
+            }
+
+            $("<option>", {
+                "value": monthValueString,
+                "text": month + " (" + monthValueString + ")"
+            }).appendTo(monthsDropdown);
+        });
+    }
+
+    function createMonthArray(){
+        return [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+        ];
+    }
+
+    function removeOptionsFromExpiryMonth(){
+        $('#expiry_month')
+                .find('option')
+                .remove()
+                .end();
+    }
 </script>
 @endsection
